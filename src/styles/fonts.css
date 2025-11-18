@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Kanit';
+  src: url('/fonts/Kanit-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  src: url('/fonts/LexendDeca-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+:root {
+  --px-font-family-headings: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --px-font-family-body: "Lexend Deca", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
