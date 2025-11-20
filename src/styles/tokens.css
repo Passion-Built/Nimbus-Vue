@@ -51,6 +51,11 @@
   --px-space-600: 48px;
   --px-space-800: 64px;
   --px-space-1000: 80px;
+  --px-space-1100: 88px;
+  --px-space-1200: 96px;
+  --px-space-1300: 104px;
+  --px-space-1400: 112px;
+  --px-space-1500: 120px;
 }
 
 html.nimbus { font-size: 62.5%; }
