@@ -3,7 +3,6 @@
     :is="getElement()"
     :class="[
       'Px-btn',
-      `Px-btn--${appearance}`,
       {'Px-btn--disabled': disabled},
       {'Px-btn--ghost': variant === 'ghost'}
     ]"
@@ -17,14 +16,11 @@
  
 <script setup lang="ts">
 interface Props {
-  appearance?: 'primary' | 'secondary'
   disabled?: boolean
   url?: string
   variant?: 'ghost' | null
 }
 const props = defineProps<Props>()
-
-const appearance = props.appearance ?? 'primary'
 
 const getElement = () => {
   let element = 'button';
