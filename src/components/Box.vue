@@ -6,25 +6,21 @@
 
 <style>
 :root {
-  --px-box-background-default: transparent;
-  --px-box-background-surface: var(--color-neutral-100);
-  --px-box-background-neutral: var(--color-neutral-600);
+  --px-box-default-bg: #eeeeee;
   --px-box-padding: var(--px-space-200);
-  --px-box-border-radius: var(--px-space-100);
-  --px-box-shadow: 0 4px 4px 0 rgba(74, 47, 47, 0.25);
-  --px-box-border: 1px solid #333333;
+  --px-box-border-radius: var(--px-space-200);
+  --px-box-shadow: 4px 4px 6px #b9b9b9, -4px -4px 6px #f6f6f6;
 }
 </style>
 
 <style scoped>
-.Px-box {
-  position: relative;
-  background: var(--px-box-background-default);
-  width: fit-content;
-  padding: var(--px-box-padding);
-  box-sizing: border-box;
+.Nui-box {
+  background: var(--px-box-default-bg);
   border-radius: var(--px-box-border-radius);
   box-shadow: var(--px-box-shadow);
-  border: var(--px-box-border);
+  box-sizing: border-box;
+  padding: var(--px-box-padding);
+  position: relative;
+  width: fit-content;
 }
 </style>
