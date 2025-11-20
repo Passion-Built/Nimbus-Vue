@@ -15,11 +15,12 @@ const props = defineProps<{
 const as = props.as ?? 'p'
 </script>
 
-<style>
+<style scoped>
 .Nui-text {
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);
   font-weight: var(--px-font-weight-normal);
   line-height: var(--px-line-height-body);
+  margin: unset;
 }
 </style>

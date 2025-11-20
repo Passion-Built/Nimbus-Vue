@@ -15,7 +15,7 @@ const props = defineProps<{
 const as = props.as ?? 'h1'
 </script>
 
-<style>
+<style scoped>
 .Nui-heading {
   font-family: var(--px-font-family-headings);
   font-weight: var(--px-font-weight-semibold);
