@@ -3,9 +3,8 @@
     :is="getElement()"
     :class="[
       'Px-btn',
-      `Px-btn--${props.appearance}`,
+      `Px-btn--${appearance}`,
       {'Px-btn--disabled': disabled},
-      {'Px-btn--outlined': variant === 'outlined'},
       {'Px-btn--ghost': variant === 'ghost'}
     ]"
     :href="url"
@@ -21,9 +20,11 @@ interface Props {
   appearance?: 'primary' | 'secondary'
   disabled?: boolean
   url?: string
-  variant?: 'outlined' | 'ghost'
+  variant?: 'ghost' | null
 }
 const props = defineProps<Props>()
+
+const appearance = props.appearance ?? 'primary'
 
 const getElement = () => {
   let element = 'button';
@@ -35,134 +36,74 @@ const getElement = () => {
 
 <style>
 :root {
-  --px-color-button-primary: var(--color-primary-600);
-  --px-color-button-text: #F5F5F5;
-  --px-color-button-primary-hover: var(--color-primary-700);
-  --px-color-button-primary-ghost: var(--color-primary-200);
+  --px-btn-primary-bg: #eeeeee;
+  --px-btn-primary-text: #1B1B1B;
 
-  --px-color-button-secondary: var(--color-secondary-600);
-  --px-color-button-secondary-hover: var(--color-secondary-700);
-  --px-color-button-secondary-ghost: var(--color-secondary-200);
+  --px-btn-disabled-bg: #dfdfdf;
+  --px-btn-disabled-text: #454545;
 
-  --px-color-button-tertiary: var(--color-tertiary-600);
-  --px-color-button-tertiary-hover: var(--color-tertiary-700);
-  --px-color-button-tertiary-ghost: var(--color-tertiary-200);
+  --px-btn-border-radius: var(--px-space-200);
 
-  --px-color-button-success: var(--color-success-600);
-  --px-color-button-success-hover: var(--color-success-700);
-  
-  --px-color-button-danger: var(--color-danger-600);
-  --px-color-button-danger-hover: var(--color-danger-700);
-  
-  --px-color-button-warning: var(--color-warning-600);
-  --px-color-button-warning-hover: var(--color-warning-700);
-  --px-color-button-warning-text: #0C1B2D;
+  --px-btn-shadow: 4px 4px 6px #CACACB, -4px -4px 6px #f6f6f6;
+  --px-btn-shadow-hover: inset 4px 4px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
+  --px-btn-shadow-active: inset 2px 2px 2px #CACACB, inset -2px -2px 2px #f6f6f6;
 
-  --px-color-button-disabled: #C6C6C6;
-  --px-color-button-disabled-text: #8d8d8d;
+  --px-btn-ghost-shadow-hover: 1px 1px 4px #CACACB, -1px -1px 4px #f6f6f6;
+  --px-btn-ghost-shadow-active: 2px 2px 4px #CACACB, -2px -2px 4px #f6f6f6;
 }
 </style>
 
 <style lang="scss" scoped>
-@use "sass:map";
-$colors: (
-  primary: (
-    base: pink,
-    hover: var(--px-color-button-primary-hover),
-    ghost-bg: var(--px-color-button-primary-ghost),
-    text: var(--px-color-button-text)
-  ),
-  secondary: (
-    base: var(--px-color-button-secondary),
-    hover: var(--px-color-button-secondary-hover),
-    ghost-bg: var(--px-color-button-secondary-ghost),
-    text: var(--px-color-button-text)
-  )
-);
-
 .Px-btn {
+  background-color: var(--px-btn-primary-bg);
   border: none;
-  border-radius: 25px;
-  color: black;
+  border-radius: var(--px-btn-border-radius);
+  box-shadow: var(--px-btn-shadow);
+  color: var(--px-btn-primary-text);
   cursor: pointer;
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);
-  font-weight: 500;
   height: fit-content;
   width: fit-content;
   letter-spacing: .05rem;
-  padding: 8px 24px;
-  text-transform: uppercase;
+  padding: var(--px-space-100) var(--px-space-300);
   transition: all .25s ease-in-out;
+
+  &:hover {
+    box-shadow: var(--px-btn-shadow-active);
+  }
+  
+  &:active {
+    box-shadow: var(--px-btn-shadow-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(0, 120, 255, 0.8);
+    outline-offset: 3px;
+  }
+}
+
+.Px-btn--ghost {
+  background: transparent;
+  box-shadow: none;
+
+  &:hover {
+    box-shadow: var(--px-btn-ghost-shadow-hover);
+  }
+
+  &:active {
+    box-shadow: var(--px-btn-ghost-shadow-active);
+  }
 }
 
 a.Px-btn {
   text-decoration: none;
 }
 
-@each $name, $values in $colors {
-  $base: map.get($values, base);
-  $hover: map.get($values, hover);
-  $ghost-bg: map.get($values, ghost-bg);
-  $text: map.get($values, text);
-
-  .Px-btn--#{$name} {
-    background-color: $base;
-    color: $text;
-
-    &:hover,
-    &:focus {
-      background-color: $hover;
-      color: $text;
-    }
-
-    &.Px-btn--outlined {
-      background: transparent;
-      border: 1px solid currentColor;
-      color: $base;
-
-      &:hover,
-      &:focus {
-        background: $hover;
-        border-color: $hover;
-        color: var(--px-color-button-text);
-      }
-    }
-
-    @if $ghost-bg {
-      &.Px-btn--ghost {
-        background: transparent;
-        color: $base;
-
-        &:hover,
-        &:focus {
-          background: $ghost-bg;
-          color: $base;
-        }
-      }
-    }
-  }
-}
-
-.Px-btn--ghost {
-  background: transparent;
-  text-decoration: underline;
-}
-
-.Px-btn--outlined {
-  background: transparent;
-  border: 1px solid currentColor;
-}
-
-.Px-btn--full-width {
-  background-color: map.get(map.get($colors, primary), base);
-  width: 100%;
-}
-
 .Px-btn--disabled {
-  background: var(--px-color-button-disabled);
-  color: var(--px-color-button-disabled-text);
-  cursor: not-allowed;
+  background: var(--px-btn-disabled-bg);
+  box-shadow: none;
+  color: var(--px-btn-disabled-text);
   pointer-events: none;
 }
 </style>

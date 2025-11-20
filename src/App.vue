@@ -1,6 +1,14 @@
 <template>
   <h1>passion presents: nimubs</h1>
-  <NuiBox>
+  <NuiBox
+    style="margin-bottom: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    gap:12px">
     <NuiText as="p">testing paragraph</NuiText>
     <NuiText as="span">testing span</NuiText>
     <NuiText as="li">testing li</NuiText>
@@ -10,8 +18,15 @@
     <NuiHeading as="h4">testing h4</NuiHeading>
     <NuiHeading as="h5">testing h5</NuiHeading>
     <NuiHeading as="h6">testing h6</NuiHeading>
+    <NuiButton>primary button</NuiButton>
+    <NuiButton disabled>disabled button</NuiButton>
+    <NuiButton variant="ghost">ghost button</NuiButton>
   </NuiBox>
-  <NuiButton>test button</NuiButton>
+  <div style="display:flex; flex-direction:column; gap:12px; padding:12px;">
+    <NuiButton>primary button</NuiButton>
+    <NuiButton variant="ghost">ghost button</NuiButton>
+    <NuiButton disabled>disabled button</NuiButton>
+  </div>
   <NuiInput
     v-model="testInput"
     id="test-input"
@@ -44,6 +59,23 @@
     placeholder="Select a fruit"
   />
   <div style="height:50vh" />
+    <div style="width: 100vw; height: 50vh; background-color: #edb1c0; display: flex; justify-content: center; align-items: center;">
+    <NuiBox
+      style="
+      width: 40vw;
+      height: 40vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: 50px;
+      background: #edb1c0;
+      box-shadow:  10px 10px 12px #dca5b3,
+             -10px -10px 16px #febdcd;"
+    >
+      <NuiText as="p">pink this one for sure</NuiText>
+    </NuiBox>
+  </div>
 </template>
 
 <script setup>
@@ -55,3 +87,9 @@ const testDialog = ref(false)
 
 const favoriteFruit = ref('')
 </script>
+
+<style>
+html {
+  background-color: #eee;
+}
+</style>
