@@ -25,6 +25,8 @@
     <NuiAvatar initials="JG" imageUrl="https://i.pravatar.cc/150?img=10" />
     <NuiAvatar initials="JG" size="large" />
     <NuiAvatar initials="JG" imageUrl="https://i.pravatar.cc/150?img=10" size="large" />
+    <NuiLink url="#">Test Link</NuiLink>
+    <NuiLink url="https://www.google.com" external>Test Link</NuiLink>
   </NuiBox>
   <div style="display:flex; flex-direction:column; gap:12px; padding:12px;">
     <NuiButton>primary button</NuiButton>
