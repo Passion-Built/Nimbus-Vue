@@ -80,6 +80,42 @@
       min="0"
       max="10"
     />
+    <NuiTextarea
+      v-model="testTextarea"
+      id="test-textarea"
+      placeholder="Test Textarea"
+      label="Textarea Label"
+    />
+    <NuiTextarea
+      v-model="testTextarea"
+      id="test-textarea"
+      placeholder="Required Textarea"
+      label="Textarea Label"
+      isRequired
+    />
+    <NuiTextarea
+      v-model="testTextarea"
+      id="test-textarea"
+      placeholder="Required Textarea"
+      label="Textarea Label"
+      isRequired
+      isInvalid
+      errorMessage="please fill out this value"
+    />
+    <NuiTextarea
+      v-model="testTextarea"
+      id="test-textarea"
+      placeholder="Disabled Textarea"
+      label="Textarea Label"
+      disabled
+    />
+    <NuiTextarea
+      v-model="testTextarea"
+      id="test-textarea"
+      placeholder="Readonly Textarea"
+      label="Textarea Label"
+      readOnly
+    />
   </NuiBox>
   <div style="display:flex; flex-direction:column; gap:12px; padding:12px;">
     <NuiButton>primary button</NuiButton>
