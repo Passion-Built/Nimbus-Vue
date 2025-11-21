@@ -66,6 +66,7 @@ const generateAttribute = (attribute: string): string | undefined => {
 :root {
   --px-input-primary-bg: #eeeeee;
   --px-input-shadow: inset 3px 3px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
+  --px-input-shadow-readonly: inset 2px 2px 3px #e0e0e0, inset -3px -3px 3px #f8f8f8;
   --px-input-shadow-hover: inset 4px 4px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
   --px-input-shadow-active: inset 4px 4px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
   --px-input-shadow-disabled: inset 2px 2px 3px #e0e0e0, inset -2px -2px 3px #f8f8f8;
@@ -107,9 +108,12 @@ const generateAttribute = (attribute: string): string | undefined => {
       box-shadow: var(--px-input-shadow-active);
     }
 
-    &:focus-visible {
-      outline: 2px solid rgba(0, 120, 255, 0.8);
-      outline-offset: 3px;
+    &:focus:not(:disabled) {
+      outline: none;
+      box-shadow:
+        0 0 3px 3px rgba(0, 120, 255, 0.5),
+        inset 2px 2px 4px rgba(0,0,0,0.15),
+        inset -2px -2px 4px rgba(255,255,255,0.8);
     }
 
     &:disabled {
@@ -121,6 +125,15 @@ const generateAttribute = (attribute: string): string | undefined => {
     }
 
     &:read-only {
+      box-shadow: var(--px-input-shadow-readonly);
+
+      &:focus {
+        box-shadow:
+          var(--px-input-shadow-readonly),
+          0 0 3px 3px rgba(0, 120, 255, 0.5),
+          inset 2px 2px 4px rgba(0,0,0,0.15),
+      }
+          
       &::placeholder {
         color: var(--px-input-text-disabled);
       }
