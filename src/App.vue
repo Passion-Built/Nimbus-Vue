@@ -116,6 +116,69 @@
       label="Textarea Label"
       readOnly
     />
+    <NuiInput
+      v-model="testInput"
+      id="test-input"
+      placeholder="type here"
+      label="Text Input"
+      type="text"
+    />
+    <NuiSelect
+      label="Test Select"
+      v-model="favoriteFruit"
+      :options="[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Cherry', value: 'cherry' }
+      ]"
+      placeholder="Select a fruit"
+    />
+    <NuiSelect
+      isRequired
+      label="Required Select"
+      v-model="favoriteFruit"
+      :options="[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Cherry', value: 'cherry' }
+      ]"
+      placeholder="Select a fruit"
+    />
+    <NuiSelect
+      isRequired
+      isInvalid
+      errorMessage="Please select a value"
+      label="Invalid Select"
+      v-model="favoriteFruit"
+      :options="[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Cherry', value: 'cherry' }
+      ]"
+      placeholder="Select a fruit"
+    />
+    <NuiSelect
+      disabled
+      label="Disabled Select"
+      v-model="favoriteFruit"
+      :options="[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Cherry', value: 'cherry' }
+      ]"
+      placeholder="Select a fruit"
+    />
+    <NuiSelect
+      readOnly
+      label="Readonly Select"
+      v-model="favoriteFruit"
+      :options="[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Cherry', value: 'cherry' }
+      ]"
+      placeholder="Select a fruit"
+    />
   </NuiBox>
   <div style="display:flex; flex-direction:column; gap:12px; padding:12px;">
     <NuiButton>primary button</NuiButton>
