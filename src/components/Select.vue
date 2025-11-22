@@ -16,7 +16,7 @@
         v-model="selectedValue"
         :options="options"
         :placeholder="placeholder"
-        :disabled="disabled"
+        :disabled="disabled || readOnly"
         :inputId="id"
       >
         <template #search="{attributes, events}">
@@ -31,7 +31,7 @@
         </template>
       </v-select>
     </div>
-    <div class="Px-input__message-wrapper">
+    <div class="Px-select__message-wrapper">
       <div v-if="isInvalid && errorMessage">{{ errorMessage }}</div>
     </div>
   </div>
@@ -74,9 +74,10 @@ const generateAttribute = (attribute: string): string | undefined => {
 <style>
 :root {
   /* Shadows */
-  --px-input-shadow: inset 3px 3px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
+  --px-select-shadow: inset 3px 3px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
   --px-select-shadow-disabled: inset 2px 2px 3px #e0e0e0, inset -2px -2px 3px #f8f8f8;
-  --vs-dropdown-box-shadow: var(--px-input-shadow);
+  --vs-dropdown-box-shadow: var(--px-select-shadow);
+  --px-select-shadow-hover: inset 4px 4px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
 
   /* Sizing & spacing */
   --vs-border-radius: var(--px-space-100);
@@ -96,7 +97,9 @@ const generateAttribute = (attribute: string): string | undefined => {
   --vs-dropdown-option--active-color: #1B1B1B;
 
   --px-select-text: #1B1B1B;
-  --px-input-text-disabled: #A0A0A0;
+  --px-select-text-disabled: #A0A0A0;
+  --px-select-required: #DD1133;
+  --px-select-text-placeholder-hover: #4d4d4d;
 }
 
 /* Root select container */
@@ -114,19 +117,19 @@ const generateAttribute = (attribute: string): string | undefined => {
   }
 
   /* Input wrappers */
-  .Px-input__label-wrapper,
-  .Px-input__message-wrapper {
+  .Px-select__label-wrapper,
+  .Px-select__message-wrapper {
     padding: 0 var(--px-space-050);
   }
 
-  .Px-input__message-wrapper {
+  .Px-select__message-wrapper {
     font-size: var(--px-font-size-caption);
   }
 
   /* Dropdown toggle */
   .vs__dropdown-toggle {
     border: none;
-    box-shadow: var(--px-input-shadow);
+    box-shadow: var(--px-select-shadow);
     box-sizing: border-box;
     padding: var(--px-space-150);
   }
@@ -139,6 +142,13 @@ const generateAttribute = (attribute: string): string | undefined => {
     margin: unset;
   }
 
+  &:hover:not(.Px-select--disabled, .Px-select--readonly, .Px-select--invalid) {
+    .vs__dropdown-toggle {
+      box-shadow: var(--px-select-shadow-hover);
+      color: var(--px-select-text-placeholder-hover);
+    }
+  }
+
   .vs__search,
   .vs__search:focus {
     letter-spacing: 1px;
@@ -147,11 +157,9 @@ const generateAttribute = (attribute: string): string | undefined => {
   /* Invalid state */
   &.Px-select--invalid {
     .vs__dropdown-toggle,
-    .vs__dropdown-toggle::placeholder {
-      color: var(--px-input-required);
-    }
-    .Px-input__message-wrapper {
-      color: var(--px-input-required);
+    .Px-select__message-wrapper,
+    .vs__selected {
+      color: var(--px-select-required);
     }
   }
 
@@ -189,7 +197,7 @@ const generateAttribute = (attribute: string): string | undefined => {
   .vs__search,
   .vs__search:focus,
   .Px-select__label {
-    color: var(--px-input-text-disabled);
+    color: var(--px-select-text-disabled);
   }
 }
 
@@ -197,7 +205,7 @@ const generateAttribute = (attribute: string): string | undefined => {
 .Px-select--required {
   .Px-select__label::after {
     content: '*';
-    color: var(--px-input-required);
+    color: var(--px-select-required);
     margin-left: var(--px-space-050);
   }
 }
