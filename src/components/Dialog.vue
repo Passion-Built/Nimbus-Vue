@@ -30,15 +30,6 @@ const emit = defineEmits(['update:isOpen'])
 </script>
 
 <style>
-:root {
-  --px-dialog-bg: #eeeeee;
-  --px-dialog-overlay:rgba(238,238,238, 85%);
-  --px-dialog-shadow: 4px 4px 6px #b9b9b9, -4px -4px 6px #f6f6f6;
-  --px-dialog-border-radius: var(--px-space-200);
-  --px-dialog-padding: var(--px-space-300);
-  --px-dialog-margin-bottom: var(--px-space-200);
-}
-
 html:has(.Px-dialog--open) {
   overflow: hidden;
 }
@@ -68,7 +59,7 @@ html:has(.Px-dialog--open) {
 
 .Px-dialog {
   background: var(--px-dialog-bg);
-  border-radius: var(--px-dialog-border-radius);
+  border-radius: var(--px-border-radius);
   box-shadow: var(--px-dialog-shadow);
   min-width: 35vw;
   width: max-content;

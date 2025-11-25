@@ -30,30 +30,11 @@ const getElement = () => {
 
 </script>
 
-<style>
-:root {
-  --px-btn-primary-bg: #eeeeee;
-  --px-btn-primary-text: #1B1B1B;
-
-  --px-btn-disabled-bg: #dfdfdf;
-  --px-btn-disabled-text: #454545;
-
-  --px-btn-border-radius: var(--px-space-200);
-
-  --px-btn-shadow: 4px 4px 6px #CACACB, -4px -4px 6px #f6f6f6;
-  --px-btn-shadow-hover: inset 4px 4px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
-  --px-btn-shadow-active: inset 2px 2px 2px #CACACB, inset -2px -2px 2px #f6f6f6;
-
-  --px-btn-ghost-shadow-hover: 1px 1px 4px #CACACB, -1px -1px 4px #f6f6f6;
-  --px-btn-ghost-shadow-active: 2px 2px 4px #CACACB, -2px -2px 4px #f6f6f6;
-}
-</style>
-
 <style lang="scss" scoped>
 .Px-btn {
   background-color: var(--px-btn-primary-bg);
   border: none;
-  border-radius: var(--px-btn-border-radius);
+  border-radius: var(--px-border-radius);
   box-shadow: var(--px-btn-shadow);
   color: var(--px-btn-primary-text);
   cursor: pointer;

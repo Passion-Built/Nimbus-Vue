@@ -16,13 +16,6 @@ const props = defineProps<{
 </script>
 
 <style>
-:root {
-  --px-link-text: #3d91e6;
-  --px-link-text-hover: #1B1B1B;
-  --px-link-text-active: #d4a5a5;
-  --px-link-text-visited: #635a87;
-}
-
 .Nui-link {
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);

@@ -18,4 +18,11 @@
   --px-space-1300: 104px;
   --px-space-1400: 112px;
   --px-space-1500: 120px;
+
+  --px-border-radius: var(--px-space-200);
+  
+  --px-box-padding: var(--px-space-200);
+
+  --px-dialog-padding: var(--px-space-300);
+  --px-dialog-margin-bottom: var(--px-space-200);
 }

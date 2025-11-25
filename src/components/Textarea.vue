@@ -64,20 +64,6 @@ const generateAttribute = (attribute: string): string | undefined => {
 </script>
 
 <style lang="scss">
-:root {
-  --px-textarea-primary-bg: #eeeeee;
-  --px-textarea-shadow: inset 3px 3px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
-  --px-textarea-shadow-readonly: inset 2px 2px 3px #e0e0e0, inset -3px -3px 3px #f8f8f8;
-  --px-textarea-shadow-disabled: inset 2px 2px 3px #e0e0e0, inset -2px -2px 3px #f8f8f8;
-  --px-textarea-shadow-hover: inset 4px 4px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
-  --px-textarea-shadow-active: inset 4px 4px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
-  --px-textarea-text: #1B1B1B;
-  --px-textarea-text-disabled: #A0A0A0;
-  --px-textarea-text-placeholder: #6e6e6e;
-  --px-textarea-text-placeholder-hover: #4d4d4d;
-  --px-textarea-required: #DD1133;
-}
-
 .Px-textarea {
   outline: none;
   display: flex;
@@ -85,10 +71,10 @@ const generateAttribute = (attribute: string): string | undefined => {
   width: 100%;
   gap: var(--px-space-100);
   font-family: var(--px-font-family-body);
-  color: var(--px-textarea-text);
+  color: var(--px-form-text);
 
   .Px-textarea__textarea {
-    background-color: var(--px-textarea-primary-bg);
+    background-color: var(--px-form-primary-bg);
     border: none;
     padding: var(--px-space-150);
     border-radius: var(--px-space-100);
@@ -97,19 +83,19 @@ const generateAttribute = (attribute: string): string | undefined => {
     font-size: var(--px-space-200);
     letter-spacing: 1px;
     box-sizing: border-box;
-    box-shadow: var(--px-textarea-shadow);
+    box-shadow: var(--px-form-shadow);
     resize: vertical;
 
     &:hover:not(:disabled, :read-only) {
-      box-shadow: var(--px-textarea-shadow-hover);
+      box-shadow: var(--px-form-shadow-hover);
   
       &::placeholder {
-        color: var(--px-textarea-text-placeholder-hover);
+        color: var(--px-form-text-placeholder-hover);
       }
     }
   
     &:active {
-      box-shadow: var(--px-textarea-shadow-active);
+      box-shadow: var(--px-form-shadow-active);
     }
   
     &:focus {
@@ -121,27 +107,27 @@ const generateAttribute = (attribute: string): string | undefined => {
     }
 
     &:disabled {
-      box-shadow: var(--px-textarea-shadow-disabled);
+      box-shadow: var(--px-form-shadow-disabled);
       cursor: not-allowed;
   
       &::placeholder {
-        color: var(--px-textarea-text-disabled);
+        color: var(--px-form-text-disabled);
       }
     }
   
     &:read-only {
-      box-shadow: var(--px-textarea-shadow-readonly);
+      box-shadow: var(--px-form-shadow-readonly);
 
       &:focus {
         box-shadow:
-          var(--px-textarea-shadow-readonly),
+          var(--px-form-shadow-readonly),
           0 0 3px 3px rgba(0, 120, 255, 0.5),
           inset 2px 2px 4px rgba(0,0,0,0.15),
           inset -2px -2px 4px rgba(255,255,255,0.8);
       }
       
       &::placeholder {
-        color: var(--px-textarea-text-disabled);
+        color: var(--px-form-text-disabled);
       }
     }
   }
@@ -149,7 +135,7 @@ const generateAttribute = (attribute: string): string | undefined => {
   .Px-textarea__textarea::placeholder {
     font-size: var(--px-font-size-body);
     letter-spacing: 1px;
-    color: var(--px-textarea-text-placeholder);
+    color: var(--px-form-text-placeholder);
   }
 
   .Px-textarea__label-wrapper,
@@ -169,11 +155,11 @@ const generateAttribute = (attribute: string): string | undefined => {
   &.Px-textarea--invalid:hover {
     .Px-textarea__textarea,
     .Px-textarea__textarea::placeholder {
-      color: var(--px-textarea-required);
+      color: var(--px-form-required);
     }
 
     .Px-textarea__message-wrapper {
-      color: var(--px-textarea-required);
+      color: var(--px-form-required);
     }
   }
 }
@@ -181,14 +167,14 @@ const generateAttribute = (attribute: string): string | undefined => {
 .Px-textarea--required {
   .Px-textarea__label::after {
     content: '*';
-    color: var(--px-textarea-required);
+    color: var(--px-form-required);
     margin-left: var(--px-space-050);
   }
 }
 
 .Px-textarea--disabled {  
   .Px-textarea__label {
-    color: var(--px-textarea-text-disabled);
+    color: var(--px-form-text-disabled);
   }
 }
 </style>

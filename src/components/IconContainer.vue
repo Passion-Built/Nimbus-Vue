@@ -11,13 +11,6 @@ const props = defineProps<{
 </script>
 
 <style>
-:root {
-  --px-icon-container-bg: #eeeeee;
-  --px-icon-container-shadow: 4px 4px 6px #CACACB, -4px -4px 6px #f6f6f6;
-  --px-icon-container-shadow-hover: inset 4px 4px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
-  --px-icon-container-shadow-active: inset 2px 2px 2px #CACACB, inset -2px -2px 2px #f6f6f6;
-}
-
 .Px-icon-container {
   background-color: var(--px-icon-container-bg);
   height: var(--px-space-400);

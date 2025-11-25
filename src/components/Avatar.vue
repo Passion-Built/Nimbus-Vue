@@ -22,15 +22,6 @@ const props = defineProps<{
 const size = props.size ?? 'medium'
 </script>
 
-<style>
-:root {
-  --px-avatar-bg: #eeeeee;
-  --px-avatar-text: #1B1B1B;
-  --px-avatar-large-font-size: var(--px-font-size-08);
-  --px-avatar-shadow: inset 4px 4px 6px #CACACB, inset -4px -4px 6px #f6f6f6;
-}
-</style>
-
 <style lang="scss" scoped>
 .Px-avatar {
   display: flex;

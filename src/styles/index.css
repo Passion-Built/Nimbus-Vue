@@ -1,4 +1,5 @@
 @import './tokens/_typography.css';
-@import './tokens/_colors.css';
+@import './tokens/_color.css';
 @import './tokens/_spacing.css';
+@import './tokens/_elevation.css';
 @import './base.css';

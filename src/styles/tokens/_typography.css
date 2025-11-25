@@ -51,6 +51,8 @@
   --px-line-height-body: 1.25;
   --px-line-height-body-sm: 1.2;
   --px-line-height-caption: 1.1;
+
+  --px-avatar-large-font-size: var(--px-font-size-08);
 }
 
 html.nimbus { font-size: 62.5%; }
