@@ -1,4 +1,19 @@
+@font-face {
+  font-family: 'Kanit';
+  src: url('../fonts/Kanit-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  src: url('../fonts/LexendDeca-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
 :root {
+  --px-font-family-headings: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --px-font-family-body: "Lexend Deca", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
   --px-font-size-01: 0.75rem;
   --px-font-size-02: 0.875rem;
   --px-font-size-03: 1rem;
@@ -36,26 +51,6 @@
   --px-line-height-body: 1.25;
   --px-line-height-body-sm: 1.2;
   --px-line-height-caption: 1.1;
-
-  --px-space-0: 0px;
-  --px-space-025: 2px;
-  --px-space-050: 4px;
-  --px-space-075: 6px;
-  --px-space-100: 8px;
-  --px-space-150: 12px;
-  --px-space-200: 16px;
-  --px-space-250: 20px;
-  --px-space-300: 24px;
-  --px-space-400: 32px;
-  --px-space-500: 40px;
-  --px-space-600: 48px;
-  --px-space-800: 64px;
-  --px-space-1000: 80px;
-  --px-space-1100: 88px;
-  --px-space-1200: 96px;
-  --px-space-1300: 104px;
-  --px-space-1400: 112px;
-  --px-space-1500: 120px;
 }
 
 html.nimbus { font-size: 62.5%; }

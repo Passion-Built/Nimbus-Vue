@@ -1,0 +1,17 @@
+/* Body text defaults */
+body, p, span, li {
+  font-family: var(--px-font-family-body);
+  font-size: var(--px-font-size-body);
+  line-height: var(--px-line-height-body);
+  color: var(--px-primary-text);
+  margin: 0;
+}
+
+/* Headings fallback  */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--px-font-family-heading);
+  font-weight: var(--px-font-weight-bold);
+  color: var(--px-primary-text);
+  line-height: var(--px-line-height-heading);
+  margin: 0;
+}

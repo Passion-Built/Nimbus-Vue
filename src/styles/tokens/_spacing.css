@@ -1,0 +1,21 @@
+:root {
+  --px-space-0: 0px;
+  --px-space-025: 2px;
+  --px-space-050: 4px;
+  --px-space-075: 6px;
+  --px-space-100: 8px;
+  --px-space-150: 12px;
+  --px-space-200: 16px;
+  --px-space-250: 20px;
+  --px-space-300: 24px;
+  --px-space-400: 32px;
+  --px-space-500: 40px;
+  --px-space-600: 48px;
+  --px-space-800: 64px;
+  --px-space-1000: 80px;
+  --px-space-1100: 88px;
+  --px-space-1200: 96px;
+  --px-space-1300: 104px;
+  --px-space-1400: 112px;
+  --px-space-1500: 120px;
+}
