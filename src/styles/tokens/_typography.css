@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Kanit';
+  src: url('../fonts/Kanit-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  src: url('../fonts/LexendDeca-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+:root {
+  --px-font-family-headings: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --px-font-family-body: "Lexend Deca", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --px-font-size-01: 0.75rem;
+  --px-font-size-02: 0.875rem;
+  --px-font-size-03: 1rem;
+  --px-font-size-04: 1.125rem;
+  --px-font-size-05: 1.25rem;
+  --px-font-size-06: 1.5rem;
+  --px-font-size-07: 1.75rem;
+  --px-font-size-08: 2rem;
+  --px-font-size-09: 2.25rem;
+
+  --px-font-size-heading-01: var(--px-font-size-09);
+  --px-font-size-heading-02: var(--px-font-size-08);
+  --px-font-size-heading-03: var(--px-font-size-07);
+  --px-font-size-heading-04: var(--px-font-size-06);
+  --px-font-size-heading-05: var(--px-font-size-05);
+  --px-font-size-heading-06: var(--px-font-size-04);
+  --px-font-size-body-lg: var(--px-font-size-04);
+  --px-font-size-body: var(--px-font-size-03);
+  --px-font-size-body-sm: var(--px-font-size-02);
+  --px-font-size-caption: var(--px-font-size-01);
+
+	--px-font-weight-light: 300;
+	--px-font-weight-normal: 400;
+	--px-font-weight-semibold: 600;
+	--px-font-weight-bold: 700;
+
+  --px-line-height-heading-01: 1.375;
+  --px-line-height-heading-02: 1.25;
+  --px-line-height-heading-03: 1.2;
+  --px-line-height-heading-04: 1.167;
+  --px-line-height-heading-05: 1.125;
+  --px-line-height-heading-06: 1.1;
+
+  --px-line-height-body-lg: 1.25;
+  --px-line-height-body: 1.25;
+  --px-line-height-body-sm: 1.2;
+  --px-line-height-caption: 1.1;
+
+  --px-avatar-large-font-size: var(--px-font-size-08);
+}
+
+html.nimbus { font-size: 62.5%; }

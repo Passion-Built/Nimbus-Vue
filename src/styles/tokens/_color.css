@@ -1,0 +1,75 @@
+:root {
+  /* BASE COLORS */
+  /* Background */
+  --px-color-surface: #EEEEEE;
+  --px-color-disabled-bg: #DFDFDF;
+
+  /* Text */
+  --px-color-text: #1B1B1B;
+  --px-color-text-subtle: #6E6E6E;
+  --px-color-text-subtle-hover: #4D4D4D;
+  --px-color-text-disabled: #A0A0A0;
+  --px-color-text-disabled-bold: #454545;
+  --px-color-text-red: #DD1133;
+
+  /* Links */
+  --px-color-link: #3D91E6;
+  --px-color-link-active: #D4A5A5;
+  --px-color-link-visited: #635A87;
+
+  /* COMPONENTS */
+  /* Avatar */
+  --px-avatar-bg: var(--px-color-surface);
+  --px-avatar-text: var(--px-color-text);
+
+  /* Box */
+  --px-box-default-bg: var(--px-color-surface);
+
+  /* Button */
+  --px-btn-primary-bg: var(--px-color-surface);
+  --px-btn-primary-text: var(--px-color-text);
+  --px-btn-disabled-bg: var(--px-color-disabled-bg);
+  --px-btn-disabled-text: var(--px-color-text-disabled-bold);
+
+  /* Dialog */
+  --px-dialog-bg: var(--px-color-surface);
+  --px-dialog-overlay:rgba(238, 238, 238, 0.85);
+
+  /* Icon Container */
+  --px-icon-container-bg: var(--px-color-surface);
+
+  /* Link */
+  --px-link-text: var(--px-color-link);
+  --px-link-text-hover: var(--px-color-text);
+  --px-link-text-active: var(--px-color-link-active);
+  --px-link-text-visited: var(--px-color-link-visited);
+
+  /* Forms */
+  --px-form-primary-bg: var(--px-color-surface);
+  --px-form-text: var(--px-color-text);
+  --px-form-text-disabled: var(--px-color-text-disabled);
+  --px-form-text-placeholder: var(--px-color-text-subtle);
+  --px-form-text-placeholder-hover: var(--px-color-text-subtle-hover);
+  --px-form-required: var(--px-color-text-red);
+
+  /* vue-select overrides */
+  /* Shadows */
+  --vs-dropdown-box-shadow: var(--px-form-shadow);
+
+  /* Sizing & spacing */
+  --vs-border-radius: var(--px-space-100);
+  --vs-dropdown-option-padding: var(--px-space-050) var(--px-space-150);
+  --vs-border-width: 0px;
+
+  /* Fonts */
+  --vs-font-size: var(--px-space-200);
+  --vs-line-height: unset;
+
+  /* Colors */
+  --vs-search-input-bg: #eeeeee;
+  --vs-dropdown-bg: #eeeeee;
+  --vs-state-disabled-bg: #eeeeee;
+  --vs-dropdown-option-color: #1B1B1B;
+  --vs-dropdown-option--active-bg: rgba(0, 120, 255, 0.25);
+  --vs-dropdown-option--active-color: #1B1B1B;
+}  
