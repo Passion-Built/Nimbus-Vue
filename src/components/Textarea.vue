@@ -94,16 +94,9 @@ const generateAttribute = (attribute: string): string | undefined => {
       }
     }
   
-    &:active {
-      box-shadow: var(--px-form-shadow-active);
-    }
-  
     &:focus {
       outline: none;
-      box-shadow:
-0 0 3px 2px rgba(0, 120, 255, 0.5),
-      inset 2px 2px 2px rgba(0,0,0,0.15),
-      inset -2px -2px 2px rgba(255,255,255,0.8);
+      box-shadow: var(--px-form-shadow-focus);
     }
 
     &:disabled {

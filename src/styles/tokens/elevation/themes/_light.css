@@ -1,0 +1,77 @@
+:root {
+  /* BASE ELEVATION */
+  /* Colors */
+  --px-shadow-light: #F6F6F6;
+  --px-shadow-medium: #CACACB;
+  --px-shadow-dark: #B9B9B9;
+  --px-shadow-disabled-light: #F8F8F8;
+  --px-shadow-disabled-medium: #E0E0E0;
+  --px-focus-outline: rgba(0, 120, 255, 0.5);
+  --px-focus-outline-light: rgba(255, 255, 255, 0.8);
+  --px-focus-outline-dark: rgba(0, 0, 0, 0.15);
+
+  /* Elevation */
+  --px-elevation-sunken:
+    inset 4px 4px 6px var(--px-shadow-medium),
+    inset -4px -4px 6px var(--px-shadow-light);
+  --px-elevation-default: none;
+  --px-elevation-raised:
+    4px 4px 6px var(--px-shadow-medium),
+    -4px -4px 6px var(--px-shadow-light);
+  --px-elevation-overlay:
+    4px 4px 6px var(--px-shadow-dark),
+    -4px -4px 6px var(--px-shadow-light);
+
+  /* COMPONENTS */
+  /* Avatar */
+  --px-avatar-shadow: var(--px-elevation-sunken);
+
+  /* Box */
+  --px-box-shadow: var(--px-elevation-overlay);
+
+  /* Button */
+  --px-btn-shadow: var(--px-elevation-raised);
+  --px-btn-shadow-hover:
+    inset 2px 2px 2px var(--px-shadow-medium),
+    inset -2px -2px 2px var(--px-shadow-light);
+  --px-btn-shadow-active:
+    inset 2px 2px 2px var(--px-shadow-dark),
+    inset -2px -2px 2px var(--px-shadow-light);
+  --px-btn-ghost-shadow-hover:
+    1px 1px 4px var(--px-shadow-medium),
+    -1px -1px 4px var(--px-shadow-light);
+  --px-btn-ghost-shadow-active:
+    2px 2px 4px var(--px-shadow-medium),
+    -2px -2px 4px var(--px-shadow-light);
+  
+  /* Dialog */
+  --px-dialog-shadow: var(--px-elevation-overlay);
+
+  /* Icon Container */
+  --px-icon-container-shadow: var(--px-elevation-raised);
+  --px-icon-container-shadow-hover: var(--px-elevation-sunken);
+  --px-icon-container-shadow-active:
+    inset 2px 2px 2px var(--px-shadow-medium),
+    inset -2px -2px 2px var(--px-shadow-light);
+
+  /* Forms */
+  --px-form-shadow:
+    inset 3px 3px 4px var(--px-shadow-medium),
+    inset -4px -4px 4px var(--px-shadow-light);
+  --px-form-shadow-readonly:
+    inset 2px 2px 3px var(--px-shadow-disabled-medium),
+    inset -3px -3px 3px var(--px-shadow-disabled-light);
+  --px-form-shadow-hover:
+    inset 4px 4px 4px var(--px-shadow-medium),
+    inset -4px -4px 4px var(--px-shadow-light);
+  --px-form-shadow-active:
+    inset 4px 4px 4px var(--px-shadow-medium),
+    inset -4px -4px 4px var(--px-shadow-light);
+  --px-form-shadow-focus:
+    0 0 3px 2px var(--px-focus-outline),
+    inset 2px 2px 2px var(--px-focus-outline-dark),
+    inset -2px -2px 2px var(--px-focus-outline-light);
+  --px-form-shadow-disabled:
+    inset 2px 2px 3px var(--px-shadow-disabled-medium),
+    inset -2px -2px 3px var(--px-shadow-disabled-light);
+}
