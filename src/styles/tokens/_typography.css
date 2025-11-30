@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'Kanit';
-  src: url('../fonts/Kanit-Regular.woff2') format('woff2');
+  src: url('../../assets/fonts/Kanit/Kanit-Regular.ttf') format('truetype');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Lexend Deca';
-  src: url('../fonts/LexendDeca-Regular.woff2') format('woff2');
+  src: url('../../assets/fonts/Lexend_Deca/LexendDeca-Regular.ttf') format('truetype');
   font-weight: 400;
 }
 

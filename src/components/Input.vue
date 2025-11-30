@@ -67,22 +67,22 @@ const generateAttribute = (attribute: string): string | undefined => {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: var(--px-space-100);
+  gap: var(--px-form-gap);
   font-family: var(--px-font-family-body);
   color: var(--px-form-text);
 
   .Px-input__input {
     background-color: var(--px-form-primary-bg);
     border: none;
-    padding: var(--px-space-150);
-    border-radius: var(--px-space-100);
+    padding: var(--px-form-padding);
+    border-radius: var(--px-form-border-radius);
     width: 100%;
-    font-size: var(--px-space-200);
+    font-size: var(--px-font-size-body);
     letter-spacing: 1px;
     box-sizing: border-box;
     box-shadow: var(--px-form-shadow);
 
-    &:hover:not(:disabled, :read-only) {
+    &:hover:not(:disabled) {
       box-shadow: var(--px-form-shadow-hover);
 
       &::placeholder {
@@ -90,16 +90,9 @@ const generateAttribute = (attribute: string): string | undefined => {
       }
     }
 
-    &:active {
-      box-shadow: var(--px-form-shadow-active);
-    }
-
-    &:focus:not(:disabled) {
+    &:focus {
       outline: none;
-      box-shadow:
-0 0 3px 2px rgba(0, 120, 255, 0.5),
-      inset 2px 2px 2px rgba(0,0,0,0.15),
-      inset -2px -2px 2px rgba(255,255,255,0.8);
+      box-shadow: var(--px-form-shadow-focus);
     }
 
     &:disabled {
@@ -115,14 +108,12 @@ const generateAttribute = (attribute: string): string | undefined => {
       box-shadow: var(--px-form-shadow-readonly);
 
       &:focus {
-        box-shadow:
-          var(--px-form-shadow-readonly),
-          0 0 3px 3px rgba(0, 120, 255, 0.5),
-          inset 2px 2px 4px rgba(0,0,0,0.15),
+        outline: none;
+        box-shadow: var(--px-form-shadow-focus);
       }
           
       &::placeholder {
-        color: var(--px-form-text-disabled);
+        color: var(--px-form-text-disabled) !important;
       }
     }
   }
@@ -135,7 +126,7 @@ const generateAttribute = (attribute: string): string | undefined => {
 
   .Px-input__label-wrapper,
   .Px-input__message-wrapper {
-    padding: var(--px-space-0) var(--px-space-050);
+    padding: var(--px-form-wrapper-padding);
   }
 
   .Px-input__label {
@@ -163,7 +154,7 @@ const generateAttribute = (attribute: string): string | undefined => {
   .Px-input__label::after {
     content: '*';
     color: var(--px-form-required);
-    margin-left: var(--px-space-050);
+    margin-left: var(--px-form-required-margin);
   }
 }
 

@@ -19,7 +19,7 @@ const as = props.as ?? 'h1'
 .Nui-heading {
   font-family: var(--px-font-family-headings);
   font-weight: var(--px-font-weight-semibold);
-  color: var(--px-primary-text);
+  color: var(--px-color-text);
   margin: 0;
 }
 

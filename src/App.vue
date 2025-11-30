@@ -1,9 +1,10 @@
 <template>
-  <h1>passion presents: nimubs</h1>
+  <NuiButton @click="toggleTheme()" style="position: fixed; top: 8px; right: 8px;">Toggle Theme</NuiButton>
+  <h1>passion presents: nimbus</h1>
   <NuiBox
     style="margin-bottom: 50px;
     width: 500px;
-    margin: 0 auto;
+    margin: 24px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -226,28 +227,10 @@
     ]"
     placeholder="Select a fruit"
   />
-  <div style="height:50vh" />
-    <div style="width: 100vw; height: 50vh; background-color: #edb1c0; display: flex; justify-content: center; align-items: center;">
-    <NuiBox
-      style="
-      width: 40vw;
-      height: 40vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-left: 50px;
-      background: #edb1c0;
-      box-shadow:  10px 10px 12px #dca5b3,
-             -10px -10px 16px #febdcd;"
-    >
-      <NuiText as="p">pink this one for sure</NuiText>
-    </NuiBox>
-  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const testInput = ref('')
 const testInputNumber = ref('')
@@ -255,10 +238,18 @@ const testTextarea = ref('')
 const testDialog = ref(false)
 
 const favoriteFruit = ref('')
+
+onMounted(() => {
+  document.documentElement.dataset.theme = "light";
+})
+
+const toggleTheme = () => {
+  document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light'
+}
 </script>
 
 <style>
 html {
-  background-color: #eee;
+  background-color: var(--px-color-surface);
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['Px-icon-container', {'Px-icon-container--clickable': isClickable}]">
+  <div :class="['Px-icon-container', {'Px-icon-container--clickable': isClickable}]" :tabindex="isClickable ? 0 : null">
     <slot />
   </div>
 </template>
@@ -19,6 +19,10 @@ const props = defineProps<{
   border-radius: 50%;
   padding: var(--px-space-100);
   box-shadow: var(--px-icon-container-shadow);
+
+  > svg {
+    fill: var(--px-color-text);
+  }
 }
 
 .Px-icon-container--clickable {
@@ -30,6 +34,11 @@ const props = defineProps<{
 
   &:active {
     box-shadow: var(--px-icon-container-shadow-active);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--px-focus-outline);
+    outline-offset: 3px;
   }
 }
 </style>
