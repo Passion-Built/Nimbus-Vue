@@ -66,9 +66,6 @@
   --px-form-shadow-hover:
     inset 4px 4px 4px var(--px-shadow-medium),
     inset -4px -4px 4px var(--px-shadow-light);
-  --px-form-shadow-active:
-    inset 4px 4px 4px var(--px-shadow-medium),
-    inset -4px -4px 4px var(--px-shadow-light);
   --px-form-shadow-focus:
     0 0 3px 2px var(--px-focus-outline),
     inset 2px 2px 2px var(--px-focus-outline-dark),

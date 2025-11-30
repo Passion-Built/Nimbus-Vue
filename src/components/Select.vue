@@ -16,8 +16,9 @@
         v-model="selectedValue"
         :options="options"
         :placeholder="placeholder"
-        :disabled="disabled || readOnly"
+        :disabled="disabled"
         :inputId="id"
+        :searchable="readOnly ? false : true"
       >
         <template #search="{attributes, events}">
           <input
@@ -38,9 +39,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import vSelect from 'vue-select'
-import 'vue-select/dist/vue-select.css'
+import { readonly, ref, watch } from 'vue';
+import vSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
 
 const props = defineProps<{
   disabled?: boolean
@@ -76,7 +77,7 @@ const generateAttribute = (attribute: string): string | undefined => {
 .Px-select {
   display: flex;
   flex-direction: column;
-  gap: var(--px-space-100);
+  gap: var(--px-form-gap);
   width: 100%;
   font-family: var(--px-font-family-body);
   color: var(--px-form-text);
@@ -89,7 +90,7 @@ const generateAttribute = (attribute: string): string | undefined => {
   /* Input wrappers */
   .Px-select__label-wrapper,
   .Px-select__message-wrapper {
-    padding: 0 var(--px-space-050);
+    padding: var(--px-form-wrapper-padding);
   }
 
   .Px-select__message-wrapper {
@@ -101,7 +102,8 @@ const generateAttribute = (attribute: string): string | undefined => {
     border: none;
     box-shadow: var(--px-form-shadow);
     box-sizing: border-box;
-    padding: var(--px-space-150);
+    padding: var(--px-form-padding);
+    border-radius: var(--px-form-border-radius);
   }
 
   /* Internal elements */
@@ -112,9 +114,9 @@ const generateAttribute = (attribute: string): string | undefined => {
     margin: unset;
   }
 
-  &:hover:not(.Px-select--disabled, .Px-select--readonly, .Px-select--invalid) {
+  &:hover:not(.Px-select--readonly) {
     .vs__dropdown-toggle {
-      box-shadow: var(--px-form-shadow-hover);
+      box-shadow: var(--px-form-shadow-hover) !important;
       color: var(--px-form-text-placeholder-hover);
     }
   }
@@ -129,12 +131,12 @@ const generateAttribute = (attribute: string): string | undefined => {
     .vs__dropdown-toggle,
     .Px-select__message-wrapper,
     .vs__selected {
-      color: var(--px-form-required);
+      color: var(--px-form-required) !important;
     }
   }
 
   /* Focus style */
-  .vs__dropdown-toggle:has(.vs__search:focus:not(:disabled)) {
+  .vs__dropdown-toggle:has(.vs__search:focus) {
     outline: none;
     box-shadow: var(--px-form-shadow-focus);
   }
@@ -142,19 +144,19 @@ const generateAttribute = (attribute: string): string | undefined => {
   /* Dropdown menu spacing */
   .vs__dropdown-menu {
     margin-top: 8px;
+    border-radius: var(--px-form-border-radius);
   }
 }
 
 /* Open state */
 .vs--open .vs__dropdown-toggle {
-  border-bottom-left-radius: unset;
-  border-bottom-right-radius: unset;
+  border-bottom-left-radius: var(--px-form-border-radius);
+  border-bottom-right-radius: var(--px-form-border-radius);
   box-shadow: inset 4px 4px 4px #CACACB, inset -4px -4px 4px #f6f6f6;
 }
 
 /* Disabled state */
-.Px-select--disabled,
-.Px-select--readonly {
+.Px-select--disabled{
   pointer-events: none;
 
   .vs__dropdown-toggle {
@@ -168,12 +170,27 @@ const generateAttribute = (attribute: string): string | undefined => {
   }
 }
 
+/* Readonly state */
+.Px-select--readonly {
+  .vs__dropdown-toggle {
+    box-shadow: var(--px-form-shadow-disabled);
+  }
+  
+  .vs__dropdown-menu {
+    display: none !important;
+  }
+
+  .vs__open-indicator {
+    transform: none;
+  }
+}
+
 /* Required indicator */
 .Px-select--required {
   .Px-select__label::after {
     content: '*';
     color: var(--px-form-required);
-    margin-left: var(--px-space-050);
+    margin-left: var(--px-form-required-margin);
   }
 }
 </style>

@@ -25,4 +25,11 @@
 
   --px-dialog-padding: var(--px-space-300);
   --px-dialog-margin-bottom: var(--px-space-200);
+
+  --px-form-border-radius: var(--px-space-100);
+  --px-form-gap: var(--px-space-100);
+  --px-form-padding: var(--px-space-150);
+  --px-form-wrapper-padding: var(--px-space-0) var(--px-space-050);
+  --px-form-required-margin: var(--px-space-050);
+  --px-form-min-height: var(--px-space-800);
 }

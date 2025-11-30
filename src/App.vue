@@ -1,10 +1,10 @@
 <template>
   <NuiButton @click="toggleTheme()" style="position: fixed; top: 8px; right: 8px;">Toggle Theme</NuiButton>
-  <h1>passion presents: nimubs</h1>
+  <h1>passion presents: nimbus</h1>
   <NuiBox
     style="margin-bottom: 50px;
     width: 500px;
-    margin: 0 auto;
+    margin: 24px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,8 +28,8 @@
     <NuiAvatar initials="JG" imageUrl="https://i.pravatar.cc/150?img=10" size="large" />
     <NuiLink url="#">Test Link</NuiLink>
     <NuiLink url="https://www.google.com" external>Test Link</NuiLink>
-    <NuiIconContainer><svg fill="var(--px-color-text)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M32 400C32 479.5 96.5 544 176 544L480 544C550.7 544 608 486.7 608 416C608 364.4 577.5 319.9 533.5 299.7C540.2 286.6 544 271.7 544 256C544 203 501 160 448 160C430.3 160 413.8 164.8 399.6 173.1C375.5 127.3 327.4 96 272 96C192.5 96 128 160.5 128 240C128 248 128.7 255.9 129.9 263.5C73 282.7 32 336.6 32 400z"/></svg></NuiIconContainer>
-    <NuiIconContainer isClickable><svg fill="var(--px-color-text)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M32 400C32 479.5 96.5 544 176 544L480 544C550.7 544 608 486.7 608 416C608 364.4 577.5 319.9 533.5 299.7C540.2 286.6 544 271.7 544 256C544 203 501 160 448 160C430.3 160 413.8 164.8 399.6 173.1C375.5 127.3 327.4 96 272 96C192.5 96 128 160.5 128 240C128 248 128.7 255.9 129.9 263.5C73 282.7 32 336.6 32 400z"/></svg></NuiIconContainer>
+    <NuiIconContainer><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M32 400C32 479.5 96.5 544 176 544L480 544C550.7 544 608 486.7 608 416C608 364.4 577.5 319.9 533.5 299.7C540.2 286.6 544 271.7 544 256C544 203 501 160 448 160C430.3 160 413.8 164.8 399.6 173.1C375.5 127.3 327.4 96 272 96C192.5 96 128 160.5 128 240C128 248 128.7 255.9 129.9 263.5C73 282.7 32 336.6 32 400z"/></svg></NuiIconContainer>
+    <NuiIconContainer isClickable><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M32 400C32 479.5 96.5 544 176 544L480 544C550.7 544 608 486.7 608 416C608 364.4 577.5 319.9 533.5 299.7C540.2 286.6 544 271.7 544 256C544 203 501 160 448 160C430.3 160 413.8 164.8 399.6 173.1C375.5 127.3 327.4 96 272 96C192.5 96 128 160.5 128 240C128 248 128.7 255.9 129.9 263.5C73 282.7 32 336.6 32 400z"/></svg></NuiIconContainer>
     <NuiInput
       v-model="testInput"
       id="test-input"
@@ -227,24 +227,6 @@
     ]"
     placeholder="Select a fruit"
   />
-  <div style="height:50vh" />
-    <div style="width: 100vw; height: 50vh; background-color: #edb1c0; display: flex; justify-content: center; align-items: center;">
-    <NuiBox
-      style="
-      width: 40vw;
-      height: 40vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-left: 50px;
-      background: #edb1c0;
-      box-shadow:  10px 10px 12px #dca5b3,
-             -10px -10px 16px #febdcd;"
-    >
-      <NuiText as="p">pink this one for sure</NuiText>
-    </NuiBox>
-  </div>
 </template>
 
 <script setup>
