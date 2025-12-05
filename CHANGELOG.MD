@@ -21,3 +21,4 @@
   - Spacing
   - Color
   - Elevation
+- Plugin setup to globally register all components
