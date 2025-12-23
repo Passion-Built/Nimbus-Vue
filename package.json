@@ -3,6 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/nimbus-ui.cjs.js",
+  "module": "./dist/nimbus-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/nimbus-ui.es.js",
+      "require": "./dist/nimbus-ui.cjs.js"
+    }
+  },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },

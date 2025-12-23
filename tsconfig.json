@@ -1,9 +1,0 @@
-{
-  "extends": "@vue/tsconfig/tsconfig.json",
-  "include": ["src/**/*.ts", "src/**/*.vue"],
-  "compilerOptions": {
-    "strict": true,
-    "useDefineForClassFields": true,
-    "skipLibCheck": true
-  }
-}

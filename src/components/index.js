@@ -1,4 +1,3 @@
-// src/components/index.ts
 export { default as PxAvatar } from './PxAvatar.vue'
 export { default as PxBox } from './PxBox.vue'
 export { default as PxButton } from './PxButton.vue'
@@ -10,5 +9,3 @@ export { default as PxLink } from './PxLink.vue'
 export { default as PxSelect } from './PxSelect.vue'
 export { default as PxText } from './PxText.vue'
 export { default as PxTextarea } from './PxTextarea.vue'
-
-

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['Px-icon-container', {'Px-icon-container--clickable': isClickable}]" :tabindex="isClickable ? 0 : null">
+  <div :class="['Px-icon-container', {'Px-icon-container--clickable': isClickable}]" :tabindex="isClickable ? 0 : undefined">
     <slot />
   </div>
 </template>
