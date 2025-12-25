@@ -1,6 +1,6 @@
 <template>
   <PxButton @click="toggleTheme()" style="position: fixed; top: 8px; right: 8px;">Toggle Theme</PxButton>
-  <h1>passion presents: nimbus</h1>
+  <h1>passion presents: nimbus</h1> 
   <PxBox
     style="margin-bottom: 50px;
     width: 500px;
