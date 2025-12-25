@@ -14,6 +14,7 @@
       "require": "./dist/nimbus-ui.cjs.js"
     }
   },
+  "./style.css": "./dist/nimbus-ui.css",
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
@@ -23,6 +24,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "vite-plugin-css-injected-by-js": "^3.5.2",
     "vue": "^3.5.22",
     "vue-select": "^4.0.0-beta.6"
   },
@@ -30,8 +32,6 @@
     "@types/vue-select": "^3.16.8",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
-    "sass": "^1.94.0",
-    "sass-loader": "^16.0.6",
     "typescript": "^5.9.3",
     "vite": "^7.1.11",
     "vite-plugin-vue-devtools": "^8.0.3"

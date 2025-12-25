@@ -30,7 +30,7 @@ const getElement = () => {
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .Px-btn {
   background-color: var(--px-btn-primary-bg);
   border: none;

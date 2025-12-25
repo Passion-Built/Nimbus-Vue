@@ -22,7 +22,7 @@ const props = defineProps<{
 const size = props.size ?? 'medium'
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .Px-avatar {
   display: flex;
   justify-content: center;

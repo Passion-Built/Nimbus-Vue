@@ -10,7 +10,7 @@ const props = defineProps<{
 }>()
 </script>
 
-<style>
+<style scoped>
 .Px-icon-container {
   background-color: var(--px-icon-container-bg);
   height: var(--px-space-400);

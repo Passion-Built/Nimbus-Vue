@@ -72,7 +72,7 @@ const generateAttribute = (attribute: string): string | undefined => {
 }
 </script>
 
-<style>
+<style scoped>
 /* Root select container */
 .Px-select {
   display: flex;

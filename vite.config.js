@@ -1,14 +1,16 @@
-import { dirname, resolve } from 'node:path'
-import { fileURLToPath, URL } from 'node:url'
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import cssInject from 'vite-plugin-css-injected-by-js'
+import { resolve } from 'node:path'
+import { fileURLToPath, URL } from 'node:url'
+import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
+    cssInject(),
   ],
   resolve: {
     alias: {
@@ -29,6 +31,6 @@ export default defineConfig({
           vue: 'Vue'
         }
       }
-    }
+    },
   },
 })

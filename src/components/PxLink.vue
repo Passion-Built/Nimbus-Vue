@@ -15,7 +15,7 @@ const props = defineProps<{
 }>()
 </script>
 
-<style>
+<style scoped>
 .Nui-link {
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);
