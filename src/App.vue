@@ -15,12 +15,21 @@
     <PxText as="p">testing paragraph</PxText>
     <PxText as="span">testing span</PxText>
     <PxText as="li">testing li</PxText>
-    <PxText as="h1">testing h1</PxText>
-    <PxText as="h2">testing h2</PxText>
+    <PxText as="h1" align="right">testing h1</PxText>
+    <PxText as="h2" align="center">testing h2</PxText>
     <PxText as="h3">testing h3</PxText>
     <PxText as="h4">testing h4</PxText>
     <PxText as="h5">testing h5</PxText>
     <PxText as="h6">testing h6</PxText>
+    <PxText as="p" align="right">Test right</PxText>
+    <PxText as="p" align="left">Test left</PxText>
+    <PxText as="p" align="center">Test center</PxText>
+    <PxText as="p" align="center" weight="bold">Test center bold</PxText>
+    <PxText as="p" align="center" weight="semibold">Test center semi bold</PxText>
+    <PxText as="p" align="center" weight="light">Test center light</PxText>
+    <PxText as="p" align="center" size="medium" weight="bold">Test center bold</PxText>
+    <PxText as="p" align="center" size="large" weight="semibold">Test center semi bold</PxText>
+    <PxText as="p" align="center" size="small" weight="light">Test center light</PxText>
     <PxButton>primary button</PxButton>
     <PxButton disabled>disabled button</PxButton>
     <PxButton variant="ghost">ghost button</PxButton>

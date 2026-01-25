@@ -8,8 +8,8 @@
 const props = defineProps<{
   as?: 'p' | 'span' | 'li' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   align?: 'left' | 'center' | 'right';
-  size?: 'sm' | 'md' | 'lg';
-  weight?: 'light' | 'normal' | 'semibold' | 'bold';
+  size?: 'small' | 'medium' | 'large';
+  weight?: 'normal' | 'semibold' | 'bold';
 }>()
 
 const as = props.as ?? 'p';
@@ -59,9 +59,9 @@ h6 { font-size: var(--px-font-size-heading-06); line-height: var(--px-line-heigh
   margin: unset;
   width: 100%;
 
-  +.nui-text--sm { font-size: 0.875rem; line-height: var(--px-line-height-body-sm); }
-  +.nui-text--md { font-size: 1rem; line-height: var(--px-line-height-body); }
-  +.nui-text--lg { font-size: 1.125rem; line-height: var(--px-line-height-body-lg); }
+  +.nui-text--small { font-size: var(--px-font-size-body-sm); line-height: var(--px-line-height-body-sm); }
+  +.nui-text--medium { font-size: var(--px-font-size-body); line-height: var(--px-line-height-body); }
+  +.nui-text--large { font-size: var(--px-font-size-body-lg); line-height: var(--px-line-height-body-lg); }
 
   +.nui-text--light { font-weight: var(--px-font-weight-light); }
   +.nui-text--normal { font-weight: var(--px-font-weight-normal); }
