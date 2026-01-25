@@ -30,6 +30,7 @@
     <PxText as="p" align="center" size="medium" weight="bold">Test center bold</PxText>
     <PxText as="p" align="center" size="large" weight="semibold">Test center semi bold</PxText>
     <PxText as="p" align="center" size="small" weight="light">Test center light</PxText>
+    <PxText>default text</PxText>
     <PxButton>primary button</PxButton>
     <PxButton disabled>disabled button</PxButton>
     <PxButton variant="ghost">ghost button</PxButton>

@@ -14,6 +14,7 @@ const props = defineProps<{
 
 const as = props.as ?? 'p';
 const align = props.align ?? 'left';
+const size = props.size ?? 'medium'
 
 const getClass = () => {
   const headings = ['h1','h2','h3','h4','h5','h6'];
@@ -27,7 +28,7 @@ const getClass = () => {
 
   // only add size/weight for paragraphs
   if (!isHeading) {
-    if (props.size) classes.push(`nui-text--${props.size}`);
+    if (props.size) classes.push(`nui-text--${size}`);
     if (props.weight) classes.push(`nui-text--${props.weight}`);
   }
 
@@ -38,7 +39,6 @@ const getClass = () => {
 <style scoped>
 .Nui-heading {
   font-family: var(--px-font-family-headings);
-  font-weight: var(--px-font-weight-semibold);
   color: var(--px-color-text);
   margin: 0;
   width: 100%;
