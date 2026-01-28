@@ -10,7 +10,6 @@ body, p, span, li {
 /* Headings fallback  */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--px-font-family-heading);
-  font-weight: var(--px-font-weight-bold);
   color: var(--px-color-text);
   line-height: var(--px-line-height-heading);
   margin: 0;

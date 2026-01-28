@@ -10,12 +10,16 @@
     align-items: center;
     justify-content: center;
     gap:12px">
-    <PxText as="h1">Amazing Heading</PxText>
+    <PxText as="h1" weight="bold">Amazing Heading</PxText>
     <PxText as="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla qui vel explicabo vitae odio dolor iusto nihil exercitationem repudiandae mollitia, molestias quidem animi, libero cumque sapiente. Optio numquam aliquid non?</PxText>
     <PxText as="p">testing paragraph</PxText>
+    <PxText as="p" italic>testing paragraph</PxText>
     <PxText as="span">testing span</PxText>
     <PxText as="li">testing li</PxText>
     <PxText as="h1" align="right">testing h1</PxText>
+    <PxText as="h1" align="right" italic>testing h1 italic</PxText>
+    <PxText as="h1" align="right" weight="bold">testing h1 bold</PxText>
+    <PxText as="h1" align="right" weight="bold" italic>testing h1 bold italic</PxText>
     <PxText as="h2" align="center">testing h2</PxText>
     <PxText as="h3">testing h3</PxText>
     <PxText as="h4">testing h4</PxText>
@@ -26,6 +30,8 @@
     <PxText as="p" align="center">Test center</PxText>
     <PxText as="p" align="center" weight="bold">Test center bold</PxText>
     <PxText as="p" align="center" weight="semibold">Test center semi bold</PxText>
+    <PxText as="p" align="center" weight="bold" italic>Test center bold</PxText>
+    <PxText as="p" align="center" weight="semibold" italic>Test center semi bold</PxText>
     <PxText as="p" align="center" weight="light">Test center light</PxText>
     <PxText as="p" align="center" size="medium" weight="bold">Test center bold</PxText>
     <PxText as="p" align="center" size="large" weight="semibold">Test center semi bold</PxText>

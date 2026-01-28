@@ -6,33 +6,33 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  as?: 'p' | 'span' | 'li' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  align?: 'left' | 'center' | 'right';
-  size?: 'small' | 'medium' | 'large';
-  weight?: 'normal' | 'semibold' | 'bold';
+  as?: 'p' | 'span' | 'li' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  align?: 'left' | 'center' | 'right'
+  size?: 'small' | 'medium' | 'large'
+  weight?: 'normal' | 'semibold' | 'bold'
+  italic?: boolean
 }>()
 
-const as = props.as ?? 'p';
-const align = props.align ?? 'left';
+const as = props.as ?? 'p'
+const align = props.align ?? 'left'
 const size = props.size ?? 'medium'
+const weight = props.weight ?? 'normal'
 
 const getClass = () => {
-  const headings = ['h1','h2','h3','h4','h5','h6'];
-  const isHeading = headings.includes(as);
+  const headings = ['h1','h2','h3','h4','h5','h6']
+  const isHeading = headings.includes(as)
 
-  // base class
-  const textType = isHeading ? 'Nui-heading' : 'Nui-text';
+  // define base class
+  const textType = isHeading ? 'Nui-heading' : 'Nui-text'
   
-  // add base + alignment
-  const classes = [textType, `nui-text--${align}`];
+  // add base + aligntment + size, if provided
+  const classes = [textType, `Nui-text--${align}`, `Nui-text--${weight}`]
 
-  // only add size/weight for paragraphs
-  if (!isHeading) {
-    if (props.size) classes.push(`nui-text--${size}`);
-    if (props.weight) classes.push(`nui-text--${props.weight}`);
-  }
+  // only add weight for paragraphs
+  if (!isHeading && props.size) classes.push(`Nui-text--${size}`)
+  if (props.italic) classes.push('Nui-text--italic')
 
-  return classes.join(' ');
+  return classes.join(' ')
 };
 </script>
 
@@ -42,6 +42,8 @@ const getClass = () => {
   color: var(--px-color-text);
   margin: 0;
   width: 100%;
+
+  +.Nui-text--bold { font-weight: var(--px-font-weight-bold); }
 }
 
 h1 { font-size: var(--px-font-size-heading-01); line-height: var(--px-line-height-heading-01); }
@@ -55,21 +57,24 @@ h6 { font-size: var(--px-font-size-heading-06); line-height: var(--px-line-heigh
   font-family: var(--px-font-family-body);
   font-weight: var(--px-font-weight-normal);
   line-height: var(--px-line-height-body);
+  letter-spacing: var(--px-text-letter-spacing);
   color: var(--px-color-text);
   margin: unset;
   width: 100%;
 
-  +.nui-text--small { font-size: var(--px-font-size-body-sm); line-height: var(--px-line-height-body-sm); }
-  +.nui-text--medium { font-size: var(--px-font-size-body); line-height: var(--px-line-height-body); }
-  +.nui-text--large { font-size: var(--px-font-size-body-lg); line-height: var(--px-line-height-body-lg); }
-
-  +.nui-text--light { font-weight: var(--px-font-weight-light); }
-  +.nui-text--normal { font-weight: var(--px-font-weight-normal); }
-  +.nui-text--semibold { font-weight: var(--px-font-weight-semibold); }
-  +.nui-text--bold { font-weight: var(--px-font-weight-bold); }
+  &.Nui-text--small { font-size: var(--px-font-size-body-sm); line-height: var(--px-line-height-body-sm); }
+  &.Nui-text--medium { font-size: var(--px-font-size-body); line-height: var(--px-line-height-body); }
+  &.Nui-text--large { font-size: var(--px-font-size-body-lg); line-height: var(--px-line-height-body-lg); }
 }
 
-.nui-text--left { text-align: left; }
-.nui-text--center { text-align: center; }
-.nui-text--right { text-align: right; }
+.Nui-text--left { text-align: left; }
+.Nui-text--center { text-align: center; }
+.Nui-text--right { text-align: right; }
+
+.Nui-text--light { font-weight: var(--px-font-weight-light); }
+.Nui-text--normal { font-weight: var(--px-font-weight-normal); }
+.Nui-text--semibold { font-weight: var(--px-font-weight-semibold); }
+.Nui-text--bold { font-weight: var(--px-font-weight-bold); }
+
+.Nui-text--italic { font-style: italic; }
 </style>

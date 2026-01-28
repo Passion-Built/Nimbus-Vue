@@ -1,15 +1,23 @@
+
 @font-face {
-  font-family: 'Space Mono';
-  src: url('../../assets/fonts/Space_Mono/SpaceMono-Regular.ttf') format('truetype');
+  font-family: 'Sora';
+  src: url('../../assets/fonts/Sora/Sora-Regular.ttf') format('truetype');
   font-weight: 400;
-  font-style: normal;
+  font-style: normal
 }
 
 @font-face {
-  font-family: 'Space Mono';
-  src: url('../../assets/fonts/Space_Mono/SpaceMono-Bold.ttf') format('truetype');
+  font-family: 'Sora';
+  src: url('../../assets/fonts/Sora/Sora-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('../../assets/fonts/Sora/Sora-Bold.ttf') format('truetype');
   font-weight: 700;
-  font-style: normal;
+  font-style: normal
 }
 
 @font-face {
@@ -21,9 +29,23 @@
 
 @font-face {
   font-family: 'Lora';
+  src: url('../../assets/fonts/Lora/Lora-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lora';
   src: url('../../assets/fonts/Lora/Lora-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('../../assets/fonts/Lora/Lora-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
 }
 
 @font-face {
@@ -34,8 +56,8 @@
 }
 
 :root {
-  --px-font-family-headings: "Space Mono", ui-monospace, monospace;
-  --px-font-family-body: "Lora", serif;
+  --px-font-family-headings: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --px-font-family-body: "Lora", Georgia, Cambria, serif;
 
   --px-font-size-01: 1.2rem;
   --px-font-size-02: 1.4rem;
@@ -74,6 +96,8 @@
   --px-line-height-body: 1.25;
   --px-line-height-body-sm: 1.2;
   --px-line-height-caption: 1.1;
+
+  --px-text-letter-spacing: .12rem;
 
   --px-avatar-large-font-size: var(--px-font-size-08);
 }
