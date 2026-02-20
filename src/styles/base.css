@@ -1,5 +1,5 @@
 /* Body text defaults */
-body, p, span, li {
+.nimbus body, .nimbus p, .nimbus span, .nimbus li {
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);
   line-height: var(--px-line-height-body);
@@ -8,7 +8,7 @@ body, p, span, li {
 }
 
 /* Headings fallback  */
-h1, h2, h3, h4, h5, h6 {
+.nimbus h1, .nimbus h2, .nimbus h3, .nimbus h4, .nimbus h5, .nimbus h6 {
   font-family: var(--px-font-family-heading);
   color: var(--px-color-text);
   line-height: var(--px-line-height-heading);

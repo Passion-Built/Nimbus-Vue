@@ -15,19 +15,19 @@
 </template>
  
 <script setup lang="ts">
-interface Props {
+const props = withDefaults(defineProps<{
   disabled?: boolean
   url?: string
-  variant?: 'ghost' | null
-}
-const props = defineProps<Props>()
+  variant?: 'ghost' | 'default'
+}>(), {
+  variant: 'default',
+})
 
 const getElement = () => {
   let element = 'button';
   if (props.url) element = 'a';
   return element;
 };
-
 </script>
 
 <style scoped>
