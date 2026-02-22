@@ -28,7 +28,7 @@ const getClass = () => {
   // add base + aligntment + size, if provided
   const classes = [textType, `Nui-text--${align}`, `Nui-text--${weight}`]
 
-  // only add weight for paragraphs
+  // only add size for paragraphs
   if (!isHeading && props.size) classes.push(`Nui-text--${size}`)
   if (props.italic) classes.push('Nui-text--italic')
 

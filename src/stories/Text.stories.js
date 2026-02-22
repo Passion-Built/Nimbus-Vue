@@ -14,6 +14,11 @@ export default {
       options: ['p', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       description: 'The HTML tag to render the text as.',
     },
+    align: {
+      control: { type: 'select' },
+      options: ['left', 'center', 'right'],
+      description: 'The text alignment.',
+    },
     size: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large'],
