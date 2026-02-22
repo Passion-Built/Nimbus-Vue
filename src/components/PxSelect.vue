@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { readonly, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 import vSelect from 'vue-select';
 import 'vue-select/dist/vue-select.css';
 
@@ -51,7 +51,7 @@ const props = defineProps<{
   isInvalid?: boolean
   label?: string
   modelValue?: string | number
-  options: Array<string | Option>
+  options?: Array<string | Record<string, any>>
   placeholder?: string
   readOnly?: boolean
 }>()

@@ -62,7 +62,7 @@ const generateAttribute = (attribute: string): string | undefined => {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 .Px-input {
   display: flex;
   flex-direction: column;
@@ -81,6 +81,8 @@ const generateAttribute = (attribute: string): string | undefined => {
     letter-spacing: 1px;
     box-sizing: border-box;
     box-shadow: var(--px-form-shadow);
+    color: var(--px-form-text);
+    
 
     &:hover:not(:disabled) {
       box-shadow: var(--px-form-shadow-hover);

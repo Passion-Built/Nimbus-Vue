@@ -68,8 +68,8 @@
     inset -4px -4px 4px var(--px-shadow-light);
   --px-form-shadow-focus:
     0 0 3px 2px var(--px-focus-outline),
-    inset 2px 2px 2px var(--px-focus-outline-dark),
-    inset -2px -2px 2px var(--px-focus-outline-light);
+    inset 2px 2px 2px var(--px-focus-outline-light),
+    inset -2px -2px 2px var(--px-focus-outline-dark);
   --px-form-shadow-disabled:
     inset 2px 2px 3px var(--px-shadow-disabled-medium),
     inset -2px -2px 3px var(--px-shadow-disabled-light);

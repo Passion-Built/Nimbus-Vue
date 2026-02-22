@@ -1,5 +1,5 @@
 <template>
-  <div :class="['Px-icon-container', {'Px-icon-container--clickable': isClickable}]" :tabindex="isClickable ? 0 : null">
+  <div :class="['Px-icon-container', {'Px-icon-container--clickable': isClickable}]" :tabindex="isClickable ? 0 : undefined">
     <slot />
   </div>
 </template>
@@ -10,7 +10,7 @@ const props = defineProps<{
 }>()
 </script>
 
-<style>
+<style scoped>
 .Px-icon-container {
   background-color: var(--px-icon-container-bg);
   height: var(--px-space-400);

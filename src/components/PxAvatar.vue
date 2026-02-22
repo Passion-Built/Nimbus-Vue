@@ -12,17 +12,17 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
+withDefaults(defineProps<{
   altText?: string
   imageUrl?: string
   initials?: string
   size?: 'medium' | 'large'
-}>()
-
-const size = props.size ?? 'medium'
+}>(), {
+  size: 'medium',
+})
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .Px-avatar {
   display: flex;
   justify-content: center;

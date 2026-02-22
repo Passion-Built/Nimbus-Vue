@@ -1,6 +1,6 @@
 <template>
   <a
-    class="Nui-link"
+    :class="['Nui-link', {'Niu-link--navigation': navigation}]"
     :href="url"
     :target="external ? '_blank' : ''"
   >
@@ -12,10 +12,11 @@
 const props = defineProps<{
   url?: string
   external?: boolean
+  navigation?: boolean
 }>()
 </script>
 
-<style>
+<style scoped>
 .Nui-link {
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);
@@ -41,6 +42,23 @@ const props = defineProps<{
   &:focus-visible {
     outline: 2px solid var(--px-focus-outline);
     outline-offset: 3px;
+  }
+}
+
+.Niu-link--navigation {
+  text-decoration: none;
+  color: var(--px-color-text);
+
+  &:visited {
+    color: var(--px-color-text);
+  }
+
+  &:hover {
+    color: var(--px-color-text-subtle-hover);
+  }
+
+  &:active {
+    color: var(--px-color-link-visited);
   }
 }
 </style>

@@ -63,7 +63,7 @@ const generateAttribute = (attribute: string): string | undefined => {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 .Px-textarea {
   display: flex;
   flex-direction: column;

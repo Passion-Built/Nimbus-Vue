@@ -29,7 +29,7 @@ const props = defineProps<{
 const emit = defineEmits(['update:isOpen'])
 </script>
 
-<style>
+<style scoped>
 html:has(.Px-dialog--open) {
   overflow: hidden;
 }
