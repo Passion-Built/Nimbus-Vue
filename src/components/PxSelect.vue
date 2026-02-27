@@ -146,6 +146,10 @@ const generateAttribute = (attribute: string): string | undefined => {
     margin-top: 8px;
     border-radius: var(--px-form-border-radius);
   }
+
+  .vs__dropdown-option {
+    font-size: var(--px-font-size-body);
+  }
 }
 
 /* Open state */

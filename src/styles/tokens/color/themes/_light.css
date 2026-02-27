@@ -62,7 +62,7 @@
   --vs-border-width: 0px;
 
   /* Fonts */
-  --vs-font-size: var(--px-space-200);
+  --vs-font-size: var(--px-font-size-03);
   --vs-line-height: unset;
 
   /* Colors */
