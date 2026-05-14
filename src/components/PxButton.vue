@@ -4,11 +4,13 @@
     :class="[
       'Px-btn',
       {'Px-btn--disabled': disabled},
-      {'Px-btn--ghost': variant === 'ghost'}
+      {'Px-btn--ghost': variant === 'ghost'},
+      {'Px-btn--full-width': fullWidth},
     ]"
     :href="url"
     :disabled="disabled && !url ? disabled : null"
     :aria-disabled="disabled && url ? disabled : null"
+    :type="!url ? type : null"
   >
     <slot />
   </component>
@@ -17,10 +19,13 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
   disabled?: boolean
+  fullWidth?: boolean
   url?: string
+  type?: 'button' | 'submit'
   variant?: 'ghost' | 'default'
 }>(), {
   variant: 'default',
+  type: 'button',
 })
 
 const getElement = () => {
@@ -47,11 +52,11 @@ const getElement = () => {
   transition: all .25s ease-in-out;
 
   &:hover {
-    box-shadow: var(--px-btn-shadow-active);
-  }
-  
-  &:active {
     box-shadow: var(--px-btn-shadow-hover);
+  }
+
+  &:active {
+    box-shadow: var(--px-btn-shadow-active);
   }
 
   &:focus-visible {
@@ -75,6 +80,10 @@ const getElement = () => {
 
 a.Px-btn {
   text-decoration: none;
+}
+
+.Px-btn--full-width {
+  width: 100%;
 }
 
 .Px-btn--disabled {

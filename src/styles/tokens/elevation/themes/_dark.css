@@ -28,14 +28,15 @@
 
   /* Box */
   --px-box-shadow: var(--px-elevation-overlay);
+  --px-box-shadow-hover: var(--px-btn-shadow-active);
 
   /* Button */
   --px-btn-shadow: var(--px-elevation-raised);
   --px-btn-shadow-hover:
-    inset 2px 2px 2px var(--px-shadow-medium),
+    inset 2px 2px 2px var(--px-shadow-dark),
     inset -2px -2px 2px var(--px-shadow-light);
   --px-btn-shadow-active:
-    inset 2px 2px 2px var(--px-shadow-dark),
+    inset 2px 2px 2px var(--px-shadow-medium),
     inset -2px -2px 2px var(--px-shadow-light);
   --px-btn-ghost-shadow-hover:
     1px 1px 4px var(--px-shadow-dark),

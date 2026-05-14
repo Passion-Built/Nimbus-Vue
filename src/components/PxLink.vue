@@ -1,6 +1,6 @@
 <template>
   <a
-    :class="['Nui-link', {'Niu-link--navigation': navigation}]"
+    :class="['Px-link', {'Niu-link--navigation': navigation}]"
     :href="url"
     :target="external ? '_blank' : ''"
   >
@@ -17,7 +17,7 @@ const props = defineProps<{
 </script>
 
 <style scoped>
-.Nui-link {
+.Px-link {
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);
   font-weight: var(--px-font-weight-normal);
