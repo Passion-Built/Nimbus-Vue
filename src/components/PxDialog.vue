@@ -1,39 +1,90 @@
 <template>
-  <div :class="['Px-dialog__container', {'Px-dialog--open': isOpen}]">
-    <div class="Px-dialog__overlay" />
-    <div
-      :class="['Px-dialog', {'Px-dialog--open': isOpen}]"
-      role="dialog"
-      aria-modal="true"
-    >
-      <div class="Px-dialog__header">
-        <slot name="header" />
-      </div>
-  
-      <div class="Px-dialog__body">
-        <slot />
-      </div>
-  
-      <div class="Px-dialog__footer">
-        <slot name="footer" />
+  <Teleport to="body">
+    <div v-if="isOpen" class="Px-dialog__container">
+      <div class="Px-dialog__overlay" @click="emit('update:isOpen', false)" />
+      <div
+        ref="dialogRef"
+        class="Px-dialog"
+        role="dialog"
+        aria-modal="true"
+        tabindex="-1"
+      >
+        <div class="Px-dialog__header">
+          <slot name="header" />
+        </div>
+
+        <div class="Px-dialog__body">
+          <slot />
+        </div>
+
+        <div class="Px-dialog__footer">
+          <slot name="footer" />
+        </div>
       </div>
     </div>
-  </div>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
+import { ref, watch, nextTick, onUnmounted } from 'vue'
+
 const props = defineProps<{
   isOpen: boolean
 }>()
 
 const emit = defineEmits(['update:isOpen'])
+const dialogRef = ref<HTMLElement | null>(null)
+const trigger = ref<HTMLElement | null>(null)
+
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+function getFocusable() {
+  return Array.from(dialogRef.value?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? [])
+}
+
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape') {
+    emit('update:isOpen', false)
+    return
+  }
+
+  if (e.key !== 'Tab') return
+
+  const focusable = getFocusable()
+  if (!focusable.length) return
+
+  const first = focusable[0]
+  const last = focusable[focusable.length - 1]
+
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault()
+    last.focus()
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault()
+    first.focus()
+  }
+}
+
+watch(() => props.isOpen, (open) => {
+  document.body.style.overflow = open ? 'hidden' : ''
+  if (open) {
+    trigger.value = document.activeElement as HTMLElement
+    window.addEventListener('keydown', onKeydown)
+    nextTick(() => (getFocusable()[0] ?? dialogRef.value)?.focus())
+  } else {
+    window.removeEventListener('keydown', onKeydown)
+    trigger.value?.focus()
+    trigger.value = null
+  }
+})
+
+onUnmounted(() => {
+  document.body.style.overflow = ''
+  window.removeEventListener('keydown', onKeydown)
+})
 </script>
 
 <style scoped>
-html:has(.Px-dialog--open) {
-  overflow: hidden;
-}
-
 .Px-dialog__container {
   width: 100vw;
   height: 100vh;
@@ -41,14 +92,6 @@ html:has(.Px-dialog--open) {
   top: 0;
   left: 0;
   z-index: 99;
-  transition: all .25s ease;
-  opacity: 0;
-  visibility: hidden;
-
-  &.Px-dialog--open {
-    opacity: 1;
-    visibility: visible;
-  }
 }
 
 .Px-dialog__overlay {

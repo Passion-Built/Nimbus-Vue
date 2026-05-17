@@ -199,7 +199,7 @@
       ]"
       placeholder="Select a fruit"
     />
-    <PxDialog :isOpen="testDialog">
+    <PxDialog v-model:isOpen="testDialog">
       <template #header>
         <PxText as="h2">Sign up for Newsletter</PxText>
       </template>
