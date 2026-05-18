@@ -34,6 +34,10 @@ export default {
       control: 'text',
       description: 'Error message displayed below the input when there is an error.',
     },
+    helperMessage: {
+      control: 'text',
+      description: 'Hint text shown below the input when there is no error..'
+    },
     isRequired: {
       control: 'boolean',
       description: 'Indicates that the input is required.',
@@ -42,6 +46,7 @@ export default {
       control: 'boolean',
       description: 'Indicates that the input is in an invalid state.',
     },
+
   },
   render: (args) => ({
     components: { PxInput },

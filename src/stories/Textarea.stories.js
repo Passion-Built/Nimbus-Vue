@@ -29,6 +29,10 @@ export default {
       control: 'text',
       description: 'Error message displayed below the textarea when there is an error.',
     },
+    helperMessage: {
+      control: 'text',
+      description: 'Hint text shown below the input when there is no error.'
+    },
     isRequired: {
       control: 'boolean',
       description: 'Indicates that the textarea is required.',
@@ -36,6 +40,11 @@ export default {
     isInvalid: {
       control: 'boolean',
       description: 'Indicates that the textarea is in an invalid state.',
+    },
+    resize: {
+      control: 'select',
+      options: ['vertical', 'horizontal', 'both', 'auto'],
+      description: 'Controls resize behavior. auto grows the textarea height to fit its content.',
     },
   },
   render: (args) => ({
