@@ -1,8 +1,9 @@
 <template>
   <a
-    :class="['Px-link', {'Niu-link--navigation': navigation}]"
+    :class="['Px-link', {'Px-link--navigation': navigation}]"
     :href="url"
     :target="external ? '_blank' : ''"
+    :rel="external ? 'noopener noreferrer' : undefined"
   >
     <slot />
 </a>
@@ -45,7 +46,7 @@ const props = defineProps<{
   }
 }
 
-.Niu-link--navigation {
+.Px-link--navigation {
   text-decoration: none;
   color: var(--px-color-text);
 

@@ -227,8 +227,9 @@
   <PxTextarea
     v-model="testTextarea"
     id="test-textarea"
-    placeholder="Test Textarea"
+    placeholder="Test Textarea resize"
     label="Textarea Label"
+    resize="horizontal"
   />
   <PxAvatar initials="JG" />
   <PxAvatar initials="JG" imageUrl="https://i.pravatar.cc/150?img=10" />

@@ -1,7 +1,11 @@
 <template>
-  <div :class="['Px-icon-container', {'Px-icon-container--clickable': isClickable}]" :tabindex="isClickable ? 0 : undefined">
+  <component
+    :is="isClickable ? 'button' : 'div'"
+    :class="['Px-icon-container', {'Px-icon-container--clickable': isClickable}]"
+    :type="isClickable ? 'button' : undefined"
+  >
     <slot />
-  </div>
+  </component>
 </template>
 
 <script setup lang="ts">
@@ -13,12 +17,15 @@ const props = defineProps<{
 <style scoped>
 .Px-icon-container {
   background-color: var(--px-icon-container-bg);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--px-icon-container-shadow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   height: var(--px-space-400);
   width: var(--px-space-400);
-  padding: var(--px-space-050);
-  border-radius: 50%;
   padding: var(--px-space-100);
-  box-shadow: var(--px-icon-container-shadow);
 
   > svg {
     fill: var(--px-color-text);
