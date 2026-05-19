@@ -32,4 +32,31 @@
   --px-form-wrapper-padding: var(--px-space-0) var(--px-space-050);
   --px-form-required-margin: var(--px-space-050);
   --px-form-min-height: var(--px-space-800);
+
+  --px-checkbox-size: var(--px-space-250);
+  --px-checkbox-gap: var(--px-space-150);
+  --px-checkbox-border-radius: var(--px-space-050);
+  --px-checkbox-required-margin: var(--px-form-required-margin);
+
+  --px-radio-size: var(--px-space-250);
+  --px-radio-gap: var(--px-space-150);
+  --px-radio-dot-size: var(--px-space-100);
+
+  --px-tag-padding: var(--px-space-050) var(--px-space-150);
+  --px-tag-border-radius: var(--px-space-100);
+
+  --px-menu-padding: var(--px-space-100);
+  --px-menu-border-radius: var(--px-space-100);
+  --px-menu-min-width: 10rem;
+  --px-menu-z-index: 100;
+  --px-menu-item-padding: var(--px-space-100) var(--px-space-200);
+  --px-menu-item-gap: var(--px-space-100);
+
+  --px-tab-gap: var(--px-space-100);
+  --px-tab-padding: var(--px-space-100) var(--px-space-150);
+
+  --px-table-border-spacing: var(--px-space-100);
+  --px-table-row-border-radius: var(--px-form-border-radius);
+  --px-table-column-padding: var(--px-space-100) var(--px-space-200);
+  --px-table-cell-padding: var(--px-space-150) var(--px-space-200);
 }

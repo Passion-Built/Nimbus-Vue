@@ -17,6 +17,46 @@
   --px-color-link-visited: #B4A6E0;
 
   /* COMPONENTS */
+  /* Menu */
+  --px-menu-bg: var(--px-color-surface);
+  --px-menu-item-text: var(--px-color-text);
+
+  --px-menu-item-bg-hover: var(--px-shadow-medium);
+  --px-menu-item-bg-active: var(--px-shadow-dark);
+
+  /* Accordion */
+  --px-accordion-border: var(--px-shadow-medium);
+  --px-accordion-trigger-color: var(--px-color-text);
+
+  /* Tabs */
+  --px-tab-border-color: var(--px-shadow-medium);
+  --px-tab-color: var(--px-color-text-subtle);
+  --px-tab-color-hover: var(--px-color-text);
+  --px-tab-color-active: var(--px-color-text);
+  --px-tab-indicator-color: var(--px-color-text);
+
+  /* Table */
+  --px-table-cell-bg: var(--px-color-surface);
+  --px-table-column-color: var(--px-color-text-subtle);
+
+  /* Tag */
+  --px-tag-bg: var(--px-color-surface);
+  --px-tag-text: var(--px-color-text);
+
+  /* Radio */
+  --px-radio-bg: var(--px-color-surface);
+  --px-radio-bg-checked: var(--px-color-text);
+  --px-radio-dot-color: var(--px-color-surface);
+  --px-radio-required-color: var(--px-form-required);
+
+  /* Checkbox */
+  --px-checkbox-bg: var(--px-color-surface);
+  --px-checkbox-bg-checked: var(--px-color-text);
+  --px-checkbox-bg-indeterminate: var(--px-color-text);
+  --px-checkbox-check-color: var(--px-color-surface);
+  --px-checkbox-dash-color: var(--px-color-surface);
+  --px-checkbox-required-color: var(--px-form-required);
+
   /* Avatar */
   --px-avatar-bg: var(--px-color-surface);
   --px-avatar-text: var(--px-color-text);

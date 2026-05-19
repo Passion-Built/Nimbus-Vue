@@ -23,6 +23,30 @@
     -4px -4px 6px var(--px-shadow-light);
 
   /* COMPONENTS */
+  /* Menu */
+  --px-menu-shadow: var(--px-elevation-overlay);
+
+  /* Accordion */
+  --px-accordion-trigger-shadow-hover: var(--px-btn-shadow-hover);
+  --px-accordion-trigger-shadow-active: var(--px-btn-shadow-active);
+
+  /* Tabs */
+  --px-tab-shadow-hover: var(--px-btn-ghost-shadow-hover);
+  --px-tab-shadow-active: var(--px-elevation-raised);
+
+  /* Table */
+  --px-table-row-shadow: var(--px-elevation-raised);
+  --px-table-row-shadow-hover: var(--px-elevation-overlay);
+
+  /* Tag */
+  --px-tag-shadow: var(--px-elevation-raised);
+
+  /* Radio */
+  --px-radio-shadow: var(--px-elevation-sunken);
+
+  /* Checkbox */
+  --px-checkbox-shadow: var(--px-elevation-sunken);
+
   /* Avatar */
   --px-avatar-shadow: var(--px-elevation-sunken);
 

@@ -212,6 +212,45 @@
       </template>
     </PxDialog>
   <PxButton @click="testDialog = !testDialog">Open Dialog</PxButton>
+    <PxAccordion>
+      <PxAccordionItem title="What is Nimbus?" defaultOpen>
+        Nimbus is a base-level UI kit built on a neumorphic design system.
+      </PxAccordionItem>
+      <PxAccordionItem title="How do I install it?">
+        You can install Nimbus via npm or copy the components directly into your project.
+      </PxAccordionItem>
+      <PxAccordionItem title="Does it support dark mode?">
+        Yes, dark mode is supported via the data-theme attribute on the root element.
+      </PxAccordionItem>
+    </PxAccordion>
+    <PxCheckbox v-model="testCheckbox">I agree to the terms and conditions</PxCheckbox>
+    <PxCheckbox v-model="testCheckbox" isRequired>Required checkbox</PxCheckbox>
+    <PxCheckbox v-model="testCheckbox" disabled>Disabled checkbox</PxCheckbox>
+    <PxRadio v-model="testRadio" name="test" value="one">Option one</PxRadio>
+    <PxRadio v-model="testRadio" name="test" value="two">Option two</PxRadio>
+    <PxRadio v-model="testRadio" name="test" value="three" disabled>Option three (disabled)</PxRadio>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <PxTag>Default</PxTag>
+      <PxTag shape="pill">Pill</PxTag>
+      <PxTag shape="square">Square</PxTag>
+    </div>
+    <PxTabs v-model="activeTab" style="width: 100%;">
+      <PxTab value="overview">Overview</PxTab>
+      <PxTab value="details">Details</PxTab>
+      <PxTab value="settings">Settings</PxTab>
+    </PxTabs>
+    <PxText as="p" v-show="activeTab === 'overview'">Overview content goes here.</PxText>
+    <PxText as="p" v-show="activeTab === 'details'">Details content goes here.</PxText>
+    <PxText as="p" v-show="activeTab === 'settings'">Settings content goes here.</PxText>
+    <PxMenu>
+      <template #trigger>
+        <PxButton>Actions</PxButton>
+      </template>
+      <PxMenuItem>Edit</PxMenuItem>
+      <PxMenuItem>Duplicate</PxMenuItem>
+      <PxMenuItem url="#">View Details</PxMenuItem>
+      <PxMenuItem>Delete</PxMenuItem>
+    </PxMenu>
   </PxBox>
   <div style="display:flex; flex-direction:column; gap:12px; padding:12px;">
     <PxButton>primary button</PxButton>
@@ -246,6 +285,22 @@
       { label: 'Cherry', value: 'cherry' }
     ]"
     placeholder="Select a fruit"
+  />
+
+  <PxDataTable
+    style="width: 70vw; margin: 24px auto;"
+    :columns="[
+      { key: 'name', label: 'Name' },
+      { key: 'role', label: 'Role' },
+      { key: 'location', label: 'Location' },
+      { key: 'status', label: 'Status' },
+    ]"
+    :rows="[
+      { id: 1, name: 'Jess Goodlett', role: 'Designer', location: 'Austin, TX', status: 'Active' },
+      { id: 2, name: 'Alex Rivera', role: 'Engineer', location: 'New York, NY', status: 'Active' },
+      { id: 3, name: 'Sam Chen', role: 'Product', location: 'San Francisco, CA', status: 'Away' },
+      { id: 4, name: 'Jordan Lee', role: 'Marketing', location: 'Chicago, IL', status: 'Inactive' },
+    ]"
   />
 
   <div style="height: 500px" />
@@ -317,6 +372,9 @@ const testInput = ref('')
 const testInputNumber = ref('')
 const testTextarea = ref('')
 const testDialog = ref(false)
+const testCheckbox = ref(false)
+const testRadio = ref('')
+const activeTab = ref('overview')
 
 const favoriteFruit = ref('')
 
