@@ -92,24 +92,4 @@
   --px-form-text-placeholder-hover: var(--px-color-text-subtle-hover);
   --px-form-required: var(--px-color-text-red);
 
-  /* vue-select overrides */
-  /* Shadows */
-  --vs-dropdown-box-shadow: var(--px-form-shadow);
-
-  /* Sizing & spacing */
-  --vs-border-radius: var(--px-space-100);
-  --vs-dropdown-option-padding: var(--px-space-050) var(--px-space-150);
-  --vs-border-width: 0px;
-
-  /* Fonts */
-  --vs-font-size: var(--px-font-size-03);
-  --vs-line-height: unset;
-
-  /* Colors */
-  --vs-search-input-bg: #eeeeee;
-  --vs-dropdown-bg: #eeeeee;
-  --vs-state-disabled-bg: #eeeeee;
-  --vs-dropdown-option-color: #1B1B1B;
-  --vs-dropdown-option--active-bg: rgba(0, 120, 255, 0.25);
-  --vs-dropdown-option--active-color: #1B1B1B;
-}  
+}

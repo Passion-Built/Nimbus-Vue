@@ -37,8 +37,7 @@ function activate() {
   color: var(--px-tab-color);
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);
-  font-weight: var(--px-font-weight-semibold);
-  box-shadow: none;
+  box-shadow: var(--px-tab-shadow);
   transition: box-shadow 0.15s ease, color 0.15s ease;
 }
 

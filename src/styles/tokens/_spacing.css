@@ -45,6 +45,13 @@
   --px-tag-padding: var(--px-space-050) var(--px-space-150);
   --px-tag-border-radius: var(--px-space-100);
 
+  --px-select-control-gap: var(--px-space-100);
+  --px-select-dropdown-padding: var(--px-space-100);
+  --px-select-dropdown-max-height: 16rem;
+  --px-select-dropdown-z-index: 100;
+  --px-select-option-padding: var(--px-space-100) var(--px-space-200);
+  --px-select-option-border-radius: calc(var(--px-form-border-radius) - var(--px-space-025));
+
   --px-menu-padding: var(--px-space-100);
   --px-menu-border-radius: var(--px-space-100);
   --px-menu-min-width: 10rem;

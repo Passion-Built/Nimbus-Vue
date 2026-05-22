@@ -23,6 +23,10 @@
     -4px -4px 6px var(--px-shadow-light);
 
   /* COMPONENTS */
+  /* Select */
+  --px-select-shadow-open: var(--px-form-shadow);
+  --px-select-dropdown-shadow: var(--px-form-shadow);
+
   /* Menu */
   --px-menu-shadow: var(--px-elevation-overlay);
 
@@ -31,8 +35,9 @@
   --px-accordion-trigger-shadow-active: var(--px-btn-shadow-active);
 
   /* Tabs */
-  --px-tab-shadow-hover: var(--px-btn-ghost-shadow-hover);
-  --px-tab-shadow-active: var(--px-elevation-raised);
+  --px-tab-shadow: var(--px-btn-shadow);
+  --px-tab-shadow-hover: var(--px-btn-shadow-hover);
+  --px-tab-shadow-active: var(--px-btn-shadow-active);
 
   /* Table */
   --px-table-row-shadow: var(--px-elevation-raised);

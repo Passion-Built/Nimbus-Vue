@@ -1,49 +1,42 @@
 # Changelog
 
+## [Unreleased] - 2026-05-21
+
+### Changed
+- **Select**: Rewrote with Floating UI; removed `vue-select`; full keyboard nav; proper combobox ARIA; `helperMessage` prop; height now matches Input
+- **Tabs**: Added `#content` named slot; horizontal scroll with reactive arrow buttons when tabs overflow
+- **Tab**: Shadow pattern now matches Button (raised → inset hover → inset active)
+- **Tag**: Shadow pattern now matches Button
+- **Package**: `@floating-ui/vue` and `vite-plugin-css-injected-by-js` moved to `devDependencies`; `vue-select` removed
+
 ## [Unreleased] - 2026-05-19
 
 ### Added
-- **Checkbox**: new component with `modelValue` (boolean or array), `isRequired`, `isInvalid`, `indeterminate`, `name`, and `value` props; neumorphic sunken shadow unchecked, surface bg when checked; `aria-describedby` error message support
-- **DataTable**: new component with `columns` and `rows` props; neumorphic raised rows with scale + overlay shadow on hover; `col.type` for custom Vue component cell rendering
-- **Radio**: new component with `modelValue`, `isRequired`, `isInvalid`, `name`, and `value` props; neumorphic sunken shadow, inner dot on checked state
-- **Tag**: new component with `shape` (`rounded`, `square`, `pill`) and `isDecorative` props; slot-based content; neumorphic raised shadow
-- **Tabs + Tab**: new components with provide/inject architecture; `v-model` on `PxTabs` for active tab; neumorphic raised shadow on active tab, ghost hover shadow on inactive; `border-radius` top corners for tab shape
-- **Menu + MenuItem**: new components powered by Floating UI (`@floating-ui/vue`); `placement` and `offset` props on `PxMenu`; `url` prop on `PxMenuItem` renders as `<a>` or `<button>`; arrow key navigation, Escape closes with focus return to trigger, Tab closes with focus return to trigger; `preventScroll: true` on auto-focus to prevent page jump on open; `useMenuFloating` composable added to `src/composables/`
+- **Checkbox**: `modelValue`, `isRequired`, `isInvalid`, `indeterminate`, `name`, `value` props
+- **DataTable**: `columns` and `rows` props; neumorphic raised rows with hover effect; custom cell rendering via `col.type`
+- **Radio**: `modelValue`, `isRequired`, `isInvalid`, `name`, `value` props
+- **Tag**: `shape` (`rounded`, `square`, `pill`) and `isDecorative` props
+- **Tabs + Tab**: `v-model` for active tab; provide/inject architecture
+- **Menu + MenuItem**: Floating UI powered; arrow key nav; `url` prop renders as `<a>` or `<button>`; `useMenuFloating` composable
 
 ## [Unreleased] - 2026-05-17
 
 ### Added
-- **Accordion + AccordionItem**: new components with `allowMultiple` and `defaultOpen` props, full ARIA wiring, CSS grid expand animation, and neumorphic inset shadow on trigger hover/active
-- **Box**: `--px-box-shadow-hover` token referencing `--px-btn-shadow-active` for clickable hover state
+- **Accordion + AccordionItem**: `allowMultiple`, `defaultOpen` props; CSS grid expand animation
+- **Box**: Hover shadow token
 - **Button**: `fullWidth` and `type` props
-- **Input**: `helperMessage` prop; `aria-describedby` linking input to message wrapper
-- **Textarea**: `helperMessage` prop; `aria-describedby` linking textarea to message wrapper; `resize` prop with `auto` (grow on input), `vertical`, `horizontal`, and `both` options
-- **Dialog**: Native focus trap (Tab/Shift+Tab cycles within dialog, Escape closes); focus returns to trigger on close; overlay click to close; `Teleport` to body
+- **Input**: `helperMessage` prop
+- **Textarea**: `helperMessage` and `resize` props (`auto`, `vertical`, `horizontal`, `both`)
+- **Dialog**: Native focus trap; overlay click to close; `Teleport` to body
 
 ### Changed
-- **Button**: Corrected swapped `--px-btn-shadow-hover` and `--px-btn-shadow-active` token names in both light and dark themes
-- **Dialog**: Replaced CSS visibility toggle with `v-if`; body scroll lock moved to JS; removed dependency on `focus-trap-vue`
-- **IconContainer**: Renders as `<button type="button">` when `isClickable` instead of `div` with `tabindex`; icon now centered with `inline-flex`
+- **Button**: Fixed swapped hover/active shadow token names
+- **Dialog**: Replaced CSS visibility toggle with `v-if`; removed `focus-trap-vue`
+- **IconContainer**: Renders as `<button>` when `isClickable`
 
 ## [Initial]
 
 ### Added
-- Initial project setup
-- Components:
-  - Avatar
-  - Box
-  - Button
-  - Dialog
-  - Heading
-  - IconContainer
-  - Input
-  - Link
-  - Select
-  - Text
-  - Textarea
-- Token categories:
-  - Typography
-  - Spacing
-  - Color
-  - Elevation
-- Plugin setup to globally register all components
+- Initial project setup with Avatar, Box, Button, Dialog, Heading, IconContainer, Input, Link, Select, Text, Textarea
+- Token categories: Typography, Spacing, Color, Elevation
+- Global component plugin
