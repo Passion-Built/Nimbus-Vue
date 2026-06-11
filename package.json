@@ -26,11 +26,11 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "vite-plugin-css-injected-by-js": "^3.5.2",
-    "vue": "^3.5.22",
-    "vue-select": "^4.0.0-beta.6"
+    "vue": "^3.5.22"
   },
   "devDependencies": {
+    "@floating-ui/vue": "^1.1.11",
+    "vite-plugin-css-injected-by-js": "^3.5.2",
     "@chromatic-com/storybook": "^5.0.1",
     "@storybook/addon-a11y": "^10.2.8",
     "@storybook/addon-docs": "^10.2.8",

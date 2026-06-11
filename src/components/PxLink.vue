@@ -1,8 +1,9 @@
 <template>
   <a
-    :class="['Nui-link', {'Niu-link--navigation': navigation}]"
+    :class="['Px-link', {'Px-link--navigation': navigation}]"
     :href="url"
     :target="external ? '_blank' : ''"
+    :rel="external ? 'noopener noreferrer' : undefined"
   >
     <slot />
 </a>
@@ -17,7 +18,7 @@ const props = defineProps<{
 </script>
 
 <style scoped>
-.Nui-link {
+.Px-link {
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);
   font-weight: var(--px-font-weight-normal);
@@ -45,7 +46,7 @@ const props = defineProps<{
   }
 }
 
-.Niu-link--navigation {
+.Px-link--navigation {
   text-decoration: none;
   color: var(--px-color-text);
 

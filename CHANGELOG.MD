@@ -1,24 +1,42 @@
 # Changelog
 
-## [Unreleased]
+## [Unreleased] - 2026-05-21
+
+### Changed
+- **Select**: Rewrote with Floating UI; removed `vue-select`; full keyboard nav; proper combobox ARIA; `helperMessage` prop; height now matches Input
+- **Tabs**: Added `#content` named slot; horizontal scroll with reactive arrow buttons when tabs overflow
+- **Tab**: Shadow pattern now matches Button (raised → inset hover → inset active)
+- **Tag**: Shadow pattern now matches Button
+- **Package**: `@floating-ui/vue` and `vite-plugin-css-injected-by-js` moved to `devDependencies`; `vue-select` removed
+
+## [Unreleased] - 2026-05-19
 
 ### Added
-- Initial project setup
-- Components:
-  - Avatar
-  - Box
-  - Button
-  - Dialog
-  - Heading
-  - IconContainer
-  - Input
-  - Link
-  - Select
-  - Text
-  - Textarea
-- Token categories:
-  - Typography
-  - Spacing
-  - Color
-  - Elevation
-- Plugin setup to globally register all components
+- **Checkbox**: `modelValue`, `isRequired`, `isInvalid`, `indeterminate`, `name`, `value` props
+- **DataTable**: `columns` and `rows` props; neumorphic raised rows with hover effect; custom cell rendering via `col.type`
+- **Radio**: `modelValue`, `isRequired`, `isInvalid`, `name`, `value` props
+- **Tag**: `shape` (`rounded`, `square`, `pill`) and `isDecorative` props
+- **Tabs + Tab**: `v-model` for active tab; provide/inject architecture
+- **Menu + MenuItem**: Floating UI powered; arrow key nav; `url` prop renders as `<a>` or `<button>`; `useMenuFloating` composable
+
+## [Unreleased] - 2026-05-17
+
+### Added
+- **Accordion + AccordionItem**: `allowMultiple`, `defaultOpen` props; CSS grid expand animation
+- **Box**: Hover shadow token
+- **Button**: `fullWidth` and `type` props
+- **Input**: `helperMessage` prop
+- **Textarea**: `helperMessage` and `resize` props (`auto`, `vertical`, `horizontal`, `both`)
+- **Dialog**: Native focus trap; overlay click to close; `Teleport` to body
+
+### Changed
+- **Button**: Fixed swapped hover/active shadow token names
+- **Dialog**: Replaced CSS visibility toggle with `v-if`; removed `focus-trap-vue`
+- **IconContainer**: Renders as `<button>` when `isClickable`
+
+## [Initial]
+
+### Added
+- Initial project setup with Avatar, Box, Button, Dialog, Heading, IconContainer, Input, Link, Select, Text, Textarea
+- Token categories: Typography, Spacing, Color, Elevation
+- Global component plugin

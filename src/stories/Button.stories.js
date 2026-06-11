@@ -14,6 +14,15 @@ export default {
       control: 'boolean',
       description: 'Disables the button when true.',
     },
+    fullWidth: {
+      control: 'boolean',
+      description: 'Stretches the button to fill its container width.'
+    },
+    type: {
+      control: 'select',
+      options: ['button', 'submit'],
+      description: ['Corresponds with native html to set the type of the button.']
+    },
     url: {
       control: 'text',
       description: 'If provided, the button will render as an anchor tag with this URL.',
@@ -31,6 +40,9 @@ export default {
   }),
   args: { 
     default: 'Button',
+    disabled: false,
+    fullWidth: false,
+    type: 'button',
     variant: 'default',
     onClick: fn(),
   },

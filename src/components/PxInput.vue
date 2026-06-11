@@ -20,11 +20,13 @@
         :placeholder="placeholder"
         :readonly="readOnly"
         :aria-invalid="isInvalid"
+        :aria-describedby="generateAttribute('message')"
         v-bind="$attrs"
        />
      </div>
-    <div class="Px-input__message-wrapper">
-      <div v-if="isInvalid && errorMessage">{{ errorMessage }}</div>
+    <div class="Px-input__message-wrapper" :id="generateAttribute('message')">
+      <div v-if="helperMessage">{{ helperMessage }}</div>
+      <div v-else-if="isInvalid && errorMessage">{{ errorMessage }}</div>
     </div>
   </div>
 </template>
@@ -36,6 +38,7 @@ interface Props {
   id?: string
   disabled?: boolean
   errorMessage?: string
+  helperMessage?: string
   isRequired?: boolean
   isInvalid?: boolean
   label?: string

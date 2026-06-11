@@ -16,33 +16,39 @@
         class="Px-textarea__textarea"
         :id="id || generateAttribute('id')"
         v-model="textareaValue"
+        ref="textareaEl"
         :required="isRequired && !disabled && !readOnly"
         :disabled="disabled"
         :placeholder="placeholder"
         :readonly="readOnly"
         :aria-invalid="isInvalid"
+        :aria-describedby="generateAttribute('message')"
+        :style="textareaStyles"
         v-bind="$attrs"
        />
      </div>
-    <div class="Px-textarea__message-wrapper">
-      <div v-if="isInvalid && errorMessage">{{ errorMessage }}</div>
+    <div class="Px-textarea__message-wrapper" :id="generateAttribute('message')">
+      <div v-if="helperMessage">{{ helperMessage }}</div>
+      <div v-else-if="isInvalid && errorMessage">{{ errorMessage }}</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 interface Props {
   id?: string
   disabled?: boolean
   errorMessage?: string
+  helperMessage?: string
   isRequired?: boolean
   isInvalid?: boolean
   label?: string
   modelValue?: string | number
   placeholder?: string
   readOnly?: boolean
+  resize?: 'horizontal' | 'vertical' | 'both' | 'auto'
 }
 
 const props = defineProps<Props>()
@@ -54,6 +60,22 @@ const emit = defineEmits<{
 const textareaValue = computed({
   get: () => props.modelValue,
   set: (val: string | number) => emit('update:modelValue', val),
+})
+
+const textareaEl = ref<HTMLTextAreaElement | null>(null)
+
+const textareaStyles = computed(() => {
+  const styles: Record<string, string> = {}
+  styles.resize = props.resize === 'auto' ? 'none' : (props.resize ?? 'vertical')
+  if (props.resize === 'auto') styles.overflow = 'hidden'
+  return styles
+})
+
+watch(textareaValue, () => {
+  if (props.resize === 'auto' && textareaEl.value) {
+    textareaEl.value.style.height = 'auto'
+    textareaEl.value.style.height = `${textareaEl.value.scrollHeight}px`
+  }
 })
 
 const generateAttribute = (attribute: string): string | undefined => {
@@ -83,7 +105,6 @@ const generateAttribute = (attribute: string): string | undefined => {
     letter-spacing: 1px;
     box-sizing: border-box;
     box-shadow: var(--px-form-shadow);
-    resize: vertical;
 
     &:hover:not(:disabled) {
       box-shadow: var(--px-form-shadow-hover);

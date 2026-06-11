@@ -9,14 +9,24 @@ export default {
       control: 'text',
       description: 'The default text content of the box.',
     },
+    clickable: {
+      control: 'boolean',
+      description: 'Applies a pointer cursor and inset shadow on hover to indicate interactivity.',
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: 'Stretches the box to fill its container width.',
+    },
     render: (args) => ({
       components: { PxBox },
       setup() { return { args } },
       template: '<PxBox v-bind="args">{{ args.default }}</PxBox>',
     }),
   },
-  args: { 
-    default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  args: {
+    default: 'Icing lemon drops marzipan candy apple pie lollipop. I love I love icing shortbread gummies carrot cake. Candy tiramisu cookie brownie jelly-o sweet sugar plum lollipop. Fruitcake shortbread chocolate bar pie gummi bears fruitcake icing cake caramels.',
+    fullWidth: false,
+    clickable: false,
   },
 };
 
