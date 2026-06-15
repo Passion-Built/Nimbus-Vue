@@ -1,6 +1,5 @@
 /** @type { import('@storybook/vue3-vite').Preview } */
 
-import 'vue-select/dist/vue-select.css';
 import '../src/styles/index.css';
 
 const THEME_BG = {
