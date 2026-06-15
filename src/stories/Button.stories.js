@@ -21,7 +21,7 @@ export default {
     type: {
       control: 'select',
       options: ['button', 'submit'],
-      description: ['Corresponds with native html to set the type of the button.']
+      description: 'Corresponds with native html to set the type of the button.'
     },
     url: {
       control: 'text',
