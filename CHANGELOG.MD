@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased] - 2026-05-21 - feature passion v0.1.0
+### Added
+- Added `current` prop to `PxLink` to set the `aria-current` page accessibility.
+
+### Updated
+- Updated `PxLink` tokens for text-decoration.
+
 ## [Unreleased] - 2026-05-21
 
 ### Changed
