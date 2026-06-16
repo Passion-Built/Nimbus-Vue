@@ -1,9 +1,13 @@
 <template>
   <a
-    :class="['Px-link', {'Px-link--navigation': navigation}]"
+    :class="[
+      'Px-link',
+      {'Px-link--navigation': navigation},
+    ]"
     :href="url"
-    :target="external ? '_blank' : ''"
+    :target="external ? '_blank' : undefined"
     :rel="external ? 'noopener noreferrer' : undefined"
+    :aria-current="navigation && current ? 'page' : undefined"
   >
     <slot />
 </a>
@@ -14,6 +18,7 @@ const props = defineProps<{
   url?: string
   external?: boolean
   navigation?: boolean
+  current?: boolean
 }>()
 </script>
 
@@ -24,12 +29,11 @@ const props = defineProps<{
   font-weight: var(--px-font-weight-normal);
   line-height: var(--px-line-height-body);
   color: var(--px-link-text);
-  font-weight: 500;
+  text-decoration: var(--px-link-decoration, none);
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: var(--px-link-decoration-hover, var(--px-link-decoration, none));
     color: var(--px-link-text-hover);
-    text-decoration: none;
   }
 
   &:active {
@@ -44,6 +48,10 @@ const props = defineProps<{
     outline: 2px solid var(--px-focus-outline);
     outline-offset: 3px;
   }
+}
+
+.Px-link--navigation[aria-current="page"] {
+  font-weight: var(--px-font-weight-semibold);
 }
 
 .Px-link--navigation {
