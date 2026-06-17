@@ -3,9 +3,18 @@
 ## [Unreleased] - 2026-05-21 - feature passion v0.1.0
 ### Added
 - Added `current` prop to `PxLink` to set the `aria-current` page accessibility.
+- Added `medium` (500) font-weight token; `weight` prop on `PxText` now supports `light`, `medium`.
 
 ### Updated
 - Updated `PxLink` tokens for text-decoration.
+- Switched Sora and Lora to self-hosted, subset variable `woff2` fonts with `font-display: swap`.
+- `PxText` headings now default to bold, with the `weight` prop overriding.
+
+### Removed
+- Removed the `size` prop from `PxText`. Size comes from `as`; override `font-size` with the exposed scale tokens (e.g. `var(--px-font-size-heading-04)`).
+
+### Fixed
+- `PxText` now reacts to `as`, `align`, and `weight` changes (props were captured once at setup; now derived via `computed`).
 
 ## [Unreleased] - 2026-05-21
 
