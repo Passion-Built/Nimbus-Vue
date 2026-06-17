@@ -21,6 +21,8 @@
 
   --px-border-radius: var(--px-space-200);
 
+  --px-image-radius: var(--px-border-radius);
+
   --px-accordion-trigger-padding: var(--px-space-200) var(--px-space-300);
   --px-accordion-panel-padding: var(--px-space-300);
   
