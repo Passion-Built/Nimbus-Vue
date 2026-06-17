@@ -5,13 +5,15 @@
 - Added `current` prop to `PxLink` to set the `aria-current` page accessibility. [#11]
 - Added `medium` (500) font-weight token; `weight` prop on `PxText` now supports `light`, `medium`. [#16]
 - Added 'PxImage' component. [#12]
-- Added `as` prop to `PxButton` for rendering as a semantic HTML element.
+- Added `as` prop to `PxButton` for rendering as a semantic HTML element. [#14]
 
 ### Updated
 - Updated `PxLink` tokens for text-decoration. [#11]
 - Switched Sora and Lora to self-hosted, subset variable `woff2` fonts with `font-display: swap`. [#16]
 - `PxText` headings now default to bold, with the `weight` prop overriding. [#16]
-- Updated 'PxAccordionItem' styling with tokens and more defined title. [#15]
+- Updated `PxAccordionItem` styling with tokens and more defined title. [#15]
+- Updated `PxTab` and `PxTabs` to have better accessibilty. [#19]
+  - full keyboard navigation (arrow keys, Home/End), roving tabindex, and tabpanel/aria-controls/aria-labelledby associations per the ARIA tabs pattern.
 
 ### Removed
 - Removed the `size` prop from `PxText`. Size comes from `as`; override `font-size` with the exposed scale tokens (e.g. `var(--px-font-size-heading-04)`). [#16]

@@ -12,7 +12,14 @@
         </svg>
       </button>
 
-      <div ref="tablist" role="tablist" class="Px-tabs__list" @scroll="updateScroll">
+      <div
+        ref="tablist"
+        role="tablist"
+        aria-orientation="horizontal"
+        class="Px-tabs__list"
+        @scroll="updateScroll"
+        @keydown="onKeydown"
+      >
         <slot />
       </div>
 
@@ -28,14 +35,20 @@
       </button>
     </div>
 
-    <div class="Px-tabs__content">
+    <div
+      :id="panelId"
+      class="Px-tabs__content"
+      role="tabpanel"
+      tabindex="0"
+      :aria-labelledby="activeTabId"
+    >
       <slot name="content" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, provide, watch, onMounted, onUnmounted } from 'vue'
+import { ref, computed, provide, watch, onMounted, onUnmounted, useId } from 'vue'
 
 const props = withDefaults(defineProps<{
   modelValue?: string
@@ -58,8 +71,23 @@ function setActiveTab(name: string) {
   emit('update:modelValue', name)
 }
 
+// Panel id — provided to PxTab for aria-controls
+const panelId = useId()
+
+// Tab registration — each PxTab registers its value → DOM id on mount,
+// so the panel's aria-labelledby can point at the active tab.
+const tabRegistry = ref<Record<string, string>>({})
+
+function registerTab(value: string, id: string) {
+  tabRegistry.value[value] = id
+}
+
+const activeTabId = computed(() => tabRegistry.value[activeTab.value])
+
 provide('activeTab', activeTab)
 provide('setActiveTab', setActiveTab)
+provide('registerTab', registerTab)
+provide('panelId', panelId)
 
 const tablist = ref<HTMLElement | null>(null)
 const canScrollLeft = ref(false)
@@ -78,6 +106,41 @@ function scrollLeft() {
 
 function scrollRight() {
   tablist.value?.scrollBy({ left: 150, behavior: 'smooth' })
+}
+
+// Arrow key navigation between tabs (ARIA tabs pattern)
+function onKeydown(e: KeyboardEvent) {
+  const tabs = Array.from(
+    tablist.value?.querySelectorAll<HTMLElement>('[role="tab"]:not([disabled])') ?? []
+  )
+  if (!tabs.length) return
+
+  const currentIndex = tabs.indexOf(document.activeElement as HTMLElement)
+  let target: HTMLElement | undefined
+
+  switch (e.key) {
+    case 'ArrowRight':
+      e.preventDefault()
+      target = tabs[(currentIndex + 1) % tabs.length]
+      break
+    case 'ArrowLeft':
+      e.preventDefault()
+      target = tabs[(currentIndex - 1 + tabs.length) % tabs.length]
+      break
+    case 'Home':
+      e.preventDefault()
+      target = tabs[0]
+      break
+    case 'End':
+      e.preventDefault()
+      target = tabs[tabs.length - 1]
+      break
+  }
+
+  if (target) {
+    target.focus()
+    target.click()
+  }
 }
 
 let ro: ResizeObserver
