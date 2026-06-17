@@ -46,6 +46,9 @@
   /* Tag */
   --px-tag-shadow: var(--px-elevation-raised);
 
+  /* Image */
+  --px-image-shadow: var(--px-elevation-raised);
+
   /* Radio */
   --px-radio-shadow: var(--px-elevation-sunken);
 
