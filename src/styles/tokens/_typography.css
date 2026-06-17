@@ -71,5 +71,8 @@
   --px-text-letter-spacing: 0.075rem;
 
   --px-avatar-large-font-size: var(--px-font-size-08);
+
+  --px-accordion-font-size: var(--px-font-size-body-lg);
+  --px-accordion-font-weight: var(--px-font-weight-medium);
 }
 

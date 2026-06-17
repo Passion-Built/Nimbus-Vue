@@ -2,19 +2,20 @@
 
 ## [Unreleased] - 2026-05-21 - feature passion v0.1.0
 ### Added
-- Added `current` prop to `PxLink` to set the `aria-current` page accessibility.
-- Added `medium` (500) font-weight token; `weight` prop on `PxText` now supports `light`, `medium`.
+- Added `current` prop to `PxLink` to set the `aria-current` page accessibility. [#11]
+- Added `medium` (500) font-weight token; `weight` prop on `PxText` now supports `light`, `medium`. [#16]
 
 ### Updated
-- Updated `PxLink` tokens for text-decoration.
-- Switched Sora and Lora to self-hosted, subset variable `woff2` fonts with `font-display: swap`.
-- `PxText` headings now default to bold, with the `weight` prop overriding.
+- Updated `PxLink` tokens for text-decoration. [#11]
+- Switched Sora and Lora to self-hosted, subset variable `woff2` fonts with `font-display: swap`. [#16]
+- `PxText` headings now default to bold, with the `weight` prop overriding. [#16]
+- Updated 'PxAccordionItem' styling with tokens and more defined title. [#15]
 
 ### Removed
-- Removed the `size` prop from `PxText`. Size comes from `as`; override `font-size` with the exposed scale tokens (e.g. `var(--px-font-size-heading-04)`).
+- Removed the `size` prop from `PxText`. Size comes from `as`; override `font-size` with the exposed scale tokens (e.g. `var(--px-font-size-heading-04)`). [#16]
 
 ### Fixed
-- `PxText` now reacts to `as`, `align`, and `weight` changes (props were captured once at setup; now derived via `computed`).
+- `PxText` now reacts to `as`, `align`, and `weight` changes (props were captured once at setup; now derived via `computed`). [#16]
 
 ## [Unreleased] - 2026-05-21
 

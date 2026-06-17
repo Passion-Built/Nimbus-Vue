@@ -20,6 +20,9 @@
   --px-space-1500: 7.5rem;
 
   --px-border-radius: var(--px-space-200);
+
+  --px-accordion-trigger-padding: var(--px-space-200) var(--px-space-300);
+  --px-accordion-panel-padding: var(--px-space-300);
   
   --px-box-padding: var(--px-space-200);
 
