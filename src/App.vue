@@ -246,12 +246,14 @@
     <PxTabs v-model="activeTab" style="width: 100%;">
       <PxTab value="overview">Overview</PxTab>
       <PxTab value="details">Details</PxTab>
-      <PxTab value="settings">Settings</PxTab>
-      <PxTab value="settings">Settings</PxTab>
+      <PxTab value="members">Members</PxTab>
+      <PxTab value="billing">Billing</PxTab>
       <PxTab value="settings">Settings</PxTab>
       <template #content>
         <PxText as="p" v-show="activeTab === 'overview'">Overview content goes here.</PxText>
         <PxText as="p" v-show="activeTab === 'details'">Details content goes here.</PxText>
+        <PxText as="p" v-show="activeTab === 'members'">Members content goes here.</PxText>
+        <PxText as="p" v-show="activeTab === 'billing'">Billing content goes here.</PxText>
         <PxText as="p" v-show="activeTab === 'settings'">Settings content goes here.</PxText>
       </template>
     </PxTabs>

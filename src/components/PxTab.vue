@@ -2,7 +2,10 @@
   <button
     type="button"
     role="tab"
+    :id="tabId"
     :aria-selected="isActive"
+    :aria-controls="panelId"
+    :tabindex="isActive ? 0 : -1"
     :class="['Px-tab', { 'Px-tab--active': isActive }]"
     @click="activate"
   >
@@ -11,20 +14,28 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, type Ref } from 'vue'
+import { computed, inject, onMounted, useId, type Ref } from 'vue'
 
 const props = defineProps<{
   value: string
+  id?: string
 }>()
+
+const autoId = useId()
+const tabId = computed(() => props.id ?? autoId)
 
 const activeTab = inject<Ref<string>>('activeTab')!
 const setActiveTab = inject<(name: string) => void>('setActiveTab')!
+const registerTab = inject<(value: string, id: string) => void>('registerTab')!
+const panelId = inject<string>('panelId')
 
 const isActive = computed(() => activeTab.value === props.value)
 
 function activate() {
   setActiveTab(props.value)
 }
+
+onMounted(() => registerTab(props.value, tabId.value))
 </script>
 
 <style scoped>
@@ -37,6 +48,7 @@ function activate() {
   color: var(--px-tab-color);
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);
+  white-space: nowrap;
   box-shadow: var(--px-tab-shadow);
   transition: box-shadow 0.15s ease, color 0.15s ease;
 }
