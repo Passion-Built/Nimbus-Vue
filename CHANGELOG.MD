@@ -5,6 +5,7 @@
 - Added `current` prop to `PxLink` to set the `aria-current` page accessibility. [#11]
 - Added `medium` (500) font-weight token; `weight` prop on `PxText` now supports `light`, `medium`. [#16]
 - Added 'PxImage' component. [#12]
+- Added `as` prop to `PxButton` for rendering as a semantic HTML element.
 
 ### Updated
 - Updated `PxLink` tokens for text-decoration. [#11]
