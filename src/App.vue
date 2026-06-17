@@ -10,7 +10,10 @@
     align-items: center;
     justify-content: center;
     gap:12px">
-    <PxText as="h1" weight="bold">Amazing Heading</PxText>
+    <PxText as="h1">Amazing Heading (bold by default)</PxText>
+    <PxText as="h1" weight="normal">Heading override: normal</PxText>
+    <PxText as="p" weight="medium">Body medium (500)</PxText>
+    <PxText as="p" weight="light">Body light — clamps to 400 (Lora has no &lt;400)</PxText>
     <PxText as="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla qui vel explicabo vitae odio dolor iusto nihil exercitationem repudiandae mollitia, molestias quidem animi, libero cumque sapiente. Optio numquam aliquid non?</PxText>
     <PxText as="p">testing paragraph</PxText>
     <PxText as="p" italic>testing paragraph</PxText>
@@ -33,9 +36,12 @@
     <PxText as="p" align="center" weight="bold" italic>Test center bold</PxText>
     <PxText as="p" align="center" weight="semibold" italic>Test center semi bold</PxText>
     <PxText as="p" align="center" weight="light">Test center light</PxText>
-    <PxText as="p" align="center" size="medium" weight="bold">Test center bold</PxText>
-    <PxText as="p" align="center" size="large" weight="semibold">Test center semi bold</PxText>
-    <PxText as="p" align="center" size="small" weight="light">Test center light</PxText>
+    <PxText as="p" align="center" weight="bold">Test center bold</PxText>
+    <PxText as="p" align="center" weight="semibold">Test center semi bold</PxText>
+    <PxText as="p" align="center" weight="light">Test center light</PxText>
+    <!-- size now comes from `as`; override font-size with the exposed tokens -->
+    <PxText as="h2" :style="{ fontSize: 'var(--px-font-size-heading-04)' }">Semantic h2, sized down via token</PxText>
+    <PxText as="p" :style="{ fontSize: 'var(--px-font-size-body-sm)' }">Small body via token override</PxText>
     <PxText>default text</PxText>
     <PxButton>primary button</PxButton>
     <PxButton disabled>disabled button</PxButton>
@@ -322,7 +328,7 @@
     align-items: center;
     justify-content: flex-start;"
   >
-    <PxText as="h1" weight="bold">Heading 1</PxText>
+    <PxText as="h1">Heading 1</PxText>
     <PxText as="h2">Heading 2</PxText>
     <PxText as="h3">Heading 3</PxText>
     <PxText as="h4">Heading 4</PxText>
