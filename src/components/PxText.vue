@@ -1,49 +1,44 @@
 <template>
-  <component :is="as" :class="getClass()">
+  <component :is="tag" :class="classes">
     <slot />
   </component>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
 const props = defineProps<{
   as?: 'p' | 'span' | 'li' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   align?: 'left' | 'center' | 'right'
-  size?: 'small' | 'medium' | 'large'
-  weight?: 'normal' | 'semibold' | 'bold'
+  weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold'
   italic?: boolean
 }>()
 
-const as = props.as ?? 'p'
-const align = props.align ?? 'left'
-const size = props.size ?? 'medium'
-const weight = props.weight ?? 'normal'
+const tag = computed(() => props.as ?? 'p')
 
-const getClass = () => {
-  const headings = ['h1','h2','h3','h4','h5','h6']
-  const isHeading = headings.includes(as)
+const classes = computed(() => {
+  const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+  const isHeading = headings.includes(tag.value)
 
-  // define base class
-  const textType = isHeading ? 'Px-heading' : 'Px-text'
-  
-  // add base + aligntment + size, if provided
-  const classes = [textType, `Px-text--${align}`, `Px-text--${weight}`]
+  // base type + alignment
+  const list = [isHeading ? 'Px-heading' : 'Px-text', `Px-text--${props.align ?? 'left'}`]
 
-  // only add size for paragraphs
-  if (!isHeading && props.size) classes.push(`Px-text--${size}`)
-  if (props.italic) classes.push('Px-text--italic')
+  // weight is an explicit override; default weight comes from .Px-text / .Px-heading
+  if (props.weight) list.push(`Px-text--weight-${props.weight}`)
 
-  return classes.join(' ')
-};
+  if (props.italic) list.push('Px-text--italic')
+
+  return list
+})
 </script>
 
 <style scoped>
 .Px-heading {
   font-family: var(--px-font-family-headings);
+  font-weight: var(--px-font-weight-bold);
   color: var(--px-color-text);
   margin: 0;
   width: 100%;
-
-  +.Px-text--bold { font-weight: var(--px-font-weight-bold); }
 }
 
 h1 { font-size: var(--px-font-size-heading-01); line-height: var(--px-line-height-heading-01); }
@@ -56,25 +51,23 @@ h6 { font-size: var(--px-font-size-heading-06); line-height: var(--px-line-heigh
 .Px-text {
   font-family: var(--px-font-family-body);
   font-weight: var(--px-font-weight-normal);
+  font-size: var(--px-font-size-body);
   line-height: var(--px-line-height-body);
   letter-spacing: var(--px-text-letter-spacing);
   color: var(--px-color-text);
   margin: unset;
   width: 100%;
-
-  &.Px-text--small { font-size: var(--px-font-size-body-sm); line-height: var(--px-line-height-body-sm); }
-  &.Px-text--medium { font-size: var(--px-font-size-body); line-height: var(--px-line-height-body); }
-  &.Px-text--large { font-size: var(--px-font-size-body-lg); line-height: var(--px-line-height-body-lg); }
 }
 
 .Px-text--left { text-align: left; }
 .Px-text--center { text-align: center; }
 .Px-text--right { text-align: right; }
 
-.Px-text--light { font-weight: var(--px-font-weight-light); }
-.Px-text--normal { font-weight: var(--px-font-weight-normal); }
-.Px-text--semibold { font-weight: var(--px-font-weight-semibold); }
-.Px-text--bold { font-weight: var(--px-font-weight-bold); }
+.Px-text--weight-light { font-weight: var(--px-font-weight-light); }
+.Px-text--weight-normal { font-weight: var(--px-font-weight-normal); }
+.Px-text--weight-medium { font-weight: var(--px-font-weight-medium); }
+.Px-text--weight-semibold { font-weight: var(--px-font-weight-semibold); }
+.Px-text--weight-bold { font-weight: var(--px-font-weight-bold); }
 
 .Px-text--italic { font-style: italic; }
 </style>
