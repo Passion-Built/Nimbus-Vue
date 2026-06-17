@@ -26,7 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, nextTick, onUnmounted } from 'vue'
+import { ref, watch, toRef, onUnmounted } from 'vue'
+import { useFocusTrap } from '../composables/useFocusTrap'
 
 const props = defineProps<{
   isOpen: boolean
@@ -34,53 +35,27 @@ const props = defineProps<{
 
 const emit = defineEmits(['update:isOpen'])
 const dialogRef = ref<HTMLElement | null>(null)
-const trigger = ref<HTMLElement | null>(null)
 
-const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-
-function getFocusable() {
-  return Array.from(dialogRef.value?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? [])
-}
-
-function onKeydown(e: KeyboardEvent) {
-  if (e.key === 'Escape') {
-    emit('update:isOpen', false)
-    return
-  }
-
-  if (e.key !== 'Tab') return
-
-  const focusable = getFocusable()
-  if (!focusable.length) return
-
-  const first = focusable[0]
-  const last = focusable[focusable.length - 1]
-
-  if (e.shiftKey && document.activeElement === first) {
-    e.preventDefault()
-    last.focus()
-  } else if (!e.shiftKey && document.activeElement === last) {
-    e.preventDefault()
-    first.focus()
-  }
-}
+// Modal focus trap: focuses the dialog on open, wraps Tab, and restores focus
+// to the trigger on close. Escape closes the dialog.
+const { handleKeydown } = useFocusTrap(dialogRef, {
+  active: toRef(props, 'isOpen'),
+  onEscape: () => emit('update:isOpen', false),
+  modal: true,
+})
 
 watch(() => props.isOpen, (open) => {
   document.body.style.overflow = open ? 'hidden' : ''
   if (open) {
-    trigger.value = document.activeElement as HTMLElement
-    window.addEventListener('keydown', onKeydown)
-    nextTick(() => (getFocusable()[0] ?? dialogRef.value)?.focus())
+    window.addEventListener('keydown', handleKeydown)
   } else {
-    window.removeEventListener('keydown', onKeydown)
-    trigger.value?.focus()
-    trigger.value = null
+    window.removeEventListener('keydown', handleKeydown)
   }
 })
 
 onUnmounted(() => {
   document.body.style.overflow = ''
-  window.removeEventListener('keydown', onKeydown)
+  window.removeEventListener('keydown', handleKeydown)
 })
 </script>
 

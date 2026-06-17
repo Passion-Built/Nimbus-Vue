@@ -1,10 +1,10 @@
 <template>
   <div class="Px-menu__container">
     <div
-      ref="reference"
       class="Px-menu__trigger"
+      ref="reference"
       v-bind="triggerAttrs"
-      :aria-controls="menuId"
+      :aria-controls="generateAttribute('menu')"
       @click="toggle"
     >
       <slot name="trigger" />
@@ -12,74 +12,79 @@
     <Teleport to="body">
       <div
         v-if="isOpen"
-        ref="floating"
-        :id="menuId"
-        role="menu"
         class="Px-menu"
+        ref="floating"
+        :id="generateAttribute('menu')"
         :style="floatingStyles"
-        @keydown="onKeydown"
+        role="menu"
       >
-        <slot />
+        <div class="Px-menu__content" @keydown="onKeydown">
+          <slot />
+        </div>
       </div>
     </Teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useId, provide, nextTick, watch } from 'vue'
+import { computed, provide, useId } from 'vue';
 import { useMenuFloating } from '../composables/useMenuFloating'
+import { useFocusTrap } from '../composables/useFocusTrap'
 import type { Placement } from '@floating-ui/vue'
 
 const props = withDefaults(defineProps<{
+  id?: string
   placement?: Placement
   offset?: number
 }>(), {})
 
-const menuId = useId()
+const autoId = useId()
+const baseId = computed(() => props.id ?? autoId)
+const generateAttribute = (attribute: string) => `${baseId.value}-${attribute}`
 
-const { reference, floating, floatingStyles, isOpen, close, toggle, triggerAttrs } =
-  useMenuFloating({ placement: props.placement, offset: props.offset })
-
+const { reference, floating, floatingStyles, isOpen, close, toggle, triggerAttrs } = useMenuFloating({
+  placement: props.placement,
+  offset: props.offset
+})
 
 provide('closeMenu', close)
 
-function getItems(): HTMLElement[] {
-  return Array.from(
-    floating.value?.querySelectorAll<HTMLElement>('[role="menuitem"]:not([disabled]):not([aria-disabled="true"])') ?? []
-  )
-}
-
-function focusFirstItem() {
-  getItems()[0]?.focus({ preventScroll: true })
-}
+// Focus trap: focuses the first item on open, wraps Tab at the boundaries,
+// handles Escape, and restores focus to the trigger on close.
+const { getFocusable, handleKeydown } = useFocusTrap(floating, {
+  active: isOpen,
+  selector: '[role="menuitem"]:not([disabled]):not([aria-disabled="true"])',
+  onEscape: close,
+})
 
 function onKeydown(e: KeyboardEvent) {
-  const items = getItems()
-  const current = document.activeElement as HTMLElement
-  const idx = items.indexOf(current)
+  const items = getFocusable()
+  if (!items.length) return
 
-  if (e.key === 'Escape') {
-    e.preventDefault()
-    close()
-    ;(reference.value?.querySelector('button, a, [tabindex]') as HTMLElement | null)?.focus()
-  } else if (e.key === 'ArrowDown') {
-    e.preventDefault()
-    items[(idx + 1) % items.length]?.focus()
-  } else if (e.key === 'ArrowUp') {
-    e.preventDefault()
-    items[(idx - 1 + items.length) % items.length]?.focus()
-  } else if (e.key === 'Tab') {
-    e.preventDefault()
-    close()
-    ;(reference.value?.querySelector('button, a, [tabindex]') as HTMLElement | null)?.focus({ preventScroll: true })
+  const currentIndex = items.indexOf(document.activeElement as HTMLElement)
+
+  switch (e.key) {
+    case 'ArrowDown':
+      e.preventDefault()
+      items[(currentIndex + 1) % items.length]?.focus()
+      break
+    case 'ArrowUp':
+      e.preventDefault()
+      items[(currentIndex - 1 + items.length) % items.length]?.focus()
+      break
+    case 'Home':
+      e.preventDefault()
+      items[0]?.focus()
+      break
+    case 'End':
+      e.preventDefault()
+      items[items.length - 1]?.focus()
+      break
+    default:
+      // Tab boundary-wrap + Escape
+      handleKeydown(e)
   }
 }
-
-watch(isOpen, (open) => {
-  if (open) {
-    nextTick(focusFirstItem)
-  }
-})
 </script>
 
 <style scoped>
@@ -101,5 +106,9 @@ watch(isOpen, (open) => {
   display: flex;
   flex-direction: column;
   padding: var(--px-menu-padding);
+}
+
+.Px-menu__content {
+  display: contents;
 }
 </style>
