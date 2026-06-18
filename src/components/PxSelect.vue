@@ -9,7 +9,7 @@
       { 'Px-select--open': isOpen },
     ]"
   >
-    <div class="Px-select__label-wrapper">
+    <div class="Px-select__label-wrapper" v-if="label">
       <label class="Px-select__label" :for="inputId">{{ label }}</label>
     </div>
 
@@ -32,6 +32,7 @@
         :readonly="!isSearchable || !isOpen"
         :required="isRequired && !disabled && !readOnly"
         :aria-invalid="isInvalid || undefined"
+        :aria-label="!label ? ariaLabel : undefined"
         :disabled="disabled"
         autocomplete="off"
         @click.stop="onInputClick"
@@ -57,7 +58,7 @@
         class="Px-select__dropdown"
         :style="floatingStyles"
         role="listbox"
-        :aria-label="label"
+        :aria-label="label || ariaLabel"
       >
         <li
           v-for="(option, index) in filteredOptions"
@@ -98,6 +99,7 @@ import { ref, computed, watchEffect, nextTick, useId } from 'vue'
 import { useFloating, autoUpdate, offset, flip, shift, size } from '@floating-ui/vue'
 
 const props = withDefaults(defineProps<{
+  ariaLabel?: string
   disabled?: boolean
   errorMessage?: string
   helperMessage?: string

@@ -1,7 +1,7 @@
 import PxBox from '../components/PxBox.vue';
 
 export default {
-  title: 'Box',
+  title: 'Layout/Box',
   component: PxBox,
   tags: ['autodocs'],
   argTypes: {

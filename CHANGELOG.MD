@@ -5,7 +5,8 @@
 - Added `current` prop to `PxLink` to set the `aria-current` page accessibility. [#11]
 - Added `medium` (500) font-weight token; `weight` prop on `PxText` now supports `light`, `medium`. [#16]
 - Added 'PxImage' component. [#12]
-- Added `as` prop to `PxButton` for rendering as a semantic HTML element. [#14]
+- Added `PxForm` and `PxFormSection` container components. [#13]
+- Added `as` prop to `PxBox` for rendering as a semantic HTML element. [#14]
 
 ### Updated
 - Updated `PxLink` tokens for text-decoration. [#11]
@@ -16,12 +17,17 @@
   - full keyboard navigation (arrow keys, Home/End), roving tabindex, and tabpanel/aria-controls/aria-labelledby associations per the ARIA tabs pattern.
 - Updated `PxMenu` and `PxMenuItem` to have better accessibility. [#18]
 - Moved custom focus trap to composable for `PxMenu` and `PxDialog` [#18]
+- Replaced `getElement` helper with an inline ternary in `PxButton`; standardized prop definitions on inline `defineProps`. [#14]
+- Grouped Storybook stories into categories (Layout, Typography, Forms, Overlays, Elements). [#13]
 
 ### Removed
 - Removed the `size` prop from `PxText`. Size comes from `as`; override `font-size` with the exposed scale tokens (e.g. `var(--px-font-size-heading-04)`). [#16]
 
 ### Fixed
 - `PxText` now reacts to `as`, `align`, and `weight` changes (props were captured once at setup; now derived via `computed`). [#16]
+- `PxInput`, `PxTextarea` — added `font-family: inherit` so inputs use the design system font instead of the browser default. [#17]
+- `PxInput`, `PxTextarea`, `PxSelect` — required asterisk no longer renders when no label is present. [#17]
+- `PxSelect` — added `ariaLabel` prop, wired to the search input and listbox for label-less accessible usage. [#17]
 
 ## [Unreleased] - 2026-05-21
 

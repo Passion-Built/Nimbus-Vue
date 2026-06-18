@@ -1,7 +1,7 @@
 import PxImage from "@/components/PxImage.vue";
 
 export default {
-  title: 'Image',
+  title: 'Elements/Image',
   component: PxImage,
   tags: ['autodocs'],
   argTypes: {

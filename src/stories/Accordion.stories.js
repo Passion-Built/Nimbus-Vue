@@ -2,7 +2,7 @@ import PxAccordion from '../components/PxAccordion.vue';
 import PxAccordionItem from '../components/PxAccordionItem.vue';
 
 export default {
-  title: 'Accordion',
+  title: 'Layout/Accordion',
   component: PxAccordion,
   tags: ['autodocs'],
   argTypes: {

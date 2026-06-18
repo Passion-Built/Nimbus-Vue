@@ -1,7 +1,7 @@
 import PxTag from '../components/PxTag.vue';
 
 export default {
-  title: 'Tag',
+  title: 'Elements/Tag',
   component: PxTag,
   tags: ['autodocs'],
   argTypes: {

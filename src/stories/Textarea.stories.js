@@ -1,7 +1,7 @@
 import PxTextarea from "@/components/PxTextarea.vue";
 
 export default {
-  title: 'Textarea',
+  title: 'Forms/Textarea',
   component: PxTextarea,
   tags: ['autodocs'],
   argTypes: {

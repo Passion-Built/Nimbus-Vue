@@ -3,7 +3,7 @@ import PxMenuItem from '../components/PxMenuItem.vue';
 import PxButton from '../components/PxButton.vue';
 
 export default {
-  title: 'Menu',
+  title: 'Overlays/Menu',
   component: PxMenu,
   tags: ['autodocs'],
   argTypes: {

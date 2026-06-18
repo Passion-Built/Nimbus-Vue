@@ -1,7 +1,7 @@
 import PxText from "@/components/PxText.vue";
 
 export default {
-  title: 'Text',
+  title: 'Typography/Text',
   component: PxText,
   tags: ['autodocs'],
   argTypes: {
