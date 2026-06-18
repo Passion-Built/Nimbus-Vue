@@ -1,7 +1,7 @@
 import PxLink from "@/components/PxLink.vue";
 
 export default {
-  title: 'Link',
+  title: 'Typography/Link',
   component: PxLink,
   tags: ['autodocs'],
   argTypes: {
@@ -20,6 +20,10 @@ export default {
     navigation: {
       control: 'boolean',
       description: 'If true, the link will be styled for navigation purposes.',
+    },
+    current: {
+      control: 'boolean',
+      description: 'Marks the active navigation link, setting `aria-current="page"`. Only applies when `navigation` is also true.'
     }
   },
   render: (args) => ({

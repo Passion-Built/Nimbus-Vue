@@ -1,11 +1,12 @@
 <template>
   <component
     :is="url ? 'a' : 'button'"
+    class="Px-menu-item"
     role="menuitem"
     :href="url"
-    :type="!url ? 'button' : undefined"
-    class="Px-menu-item"
+    :type="!url ? 'button' : null"
     @click="handleClick"
+    @keydown="onKeydown"
   >
     <slot />
   </component>
@@ -23,12 +24,21 @@ const closeMenu = inject<() => void>('closeMenu')
 function handleClick() {
   closeMenu?.()
 }
+
+// Links activate on Enter natively but not Space; menuitems should do both.
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === ' ' && props.url) {
+    e.preventDefault()
+    ;(e.currentTarget as HTMLElement).click()
+  }
+}
 </script>
 
 <style scoped>
 .Px-menu-item {
   background: transparent;
   border: none;
+  box-sizing: border-box;
   color: var(--px-menu-item-text);
   cursor: pointer;
   display: flex;

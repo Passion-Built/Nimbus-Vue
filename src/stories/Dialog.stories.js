@@ -3,7 +3,7 @@ import PxButton from "@/components/PxButton.vue";
 import PxText from "@/components/PxText.vue";
 
 export default {
-  title: 'Dialog',
+  title: 'Overlays/Dialog',
   component: PxDialog,
   tags: ['autodocs'],
   parameters: {

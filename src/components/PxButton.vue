@@ -1,6 +1,6 @@
 <template>
-  <component 
-    :is="getElement()"
+  <component
+    :is="url ? 'a' : 'button'"
     :class="[
       'Px-btn',
       {'Px-btn--disabled': disabled},
@@ -17,7 +17,7 @@
 </template>
  
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   disabled?: boolean
   fullWidth?: boolean
   url?: string
@@ -27,12 +27,6 @@ const props = withDefaults(defineProps<{
   variant: 'default',
   type: 'button',
 })
-
-const getElement = () => {
-  let element = 'button';
-  if (props.url) element = 'a';
-  return element;
-};
 </script>
 
 <style scoped>

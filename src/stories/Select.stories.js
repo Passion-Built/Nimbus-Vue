@@ -1,7 +1,7 @@
 import PxSelect from '../components/PxSelect.vue';
 
 export default {
-  title: 'Select',
+  title: 'Forms/Select',
   component: PxSelect,
   tags: ['autodocs'],
   parameters: {

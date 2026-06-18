@@ -2,7 +2,7 @@ import PxInput from "@/components/PxInput.vue";
 import { readonly } from "vue";
 
 export default {
-  title: 'Input',
+  title: 'Forms/Input',
   component: PxInput,
   tags: ['autodocs'],
   argTypes: {

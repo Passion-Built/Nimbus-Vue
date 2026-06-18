@@ -10,7 +10,10 @@
     align-items: center;
     justify-content: center;
     gap:12px">
-    <PxText as="h1" weight="bold">Amazing Heading</PxText>
+    <PxText as="h1">Amazing Heading (bold by default)</PxText>
+    <PxText as="h1" weight="normal">Heading override: normal</PxText>
+    <PxText as="p" weight="medium">Body medium (500)</PxText>
+    <PxText as="p" weight="light">Body light — clamps to 400 (Lora has no &lt;400)</PxText>
     <PxText as="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla qui vel explicabo vitae odio dolor iusto nihil exercitationem repudiandae mollitia, molestias quidem animi, libero cumque sapiente. Optio numquam aliquid non?</PxText>
     <PxText as="p">testing paragraph</PxText>
     <PxText as="p" italic>testing paragraph</PxText>
@@ -33,9 +36,12 @@
     <PxText as="p" align="center" weight="bold" italic>Test center bold</PxText>
     <PxText as="p" align="center" weight="semibold" italic>Test center semi bold</PxText>
     <PxText as="p" align="center" weight="light">Test center light</PxText>
-    <PxText as="p" align="center" size="medium" weight="bold">Test center bold</PxText>
-    <PxText as="p" align="center" size="large" weight="semibold">Test center semi bold</PxText>
-    <PxText as="p" align="center" size="small" weight="light">Test center light</PxText>
+    <PxText as="p" align="center" weight="bold">Test center bold</PxText>
+    <PxText as="p" align="center" weight="semibold">Test center semi bold</PxText>
+    <PxText as="p" align="center" weight="light">Test center light</PxText>
+    <!-- size now comes from `as`; override font-size with the exposed tokens -->
+    <PxText as="h2" :style="{ fontSize: 'var(--px-font-size-heading-04)' }">Semantic h2, sized down via token</PxText>
+    <PxText as="p" :style="{ fontSize: 'var(--px-font-size-body-sm)' }">Small body via token override</PxText>
     <PxText>default text</PxText>
     <PxButton>primary button</PxButton>
     <PxButton disabled>disabled button</PxButton>
@@ -46,7 +52,10 @@
     <PxAvatar initials="JG" imageUrl="https://i.pravatar.cc/150?img=10" size="large" />
     <PxLink url="#">Test Link</PxLink>
     <PxLink url="#" navigation>Test Link</PxLink>
+    <PxLink url="#" navigation current>Test Link (current)</PxLink>
     <PxLink url="https://www.google.com" external>Test Link</PxLink>
+    <PxImage src="https://picsum.photos/240/160" alt="Sample image" width="240" height="160" fit="cover" />
+    <PxImage src="https://picsum.photos/240/160?2" alt="Elevated sample image" width="240" height="160" fit="cover" elevated />
     <PxIconContainer><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M32 400C32 479.5 96.5 544 176 544L480 544C550.7 544 608 486.7 608 416C608 364.4 577.5 319.9 533.5 299.7C540.2 286.6 544 271.7 544 256C544 203 501 160 448 160C430.3 160 413.8 164.8 399.6 173.1C375.5 127.3 327.4 96 272 96C192.5 96 128 160.5 128 240C128 248 128.7 255.9 129.9 263.5C73 282.7 32 336.6 32 400z"/></svg></PxIconContainer>
     <PxIconContainer isClickable><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M32 400C32 479.5 96.5 544 176 544L480 544C550.7 544 608 486.7 608 416C608 364.4 577.5 319.9 533.5 299.7C540.2 286.6 544 271.7 544 256C544 203 501 160 448 160C430.3 160 413.8 164.8 399.6 173.1C375.5 127.3 327.4 96 272 96C192.5 96 128 160.5 128 240C128 248 128.7 255.9 129.9 263.5C73 282.7 32 336.6 32 400z"/></svg></PxIconContainer>
     <PxInput
@@ -237,12 +246,14 @@
     <PxTabs v-model="activeTab" style="width: 100%;">
       <PxTab value="overview">Overview</PxTab>
       <PxTab value="details">Details</PxTab>
-      <PxTab value="settings">Settings</PxTab>
-      <PxTab value="settings">Settings</PxTab>
+      <PxTab value="members">Members</PxTab>
+      <PxTab value="billing">Billing</PxTab>
       <PxTab value="settings">Settings</PxTab>
       <template #content>
         <PxText as="p" v-show="activeTab === 'overview'">Overview content goes here.</PxText>
         <PxText as="p" v-show="activeTab === 'details'">Details content goes here.</PxText>
+        <PxText as="p" v-show="activeTab === 'members'">Members content goes here.</PxText>
+        <PxText as="p" v-show="activeTab === 'billing'">Billing content goes here.</PxText>
         <PxText as="p" v-show="activeTab === 'settings'">Settings content goes here.</PxText>
       </template>
     </PxTabs>
@@ -255,6 +266,26 @@
       <PxMenuItem url="#">View Details</PxMenuItem>
       <PxMenuItem>Delete</PxMenuItem>
     </PxMenu>
+    <PxForm aria-label="Profile form" style="width: 100%;">
+      <PxFormSection title="Personal">
+        <PxInput v-model="testInput" id="form-name" label="Name" placeholder="Jane Doe" />
+        <PxInput v-model="testInput" id="form-email" label="Email" placeholder="jane@example.com" />
+      </PxFormSection>
+      <PxFormSection title="Address">
+        <PxInput v-model="testInput" id="form-street" label="Street" placeholder="123 Main St" />
+        <PxSelect
+          label="State"
+          v-model="favoriteFruit"
+          :options="[
+            { label: 'Texas', value: 'tx' },
+            { label: 'New York', value: 'ny' },
+            { label: 'California', value: 'ca' }
+          ]"
+          placeholder="Select a state"
+        />
+      </PxFormSection>
+      <PxButton type="submit">Submit</PxButton>
+    </PxForm>
   </PxBox>
   <div style="display:flex; flex-direction:column; gap:12px; padding:12px;">
     <PxButton>primary button</PxButton>
@@ -321,7 +352,7 @@
     align-items: center;
     justify-content: flex-start;"
   >
-    <PxText as="h1" weight="bold">Heading 1</PxText>
+    <PxText as="h1">Heading 1</PxText>
     <PxText as="h2">Heading 2</PxText>
     <PxText as="h3">Heading 3</PxText>
     <PxText as="h4">Heading 4</PxText>

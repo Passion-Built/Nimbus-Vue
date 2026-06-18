@@ -1,7 +1,7 @@
 import PxText from "@/components/PxText.vue";
 
 export default {
-  title: 'Text',
+  title: 'Typography/Text',
   component: PxText,
   tags: ['autodocs'],
   argTypes: {
@@ -19,15 +19,10 @@ export default {
       options: ['left', 'center', 'right'],
       description: 'The text alignment.',
     },
-    size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
-      description: 'The size of the text for non-heading elements.',
-    },
     weight: {
       control: { type: 'select' },
-      options: ['normal', 'semibold', 'bold'],
-      description: 'The font weight of the text.',
+      options: ['light', 'normal', 'medium', 'semibold', 'bold'],
+      description: 'The font weight. Headings default to bold; this overrides it.',
     },
     italic: {
       control: 'boolean',
@@ -39,11 +34,11 @@ export default {
     setup() { return { args } },
     template: '<PxText v-bind="args">{{ args.default }}</PxText>',
   }),
-  args: { 
+  args: {
     default: 'This is some text.',
     as: 'p',
-    size: 'medim',
-    weight: 'normal',},
+    weight: 'normal',
+  },
 };
 
 export const Paragraph = {};
@@ -52,10 +47,16 @@ export const Heading = {
   args: { as: 'h1', default: 'This is a heading.' },
 };
 
-export const Small = {
-  args: { size: 'small' },
+export const Medium = {
+  args: { weight: 'medium', default: 'Medium weight text.' },
 };
 
-export const Large = {
-  args: { size: 'large' },
+// Size comes from `as`; override font-size with the exposed tokens.
+export const SizedDown = {
+  render: (args) => ({
+    components: { PxText },
+    setup() { return { args } },
+    template: `<PxText v-bind="args" :style="{ fontSize: 'var(--px-font-size-heading-04)' }">{{ args.default }}</PxText>`,
+  }),
+  args: { as: 'h2', default: 'Semantic h2, sized down via token.' },
 };

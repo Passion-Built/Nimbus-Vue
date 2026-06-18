@@ -1,7 +1,7 @@
 import PxAvatar from "@/components/PxAvatar.vue";
 
 export default {
-  title: 'Avatar',
+  title: 'Elements/Avatar',
   component: PxAvatar,
   tags: ['autodocs'],
   argTypes: {

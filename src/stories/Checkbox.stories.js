@@ -1,7 +1,7 @@
 import PxCheckbox from '../components/PxCheckbox.vue';
 
 export default {
-  title: 'Checkbox',
+  title: 'Forms/Checkbox',
   component: PxCheckbox,
   tags: ['autodocs'],
   argTypes: {

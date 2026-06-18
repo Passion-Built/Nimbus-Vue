@@ -20,6 +20,11 @@
   --px-space-1500: 7.5rem;
 
   --px-border-radius: var(--px-space-200);
+
+  --px-image-radius: var(--px-border-radius);
+
+  --px-accordion-trigger-padding: var(--px-space-200) var(--px-space-300);
+  --px-accordion-panel-padding: var(--px-space-300);
   
   --px-box-padding: var(--px-space-200);
 
@@ -32,6 +37,8 @@
   --px-form-wrapper-padding: var(--px-space-0) var(--px-space-050);
   --px-form-required-margin: var(--px-space-050);
   --px-form-min-height: var(--px-space-800);
+  --px-form-stack-gap: var(--px-space-300);
+  --px-form-section-title-margin: var(--px-space-100);
 
   --px-checkbox-size: var(--px-space-250);
   --px-checkbox-gap: var(--px-space-150);

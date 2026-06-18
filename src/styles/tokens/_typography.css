@@ -1,58 +1,28 @@
 
+/* Variable fonts, self-hosted, latin-subset woff2.
+   Sora axis: 100–800 (no Black). Lora axis: 400–700 (no weights below 400). */
 @font-face {
   font-family: 'Sora';
-  src: url('../../assets/fonts/Sora/Sora-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal
-}
-
-@font-face {
-  font-family: 'Sora';
-  src: url('../../assets/fonts/Sora/Sora-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal
-}
-
-@font-face {
-  font-family: 'Sora';
-  src: url('../../assets/fonts/Sora/Sora-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal
-}
-
-@font-face {
-  font-family: 'Lora';
-  src: url('../../assets/fonts/Lora/Lora-Regular.ttf') format('truetype');
-  font-weight: 400;
+  src: url('../../assets/fonts/Sora/Sora-Variable.woff2') format('woff2');
+  font-weight: 100 800;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Lora';
-  src: url('../../assets/fonts/Lora/Lora-Italic.ttf') format('truetype');
-  font-weight: 400;
+  src: url('../../assets/fonts/Lora/Lora-Variable.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('../../assets/fonts/Lora/Lora-Italic-Variable.woff2') format('woff2');
+  font-weight: 400 700;
   font-style: italic;
-}
-
-@font-face {
-  font-family: 'Lora';
-  src: url('../../assets/fonts/Lora/Lora-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Lora';
-  src: url('../../assets/fonts/Lora/Lora-SemiBoldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Lora';
-  src: url('../../assets/fonts/Lora/Lora-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -80,8 +50,9 @@
   --px-font-size-body-sm: var(--px-font-size-02);
   --px-font-size-caption: var(--px-font-size-01);
 
-	--px-font-weight-light: 300;
+	--px-font-weight-light: 300; /* Sora/headings only — Lora has no weight below 400 */
 	--px-font-weight-normal: 400;
+	--px-font-weight-medium: 500;
 	--px-font-weight-semibold: 600;
 	--px-font-weight-bold: 700;
 
@@ -100,5 +71,8 @@
   --px-text-letter-spacing: 0.075rem;
 
   --px-avatar-large-font-size: var(--px-font-size-08);
+
+  --px-accordion-font-size: var(--px-font-size-body-lg);
+  --px-accordion-font-weight: var(--px-font-weight-medium);
 }
 

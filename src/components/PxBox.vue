@@ -1,16 +1,18 @@
 <template>
-  <div
+  <component
+    :is="as ?? 'div'"
     :class="[
       'Px-box',
       {'Px-box--full-width': fullWidth},
       {'Px-box--clickable': clickable}
     ]">
     <slot />
-  </div>
+  </component>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
+  as?: 'div' | 'section' | 'article' | 'aside' | 'nav' | 'main' | 'header' | 'footer'
   clickable?: boolean
   fullWidth?: boolean
 }>()

@@ -7,7 +7,7 @@
     :aria-controls="panelId"
     @click="openPanel"
   >
-    <span>{{ title }}</span>
+    <span class="Px-accordion-item__title">{{ title }}</span>
     <span :class="['Px-accordion-item__icon', { 'Px-accordion-item__icon--open': isOpen }]">
       <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
     </span>
@@ -16,7 +16,10 @@
     :id="panelId"
     role="region"
     :aria-labelledby="triggerId"
-    :class="['Px-accordion-item__panel', { 'Px-accordion-item--open': isOpen }]"
+    :class="[
+      'Px-accordion-item__panel',
+      { 'Px-accordion-item--open': isOpen }
+    ]"
   >
     <div class="Px-accordion-item__panel-inner">
       <slot />
@@ -62,10 +65,7 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: var(--px-space-200) var(--px-space-300);
-  color: var(--px-accordion-trigger-color);
-  font-family: var(--px-font-family-body);
-  font-size: var(--px-font-size-body);
+  padding: var(--px-accordion-trigger-padding);
   cursor: pointer;
   transition: box-shadow .25s ease-in-out;
 
@@ -83,6 +83,12 @@ onMounted(() => {
   }
 }
 
+.Px-accordion-item__title {
+  color: var(--px-accordion-trigger-color);
+  font-size: var(--px-accordion-font-size);
+  font-weight: var(--px-accordion-font-weight);
+}
+
 .Px-accordion-item__panel {
   display: grid;
   grid-template-rows: 0fr;
@@ -95,20 +101,17 @@ onMounted(() => {
 
 .Px-accordion-item__panel-inner {
   overflow: hidden;
-  padding: 0 var(--px-space-300);
+  padding: 0 var(--px-accordion-panel-padding);
   transition: padding .25s ease;
-  font-family: var(--px-font-family-body);
-  font-size: var(--px-font-size-body);
   color: var(--px-accordion-trigger-color);
 }
 
 .Px-accordion-item--open .Px-accordion-item__panel-inner {
-  padding: var(--px-space-200) var(--px-space-300);
+  padding: var(--px-accordion-panel-padding);
 }
 
 .Px-accordion-item__icon > svg {
   fill: currentColor;
-  display: block;
   transition: transform .25s ease;
 }
 

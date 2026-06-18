@@ -1,7 +1,7 @@
 import PxIconContainer from "@/components/PxIconContainer.vue";
 
 export default {
-  title: 'IconContainer',
+  title: 'Elements/IconContainer',
   component: PxIconContainer,
   tags: ['autodocs'],
   argTypes: {

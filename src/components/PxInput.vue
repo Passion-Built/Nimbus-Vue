@@ -7,7 +7,7 @@
       {'Px-input--disabled': disabled}
     ]"
   >
-    <div class="Px-input__label-wrapper">
+    <div class="Px-input__label-wrapper" v-if="label">
       <label class="Px-input__label" :for="id || generateAttribute('id')">{{ label }}</label>
     </div>
     <div class="Px-input__container">
@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-interface Props {
+const props = defineProps<{
   id?: string
   disabled?: boolean
   errorMessage?: string
@@ -45,9 +45,7 @@ interface Props {
   modelValue?: string | number
   placeholder?: string
   readOnly?: boolean
-}
-
-const props = defineProps<Props>()
+}>()
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string | number):void
@@ -80,6 +78,7 @@ const generateAttribute = (attribute: string): string | undefined => {
     padding: var(--px-form-padding);
     border-radius: var(--px-form-border-radius);
     width: 100%;
+    font-family: inherit;
     font-size: var(--px-font-size-body);
     letter-spacing: 1px;
     box-sizing: border-box;
