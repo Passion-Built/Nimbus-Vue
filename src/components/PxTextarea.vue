@@ -8,7 +8,7 @@
 
     ]"
   >
-    <div class="Px-textarea__label-wrapper">
+    <div class="Px-textarea__label-wrapper" v-if="label">
       <label class="Px-textarea__label" :for="id || generateAttribute('id')">{{ label }}</label>
     </div>
     <div class="Px-textarea__container">
@@ -99,6 +99,7 @@ const generateAttribute = (attribute: string): string | undefined => {
     border-radius: var(--px-form-border-radius);
     width: 100%;
     min-height: var(--px-form-min-height);
+    font-family: inherit;
     font-size: var(--px-font-size-body);
     letter-spacing: 1px;
     box-sizing: border-box;
