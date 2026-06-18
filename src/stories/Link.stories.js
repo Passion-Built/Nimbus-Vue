@@ -1,7 +1,7 @@
 import PxLink from "@/components/PxLink.vue";
 
 export default {
-  title: 'Link',
+  title: 'Typography/Link',
   component: PxLink,
   tags: ['autodocs'],
   argTypes: {

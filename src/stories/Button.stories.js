@@ -2,7 +2,7 @@ import { fn } from 'storybook/test';
 import PxButton from '../components/PxButton.vue';
 
 export default {
-  title: 'Button',
+  title: 'Elements/Button',
   component: PxButton,
   tags: ['autodocs'],
   argTypes: {

@@ -37,6 +37,8 @@
   --px-form-wrapper-padding: var(--px-space-0) var(--px-space-050);
   --px-form-required-margin: var(--px-space-050);
   --px-form-min-height: var(--px-space-800);
+  --px-form-stack-gap: var(--px-space-300);
+  --px-form-section-title-margin: var(--px-space-100);
 
   --px-checkbox-size: var(--px-space-250);
   --px-checkbox-gap: var(--px-space-150);

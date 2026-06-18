@@ -6,6 +6,8 @@
 - Added `medium` (500) font-weight token; `weight` prop on `PxText` now supports `light`, `medium`. [#16]
 - Added 'PxImage' component. [#12]
 - Added `as` prop to `PxButton` for rendering as a semantic HTML element. [#14]
+- Added `PxForm` and `PxFormSection` container components.
+- Added `as` prop to `PxBox` for rendering as a semantic HTML element.
 
 ### Updated
 - Updated `PxLink` tokens for text-decoration. [#11]
@@ -16,6 +18,8 @@
   - full keyboard navigation (arrow keys, Home/End), roving tabindex, and tabpanel/aria-controls/aria-labelledby associations per the ARIA tabs pattern.
 - Updated `PxMenu` and `PxMenuItem` to have better accessibility. [#18]
 - Moved custom focus trap to composable for `PxMenu` and `PxDialog` [#18]
+- Replaced `getElement` helper with an inline ternary in `PxButton`; standardized prop definitions on inline `defineProps`.
+- Grouped Storybook stories into categories (Layout, Typography, Forms, Overlays, Elements).
 
 ### Removed
 - Removed the `size` prop from `PxText`. Size comes from `as`; override `font-size` with the exposed scale tokens (e.g. `var(--px-font-size-heading-04)`). [#16]

@@ -1,7 +1,7 @@
 import PxRadio from '../components/PxRadio.vue';
 
 export default {
-  title: 'Radio',
+  title: 'Forms/Radio',
   component: PxRadio,
   tags: ['autodocs'],
   argTypes: {

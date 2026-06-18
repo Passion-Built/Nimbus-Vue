@@ -3,7 +3,7 @@ import PxTabs from '../components/PxTabs.vue';
 import PxTab from '../components/PxTab.vue';
 
 export default {
-  title: 'Tabs',
+  title: 'Layout/Tabs',
   component: PxTabs,
   tags: ['autodocs'],
 };

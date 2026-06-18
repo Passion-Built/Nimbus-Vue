@@ -15,7 +15,7 @@ const rows = [
 ];
 
 export default {
-  title: 'DataTable',
+  title: 'Layout/DataTable',
   component: PxDataTable,
   tags: ['autodocs'],
   argTypes: {

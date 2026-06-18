@@ -266,6 +266,26 @@
       <PxMenuItem url="#">View Details</PxMenuItem>
       <PxMenuItem>Delete</PxMenuItem>
     </PxMenu>
+    <PxForm aria-label="Profile form" style="width: 100%;">
+      <PxFormSection title="Personal">
+        <PxInput v-model="testInput" id="form-name" label="Name" placeholder="Jane Doe" />
+        <PxInput v-model="testInput" id="form-email" label="Email" placeholder="jane@example.com" />
+      </PxFormSection>
+      <PxFormSection title="Address">
+        <PxInput v-model="testInput" id="form-street" label="Street" placeholder="123 Main St" />
+        <PxSelect
+          label="State"
+          v-model="favoriteFruit"
+          :options="[
+            { label: 'Texas', value: 'tx' },
+            { label: 'New York', value: 'ny' },
+            { label: 'California', value: 'ca' }
+          ]"
+          placeholder="Select a state"
+        />
+      </PxFormSection>
+      <PxButton type="submit">Submit</PxButton>
+    </PxForm>
   </PxBox>
   <div style="display:flex; flex-direction:column; gap:12px; padding:12px;">
     <PxButton>primary button</PxButton>
