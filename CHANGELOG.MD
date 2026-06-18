@@ -14,6 +14,8 @@
 - Updated `PxAccordionItem` styling with tokens and more defined title. [#15]
 - Updated `PxTab` and `PxTabs` to have better accessibilty. [#19]
   - full keyboard navigation (arrow keys, Home/End), roving tabindex, and tabpanel/aria-controls/aria-labelledby associations per the ARIA tabs pattern.
+- Updated `PxMenu` and `PxMenuItem` to have better accessibility. [#18]
+- Moved custom focus trap to composable for `PxMenu` and `PxDialog` [#18]
 
 ### Removed
 - Removed the `size` prop from `PxText`. Size comes from `as`; override `font-size` with the exposed scale tokens (e.g. `var(--px-font-size-heading-04)`). [#16]

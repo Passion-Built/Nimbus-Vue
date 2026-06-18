@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
 
-interface Props {
+const props = defineProps<{
   id?: string
   disabled?: boolean
   errorMessage?: string
@@ -49,9 +49,7 @@ interface Props {
   placeholder?: string
   readOnly?: boolean
   resize?: 'horizontal' | 'vertical' | 'both' | 'auto'
-}
-
-const props = defineProps<Props>()
+}>()
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string | number):void

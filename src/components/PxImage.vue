@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-interface Props {
+withDefaults(defineProps<{
   src: string
   alt: string
   width?: string | number
@@ -23,9 +23,7 @@ interface Props {
   position?: string
   loading?: 'lazy' | 'eager'
   elevated?: boolean
-}
-
-withDefaults(defineProps<Props>(), {
+}>(), {
   loading: 'lazy',
 })
 </script>
