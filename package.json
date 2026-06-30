@@ -2,6 +2,27 @@
   "name": "@passionbuilt.dev/nimbus-ui",
   "version": "0.0.0-rc.8",
   "private": false,
+  "description": "A minimalist, neumorphism-inspired Vue 3 UI kit with accessible, token-based components.",
+  "keywords": [
+    "vue",
+    "vue3",
+    "ui-kit",
+    "component-library",
+    "design-system",
+    "neumorphism",
+    "components",
+    "accessible"
+  ],
+  "author": "Jess Goodlett - Passion Built (https://passionbuilt.dev)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Passion-Built/Nimbus-Vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Passion-Built/Nimbus-Vue/issues"
+  },
+  "homepage": "https://github.com/Passion-Built/Nimbus-Vue#readme",
   "type": "module",
   "files": [
     "dist"
@@ -14,7 +35,6 @@
       "require": "./dist/nimbus-ui.cjs.js"
     }
   },
-  "./style.css": "./dist/nimbus-ui.css",
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
