@@ -11,7 +11,8 @@ const config = {
     "@storybook/addon-vitest",
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
-    "@storybook/addon-onboarding"
+    "@storybook/addon-onboarding",
+    "storybook-dark-mode"
   ],
   "framework": "@storybook/vue3-vite"
 };
