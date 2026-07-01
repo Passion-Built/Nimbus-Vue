@@ -1,4 +1,5 @@
 import PxBox from '../components/PxBox.vue';
+import PxText from '@/components/PxText.vue';
 
 export default {
   title: 'Layout/Box',
@@ -24,9 +25,12 @@ export default {
     },
   },
   render: (args) => ({
-    components: { PxBox },
-    setup() { return { args } },
-    template: '<PxBox v-bind="args">{{ args.default }}</PxBox>',
+    components: { PxBox, PxText},
+    setup() {
+      const { default: slotContent, ...rest } = args
+      return { args: rest, slotContent }
+    },
+    template: '<PxBox v-bind="args"><PxText as="p">{{ slotContent }}</PxText></PxBox>',
   }),
   args: {
     default: 'Icing lemon drops marzipan candy apple pie lollipop. I love I love icing shortbread gummies carrot cake. Candy tiramisu cookie brownie jelly-o sweet sugar plum lollipop. Fruitcake shortbread chocolate bar pie gummi bears fruitcake icing cake caramels.',

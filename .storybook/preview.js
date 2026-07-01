@@ -15,18 +15,17 @@ function applyTheme(isDark) {
   document.body.style.background = THEME_BG[theme];
 }
 
-// Set initial theme from persisted state before first story renders
-const stored = JSON.parse(localStorage.getItem('sb-addon-themes-3') || '{}');
-applyTheme(stored.current === 'dark');
-
 // Update on every toggle
 addons.getChannel().on(DARK_MODE_EVENT_NAME, applyTheme);
 
 const preview = {
   decorators: [
-    (story) => ({
-      template: '<div class="nimbus"><story /></div>',
-    }),
+    (story) => {
+      // Read current persisted state on every story render as a reliable fallback
+      const stored = JSON.parse(localStorage.getItem('sb-addon-themes-3') || '{}');
+      applyTheme(stored.current === 'dark');
+      return { template: '<div class="nimbus"><story /></div>' };
+    },
   ],
   parameters: {
     controls: {
