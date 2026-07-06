@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import PxUI from './plugin'
+import PxUI from '.'
 
 const app = createApp(App)
 

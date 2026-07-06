@@ -4,7 +4,7 @@
     :class="[
       'Px-box',
       {'Px-box--full-width': fullWidth},
-      {'Px-box--clickable': clickable}
+      {'Px-box--isClickable': clickable}
     ]">
     <slot />
   </component>
@@ -13,7 +13,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   as?: 'div' | 'section' | 'article' | 'aside' | 'nav' | 'main' | 'header' | 'footer'
-  clickable?: boolean
+  isClickable?: boolean
   fullWidth?: boolean
 }>()
 </script>
