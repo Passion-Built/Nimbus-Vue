@@ -4,7 +4,7 @@
     :class="[
       'Px-box',
       {'Px-box--full-width': fullWidth},
-      {'Px-box--isClickable': clickable}
+      {'Px-box--clickable': isClickable}
     ]">
     <slot />
   </component>
