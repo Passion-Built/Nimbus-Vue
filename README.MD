@@ -7,15 +7,17 @@ designers who want clean, soft, tactile interfaces. It ships design foundations
 — typography, color tokens, spacing, soft shadows — plus a set of accessible,
 ready-to-use components. Perfect for portfolios, prototypes, and projects.
 
-> **Status:** Nimbus is in active early development (`0.x`) and is **not yet
-> published to npm**. For now, explore the components in Storybook or run it
-> locally (see [Development](#development)). Install instructions will land here
-> once the package is public.
+> **Status:** Nimbus is published to npm as
+> [`@passionbuilt.dev/nimbus-ui`](https://www.npmjs.com/package/@passionbuilt.dev/nimbus-ui).
+>
+> ```bash
+> npm install @passionbuilt.dev/nimbus-ui
+> ```
 
 ## Features
 
 - **Foundations** — typography scale, color tokens, spacing, border-radius, and soft elevation shadows, all driven by CSS custom properties with light/dark themes.
-- **Components** — buttons, inputs, textareas, selects, checkboxes, radios, dialogs, menus, tabs, accordions, data tables, tags, avatars, images, links, and layout primitives (Box, Text).
+- **Components** — buttons, inputs, textareas, selects, checkboxes, radios, dialogs, forms, menus, tabs, accordions, data tables, tags, avatars, images, links, and layout primitives (Box, Text).
 - **Accessibility** — focus states, semantic HTML, ARIA patterns (tabs, menus, combobox), focus traps, and full keyboard navigation.
 - **Lightweight & themeable** — Vue is a peer dependency, styles are token-based, and components are easy to customize and extend.
 
@@ -31,6 +33,8 @@ ready-to-use components. Perfect for portfolios, prototypes, and projects.
 | `PxSelect` | Floating UI combobox with full keyboard nav |
 | `PxCheckbox` / `PxRadio` | Form controls with `v-model`, validation states |
 | `PxDialog` | Modal with focus trap and overlay-to-close |
+| `PxForm` | Form layout wrapper, stacks fields with consistent spacing |
+| `PxFormSection` | Titled fieldset for grouping related form fields |
 | `PxMenu` / `PxMenuItem` | Floating UI menu with arrow-key navigation |
 | `PxTabs` / `PxTab` | ARIA tabs with roving tabindex |
 | `PxAccordion` / `PxAccordionItem` | Expandable panels with grid animation |
