@@ -1,7 +1,6 @@
 # Nimbus UI
 
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-[![CI](https://github.com/Passion-Built/Nimbus-Vue/actions/workflows/ci.yml/badge.svg)](https://github.com/Passion-Built/Nimbus-Vue/actions/workflows/ci.yml)
 
 Nimbus is a minimalist, neumorphism-inspired **Vue 3** UI kit for developers and
 designers who want clean, soft, tactile interfaces. It ships design foundations
