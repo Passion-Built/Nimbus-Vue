@@ -15,7 +15,7 @@ export default {
       options: ['div', 'section', 'article', 'aside', 'nav', 'main', 'header', 'footer'],
       description: 'The semantic HTML element to render as. Defaults to `div`.',
     },
-    clickable: {
+    isClickable: {
       control: 'boolean',
       description: 'Applies a pointer cursor and inset shadow on hover to indicate interactivity.',
     },
@@ -35,7 +35,7 @@ export default {
   args: {
     default: 'Icing lemon drops marzipan candy apple pie lollipop. I love I love icing shortbread gummies carrot cake. Candy tiramisu cookie brownie jelly-o sweet sugar plum lollipop. Fruitcake shortbread chocolate bar pie gummi bears fruitcake icing cake caramels.',
     fullWidth: false,
-    clickable: false,
+    isClickable: false,
   },
 };
 

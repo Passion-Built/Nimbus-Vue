@@ -23,6 +23,9 @@
     "vite",
     "storybook"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Jess Goodlett - Passion Built (https://passionbuilt.dev)",
   "license": "MIT",
   "repository": {
