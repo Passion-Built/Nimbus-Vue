@@ -1,6 +1,6 @@
 {
   "name": "@passionbuilt.dev/nimbus-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "A minimalist, neumorphism-inspired Vue 3 UI kit with accessible, token-based components.",
   "keywords": [
@@ -54,6 +54,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prepublishOnly": "npm run build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
