@@ -31,6 +31,6 @@ provide('PxAccordion', { isItemOpen, toggle, openOnMount })
 
 <style scoped>
 .Px-accordion {
-  border-bottom: 1px solid var(--px-accordion-border);
+  border-bottom: var(--px-accordion-border, none);
 }
 </style>

@@ -77,8 +77,9 @@ onUnmounted(() => {
 
 .Px-dialog {
   background: var(--px-dialog-bg);
+  border: var(--px-dialog-border, none);
   border-radius: var(--px-border-radius);
-  box-shadow: var(--px-dialog-shadow);
+  box-shadow: var(--px-dialog-shadow, none);
   min-width: 35vw;
   width: max-content;
   max-width: 50vw;

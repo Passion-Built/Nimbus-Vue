@@ -155,16 +155,28 @@ onUnmounted(() => ro?.disconnect())
 </script>
 
 <style scoped>
+.Px-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-tabs-gap, 0);
+}
+
 .Px-tabs__scroll-container {
   display: flex;
   align-items: center;
-  gap: var(--px-space-050);
+  gap: var(--px-tabs-scroll-gap, 0);
 }
 
 .Px-tabs__list {
   display: flex;
   flex: 1;
-  gap: var(--px-tab-gap);
+  gap: var(--px-tab-gap, unset);
+  padding: var(--px-tabs-list-padding, 0);
+  background: var(--px-tabs-list-bg, transparent);
+  border: var(--px-tab-list-border, none);
+  border-radius: var(--px-border-radius, 0);
+  box-shadow: var(--px-tabs-shadow, none);
+  box-sizing: border-box;
   overflow-x: auto;
   scrollbar-width: none;
 
@@ -175,9 +187,9 @@ onUnmounted(() => ro?.disconnect())
 
 .Px-tabs__scroll-btn {
   background: var(--px-color-surface);
-  border: none;
+  border: var(--px-btn-border, none);
   border-radius: var(--px-space-100);
-  box-shadow: var(--px-btn-shadow);
+  box-shadow: var(--px-btn-shadow, none);
   color: var(--px-color-text-subtle);
   cursor: pointer;
   display: flex;
@@ -185,20 +197,21 @@ onUnmounted(() => ro?.disconnect())
   justify-content: center;
   padding: var(--px-space-050);
   flex-shrink: 0;
-  transition: box-shadow 0.15s ease;
+  transition: box-shadow var(--px-duration-state) var(--px-ease);
 
-  &:hover { box-shadow: var(--px-btn-shadow-hover); }
-  &:active { box-shadow: var(--px-btn-shadow-active); }
+  &:hover { box-shadow: var(--px-btn-shadow-hover, none); }
+  &:active { box-shadow: var(--px-btn-shadow-active, none); }
 
   &:focus-visible {
-    outline: 2px solid var(--px-focus-outline);
-    outline-offset: 3px;
+    outline: var(--px-focus-ring, none);
+    outline-offset: var(--px-focus-offset);
   }
 }
 
 .Px-tabs__content {
   padding: var(--px-space-200);
-  box-shadow: var(--px-tab-shadow-active);
-  border-radius: 0 0 var(--px-space-100) var(--px-space-100);
+  border: var(--px-tab-content-border, none);
+  box-shadow: var(--px-tabs-content-shadow, none);
+  border-radius: var(--px-tabs-content-border-radius, 0);
 }
 </style>

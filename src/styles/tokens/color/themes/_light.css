@@ -28,6 +28,7 @@
   /* Accordion */
   --px-accordion-border: var(--px-shadow-medium);
   --px-accordion-trigger-color: var(--px-color-text);
+  --px-accordion-trigger-bg: transparent;
 
   /* Tabs */
   --px-tab-border-color: var(--px-shadow-medium);
@@ -39,6 +40,7 @@
   /* Table */
   --px-table-cell-bg: var(--px-color-surface);
   --px-table-column-color: var(--px-color-text-subtle);
+  --px-table-column-bg: transparent;
 
   /* Tag */
   --px-tag-bg: var(--px-color-surface);

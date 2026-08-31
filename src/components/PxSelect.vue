@@ -68,11 +68,12 @@
           :class="{
             'Px-select__option--selected': isSelected(option),
             'Px-select__option--highlighted': highlightedIndex === index,
+            'Px-select__option--keyboard-highlighted': highlightedIndex === index && highlightedViaKeyboard,
           }"
           role="option"
           :aria-selected="isSelected(option)"
           @click.stop="selectOption(option)"
-          @mouseenter="highlightedIndex = index"
+          @mouseenter="highlightedIndex = index; highlightedViaKeyboard = false"
         >
           {{ getOptionLabel(option) }}
         </li>
@@ -127,6 +128,7 @@ const searchInput = ref<HTMLInputElement | null>(null)
 const isOpen = ref(false)
 const searchQuery = ref('')
 const highlightedIndex = ref(-1)
+const highlightedViaKeyboard = ref(false)
 
 const uid = useId()
 const inputId = computed(() => props.id ?? `${uid}-input`)
@@ -210,6 +212,7 @@ const open = async () => {
   isOpen.value = true
   searchQuery.value = ''
   highlightedIndex.value = -1
+  highlightedViaKeyboard.value = false
   await nextTick()
   searchInput.value?.focus()
 }
@@ -218,6 +221,7 @@ const close = () => {
   isOpen.value = false
   searchQuery.value = ''
   highlightedIndex.value = -1
+  highlightedViaKeyboard.value = false
 }
 
 const selectOption = (option: string | Record<string, any>) => {
@@ -240,6 +244,7 @@ const onInputClick = () => {
 const onSearchInput = (e: Event) => {
   searchQuery.value = (e.target as HTMLInputElement).value
   highlightedIndex.value = 0
+  highlightedViaKeyboard.value = false
 }
 
 const onKeydown = (e: KeyboardEvent) => {
@@ -248,11 +253,17 @@ const onKeydown = (e: KeyboardEvent) => {
     case 'ArrowDown':
       e.preventDefault()
       if (!isOpen.value) open()
-      else highlightedIndex.value = Math.min(highlightedIndex.value + 1, filteredOptions.value.length - 1)
+      else {
+        highlightedIndex.value = Math.min(highlightedIndex.value + 1, filteredOptions.value.length - 1)
+        highlightedViaKeyboard.value = true
+      }
       break
     case 'ArrowUp':
       e.preventDefault()
-      if (isOpen.value) highlightedIndex.value = Math.max(highlightedIndex.value - 1, 0)
+      if (isOpen.value) {
+        highlightedIndex.value = Math.max(highlightedIndex.value - 1, 0)
+        highlightedViaKeyboard.value = true
+      }
       break
     case 'Enter':
       e.preventDefault()
@@ -309,23 +320,34 @@ const onKeydown = (e: KeyboardEvent) => {
   align-items: center;
   gap: var(--px-select-control-gap);
   padding: var(--px-form-padding);
+  border: var(--px-form-border, none);
   border-radius: var(--px-form-border-radius);
   box-shadow: var(--px-form-shadow);
   background: var(--px-form-primary-bg);
   cursor: pointer;
   box-sizing: border-box;
+  transition:
+    box-shadow var(--px-duration-state) var(--px-ease),
+    transform var(--px-duration-state) var(--px-ease);
 }
 
 .Px-select:hover:not(.Px-select--readonly):not(.Px-select--disabled) .Px-select__control {
-  box-shadow: var(--px-form-shadow-hover);
+  box-shadow: var(--px-form-shadow-hover, none);
+  transform: var(--px-form-transform-hover, none);
 }
 
 .Px-select__control:has(.Px-select__search:focus) {
-  box-shadow: var(--px-form-shadow-focus);
+  box-shadow: var(--px-form-shadow-focus, none);
+  transform: var(--px-form-transform-focus, none);
+}
+
+.Px-select__control:has(.Px-select__search:focus-visible) {
+  outline: var(--px-focus-ring, none);
+  outline-offset: var(--px-focus-offset, unset);
 }
 
 .Px-select--open .Px-select__control {
-  box-shadow: var(--px-select-shadow-open);
+  box-shadow: var(--px-select-shadow-open, none);
 }
 
 .Px-select__search {
@@ -353,7 +375,7 @@ const onKeydown = (e: KeyboardEvent) => {
   align-items: center;
   flex-shrink: 0;
   color: var(--px-color-text-subtle);
-  transition: transform 0.2s ease;
+  transition: transform var(--px-duration-expand) var(--px-ease);
 }
 
 .Px-select__indicator--open {
@@ -365,6 +387,7 @@ const onKeydown = (e: KeyboardEvent) => {
   margin: 0;
   padding: var(--px-select-dropdown-padding);
   background: var(--px-form-primary-bg);
+  border: var(--px-select-dropdown-border, none);
   border-radius: var(--px-form-border-radius);
   box-shadow: var(--px-select-dropdown-shadow);
   z-index: var(--px-select-dropdown-z-index);
@@ -375,14 +398,30 @@ const onKeydown = (e: KeyboardEvent) => {
 
 .Px-select__option {
   padding: var(--px-select-option-padding);
+  border: var(--px-menu-item-border, none);
   border-radius: var(--px-select-option-border-radius);
   font-size: var(--px-font-size-body);
   color: var(--px-menu-item-text);
   cursor: pointer;
+  transition:
+    border-color var(--px-duration-state) var(--px-ease);
 
-  &:hover,
+  &:hover {
+    background: var(--px-menu-item-bg-hover);
+    border: var(--px-menu-item-border-hover, none);
+    font-weight: var(--px-menu-item-font-weight-hover, inherit);
+  }
+
   &.Px-select__option--highlighted {
     background: var(--px-menu-item-bg-hover);
+    border: var(--px-menu-item-border-hover, none);
+    font-weight: var(--px-menu-item-font-weight-hover, inherit);
+  }
+
+  &.Px-select__option--keyboard-highlighted {
+    border: var(--px-menu-item-border-active, none);
+    outline: var(--px-focus-ring, none);
+    outline-offset: 0px;
   }
 
   &:active {
@@ -407,6 +446,10 @@ const onKeydown = (e: KeyboardEvent) => {
 }
 
 .Px-select--invalid {
+  .Px-select__control {
+    border-color: var(--px-form-required);
+  }
+
   .Px-select__control,
   .Px-select__search,
   .Px-select__message-wrapper {
@@ -418,6 +461,7 @@ const onKeydown = (e: KeyboardEvent) => {
   pointer-events: none;
 
   .Px-select__control {
+    border: var(--px-form-border-disabled, none);
     box-shadow: var(--px-form-shadow-disabled);
   }
 
@@ -429,6 +473,7 @@ const onKeydown = (e: KeyboardEvent) => {
 
 .Px-select--readonly {
   .Px-select__control {
+    border: var(--px-form-border-readonly, none);
     box-shadow: var(--px-form-shadow-readonly);
     cursor: default;
   }

@@ -1,4 +1,5 @@
 :root {
+  /* PRIMITIVES */
   --px-space-0: 0;
   --px-space-025: 0.125rem;
   --px-space-050: 0.25rem;
@@ -19,14 +20,25 @@
   --px-space-1400: 7rem;
   --px-space-1500: 7.5rem;
 
+  /* SEMANTIC */
   --px-border-radius: var(--px-space-200);
 
+  /* COMPONENTS */
   --px-image-radius: var(--px-border-radius);
 
   --px-accordion-trigger-padding: var(--px-space-200) var(--px-space-300);
   --px-accordion-panel-padding: var(--px-space-300);
-  
+  --px-accordion-trigger-margin: var(--px-space-0);
+  --px-accordion-trigger-icon-size: var(--px-space-300);
+
+  --px-avatar-size: var(--px-space-600);
+  --px-avatar-large-size: var(--px-space-1300);
+  --px-avatar-padding: var(--px-space-100);
+  --px-avatar-large-padding: var(--px-space-200);
+
   --px-box-padding: var(--px-space-200);
+
+  --px-btn-ghost-padding: var(--px-space-100) var(--px-space-300);
 
   --px-dialog-padding: var(--px-space-300);
   --px-dialog-margin-bottom: var(--px-space-200);
@@ -68,9 +80,13 @@
 
   --px-tab-gap: var(--px-space-100);
   --px-tab-padding: var(--px-space-100) var(--px-space-150);
+  --px-tab-border-radius: var(--px-space-100) var(--px-space-100) 0 0;
+  --px-tabs-scroll-gap: var(--px-space-050);
+  --px-tabs-content-border-radius: 0 0 var(--px-space-100) var(--px-space-100);
 
   --px-table-border-spacing: var(--px-space-100);
   --px-table-row-border-radius: var(--px-form-border-radius);
   --px-table-column-padding: var(--px-space-100) var(--px-space-200);
   --px-table-cell-padding: var(--px-space-150) var(--px-space-200);
+  --px-table-padding: var(--px-space-100);
 }

@@ -4,6 +4,7 @@
       'Px-radio',
       { 'Px-radio--required': isRequired },
       { 'Px-radio--disabled': disabled },
+      { 'Px-radio--invalid': isInvalid },
     ]"
   >
     <input
@@ -74,11 +75,15 @@ const generateAttribute = (attribute: string): string | undefined => {
   flex-shrink: 0;
   width: var(--px-radio-size);
   height: var(--px-radio-size);
+  border: var(--px-radio-border, none);
   border-radius: 50%;
   background-color: var(--px-radio-bg);
   box-shadow: var(--px-radio-shadow);
+  box-sizing: border-box;
   position: relative;
-  transition: all 0.2s ease-in-out;
+  transition:
+    box-shadow var(--px-duration-state) var(--px-ease),
+    background-color var(--px-duration-state) var(--px-ease);
 }
 
 .Px-radio__label {
@@ -88,7 +93,7 @@ const generateAttribute = (attribute: string): string | undefined => {
 /* Checked state */
 .Px-radio__input:checked + .Px-radio__radio {
   background-color: var(--px-radio-bg-checked);
-  box-shadow: none;
+  box-shadow: var(--px-radio-shadow-checked, none);
 }
 
 .Px-radio__input:checked + .Px-radio__radio::after {
@@ -102,8 +107,8 @@ const generateAttribute = (attribute: string): string | undefined => {
 
 /* Focus */
 .Px-radio__input:focus-visible + .Px-radio__radio {
-  outline: 2px solid var(--px-focus-outline);
-  outline-offset: 3px;
+  outline: var(--px-focus-ring, none);
+  outline-offset: var(--px-focus-offset, unset);
 }
 
 /* Required */
@@ -111,6 +116,17 @@ const generateAttribute = (attribute: string): string | undefined => {
   content: '*';
   color: var(--px-radio-required-color);
   margin-left: var(--px-form-required-margin);
+}
+
+/* Invalid */
+.Px-radio--invalid {
+  .Px-radio__radio {
+    border-color: var(--px-form-required);
+  }
+
+  .Px-radio__label {
+    color: var(--px-form-required);
+  }
 }
 
 /* Disabled */
@@ -122,7 +138,8 @@ const generateAttribute = (attribute: string): string | undefined => {
   }
 
   .Px-radio__radio {
-    box-shadow: var(--px-form-shadow-disabled);
+    border: var(--px-radio-disabled-border, none);
+    box-shadow: var(--px-radio-shadow-disabled, none);
   }
 }
 </style>

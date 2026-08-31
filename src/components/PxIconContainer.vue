@@ -17,15 +17,19 @@ const props = defineProps<{
 <style scoped>
 .Px-icon-container {
   background-color: var(--px-icon-container-bg);
-  border: none;
+  border: var(--px-icon-container-border, none);
   border-radius: 50%;
   box-shadow: var(--px-icon-container-shadow);
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: var(--px-space-400);
   width: var(--px-space-400);
   padding: var(--px-space-100);
+  transition:
+    box-shadow var(--px-duration-state) var(--px-ease),
+    transform var(--px-duration-state) var(--px-ease);
 
   > svg {
     fill: var(--px-color-text);
@@ -36,16 +40,18 @@ const props = defineProps<{
   cursor: pointer;
 
   &:hover {
-    box-shadow: var(--px-icon-container-shadow-hover);
+    transform: var(--px-icon-container-transform-hover, none);
+    box-shadow: var(--px-icon-container-shadow-hover, none);
   }
 
   &:active {
-    box-shadow: var(--px-icon-container-shadow-active);
+    transform: var(--px-icon-container-transform-hover, none);
+    box-shadow: var(--px-icon-container-shadow-active, none);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--px-focus-outline);
-    outline-offset: 3px;
+    outline: var(--px-focus-ring, none);
+    outline-offset: var(--px-focus-offset);
   }
 }
 </style>

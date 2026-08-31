@@ -45,8 +45,8 @@ const props = defineProps<{
   }
 
   &:focus-visible {
-    outline: 2px solid var(--px-focus-outline);
-    outline-offset: 3px;
+    outline: var(--px-focus-ring, none);
+    outline-offset: var(--px-focus-offset);
   }
 }
 

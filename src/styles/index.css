@@ -2,4 +2,6 @@
 @import './tokens/color/index.css';
 @import './tokens/_spacing.css';
 @import './tokens/elevation/index.css';
+@import './tokens/_border.css';
+@import './tokens/_motion.css';
 @import './base.css';

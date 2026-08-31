@@ -32,10 +32,12 @@ withDefaults(defineProps<{
 .Px-image {
   display: block;
   max-width: 100%;
+  border: var(--px-image-border, none);
   border-radius: var(--px-image-radius);
 }
 
 .Px-image--elevated {
+  border: var(--px-image-border, none);
   box-shadow: var(--px-image-shadow);
 }
 </style>

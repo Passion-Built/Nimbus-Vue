@@ -19,6 +19,7 @@ withDefaults(defineProps<{
 <style scoped>
 .Px-tag {
   background-color: var(--px-tag-bg);
+  border: var(--px-tag-border, none);
   box-shadow: var(--px-tag-shadow);
   color: var(--px-tag-text);
   font-family: var(--px-font-family-body);

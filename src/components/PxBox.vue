@@ -25,6 +25,7 @@ const props = defineProps<{
   width: fit-content;
   padding: var(--px-box-padding);
   background: var(--px-box-default-bg);
+  border: var(--px-box-border, none);
   border-radius: var(--px-border-radius);
   box-shadow: var(--px-box-shadow);
 }
@@ -33,9 +34,13 @@ const props = defineProps<{
 
 .Px-box--clickable {
   cursor: pointer;
+  transition:
+    box-shadow var(--px-duration-state) var(--px-ease),
+    transform var(--px-duration-state) var(--px-ease);
 
   &:hover {
-    box-shadow: var(--px-box-shadow-hover);
+    transform: var(--px-box-transform-hover, none);
+    box-shadow: var(--px-box-shadow-hover, none);
   }
 }
 </style>

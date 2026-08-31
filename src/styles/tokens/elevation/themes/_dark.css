@@ -6,9 +6,9 @@
   --px-shadow-dark: #111111;
   --px-shadow-disabled-light: #272727;
   --px-shadow-disabled-medium: #111111;
-  --px-focus-outline: rgba(135, 200, 255, 0.5);
-  --px-focus-outline-light: rgba(0, 0, 0, 0.4);
-  --px-focus-outline-dark: rgba(255, 255, 255, 0.15);
+  --px-focus-color: rgba(135, 200, 255, 0.5);
+  --px-focus-inset-light: rgba(0, 0, 0, 0.4);
+  --px-focus-inset-dark: rgba(255, 255, 255, 0.15);
 
   /* Elevation */
   --px-elevation-sunken:
@@ -51,9 +51,11 @@
 
   /* Radio */
   --px-radio-shadow: var(--px-elevation-sunken);
+  --px-radio-shadow-disabled: var(--px-form-shadow-disabled);
 
   /* Checkbox */
   --px-checkbox-shadow: var(--px-elevation-sunken);
+  --px-checkbox-shadow-disabled: var(--px-form-shadow-disabled);
 
   /* Avatar */
   --px-avatar-shadow: var(--px-elevation-sunken);
@@ -100,9 +102,9 @@
     inset 4px 4px 4px var(--px-shadow-medium),
     inset -4px -4px 4px var(--px-shadow-light);
   --px-form-shadow-focus:
-    0 0 3px 2px var(--px-focus-outline),
-    inset 2px 2px 2px var(--px-focus-outline-light),
-    inset -2px -2px 2px var(--px-focus-outline-dark);
+    0 0 3px 2px var(--px-focus-color),
+    inset 2px 2px 2px var(--px-focus-inset-light),
+    inset -2px -2px 2px var(--px-focus-inset-dark);
   --px-form-shadow-disabled:
     inset 2px 2px 3px var(--px-shadow-disabled-medium),
     inset -2px -2px 3px var(--px-shadow-disabled-light);

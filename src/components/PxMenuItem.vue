@@ -51,9 +51,14 @@ function onKeydown(e: KeyboardEvent) {
   text-decoration: none;
   width: 100%;
   border-radius: calc(var(--px-menu-border-radius) - var(--px-space-025));
+  border: var(--px-menu-item-border, none);
+  transition:
+    border-color var(--px-duration-state) var(--px-ease);
 
   &:hover {
     background: var(--px-menu-item-bg-hover);
+    border: var(--px-menu-item-border-hover, none);
+    font-weight: var(--px-menu-item-font-weight-hover, inherit);
   }
 
   &:active {
@@ -61,7 +66,8 @@ function onKeydown(e: KeyboardEvent) {
   }
 
   &:focus-visible {
-    outline: 2px solid var(--px-focus-outline);
+    outline: var(--px-focus-ring, none);
+    border: var(--px-menu-item-border-active, none);
     outline-offset: -2px;
   }
 }

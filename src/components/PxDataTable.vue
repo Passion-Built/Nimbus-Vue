@@ -44,36 +44,42 @@ defineProps<{
 .Px-table__container {
   overflow-x: auto;
   width: 100%;
-  padding: var(--px-space-100);
+  padding: var(--px-table-padding, unset);
+  border: var(--px-table-border, none);
+  border-radius: var(--px-border-radius);
   box-sizing: border-box;
 }
 
 .Px-table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0 var(--px-table-border-spacing);
+  border-spacing: var(--px-table-border-spacing, unset);
   font-family: var(--px-font-family-body);
 }
 
 .Px-table__label-row {
-  transform: scale(0.98);
+  transform: var(--px-table-row-transform, none);
 }
 
 .Px-table__column {
+  background-color: var(--px-table-column-bg);
   padding: var(--px-table-column-padding);
+  border-bottom: var(--px-table-row-border, none);
   text-align: left;
-  font-weight: normal;
-  text-transform: uppercase;
+  font-weight: var(--px-table-column-font-weight, normal);
+  text-transform: var(--px-table-column-text-transform, uppercase);
   font-family: var(--px-font-family-headings);
-  font-size: var(--px-font-size-body-sm);
+  font-size: var(--px-table-column-font-size);
   color: var(--px-table-column-color);
 }
 
 .Px-table__row {
-  transform: scale(0.98);
-  box-shadow: var(--px-table-row-shadow);
+  transform: var(--px-table-row-transform, none);
+  box-shadow: var(--px-table-row-shadow, none);
   border-radius: var(--px-table-row-border-radius);
-  transition: all 0.2s ease-in-out;
+  transition:
+    box-shadow var(--px-duration-state) var(--px-ease),
+    transform var(--px-duration-state) var(--px-ease);
 
   .Px-table__cell:first-child {
     border-top-left-radius: var(--px-table-row-border-radius);
@@ -84,17 +90,17 @@ defineProps<{
     border-top-right-radius: var(--px-table-row-border-radius);
     border-bottom-right-radius: var(--px-table-row-border-radius);
   }
-
-  &:hover {
-    transform: scale(0.99);
-    box-shadow: var(--px-table-row-shadow-hover);
-  }
 }
 
 .Px-table__cell {
   padding: var(--px-table-cell-padding);
   background-color: var(--px-table-cell-bg);
+  border-bottom: var(--px-table-row-border, none);
   color: var(--px-color-text);
   font-size: var(--px-font-size-body);
+}
+
+.Px-table__row:last-child .Px-table__cell {
+  border-bottom: none;
 }
 </style>

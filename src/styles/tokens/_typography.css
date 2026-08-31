@@ -26,6 +26,7 @@
 }
 
 :root {
+  /* PRIMITIVES */
   --px-font-family-headings: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --px-font-family-body: "Lora", Georgia, Cambria, serif;
 
@@ -38,17 +39,6 @@
   --px-font-size-07: 1.75rem;
   --px-font-size-08: 2rem;
   --px-font-size-09: 2.25rem;
-
-  --px-font-size-heading-01: var(--px-font-size-09);
-  --px-font-size-heading-02: var(--px-font-size-08);
-  --px-font-size-heading-03: var(--px-font-size-07);
-  --px-font-size-heading-04: var(--px-font-size-06);
-  --px-font-size-heading-05: var(--px-font-size-05);
-  --px-font-size-heading-06: var(--px-font-size-04);
-  --px-font-size-body-lg: var(--px-font-size-04);
-  --px-font-size-body: var(--px-font-size-03);
-  --px-font-size-body-sm: var(--px-font-size-02);
-  --px-font-size-caption: var(--px-font-size-01);
 
 	--px-font-weight-light: 300; /* Sora/headings only — Lora has no weight below 400 */
 	--px-font-weight-normal: 400;
@@ -70,9 +60,26 @@
 
   --px-text-letter-spacing: 0.075rem;
 
+  /* SEMANTIC */
+  --px-font-size-heading-01: var(--px-font-size-09);
+  --px-font-size-heading-02: var(--px-font-size-08);
+  --px-font-size-heading-03: var(--px-font-size-07);
+  --px-font-size-heading-04: var(--px-font-size-06);
+  --px-font-size-heading-05: var(--px-font-size-05);
+  --px-font-size-heading-06: var(--px-font-size-04);
+  --px-font-size-body-lg: var(--px-font-size-04);
+  --px-font-size-body: var(--px-font-size-03);
+  --px-font-size-body-sm: var(--px-font-size-02);
+  --px-font-size-caption: var(--px-font-size-01);
+
+  /* COMPONENTS */
   --px-avatar-large-font-size: var(--px-font-size-08);
 
   --px-accordion-font-size: var(--px-font-size-body-lg);
   --px-accordion-font-weight: var(--px-font-weight-medium);
+
+  --px-btn-font-weight: var(--px-font-weight-normal);
+
+  --px-table-column-font-size: inherit;
 }
 

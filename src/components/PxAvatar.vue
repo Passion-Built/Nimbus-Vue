@@ -27,10 +27,11 @@ withDefaults(defineProps<{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--px-space-600);
-  height: var(--px-space-600);
-  padding: var(--px-space-100);
+  width: var(--px-avatar-size);
+  height: var(--px-avatar-size);
+  padding: var(--px-avatar-padding, unset);
   background-color: var(--px-avatar-bg);
+  border: var(--px-avatar-border, none);
   border-radius: 50%;
   box-shadow: var(--px-avatar-shadow);
 }
@@ -48,23 +49,23 @@ withDefaults(defineProps<{
   
   > img {
     vertical-align: middle;
-    width: var(--px-space-600);
-    height: var(--px-space-600);
+    width: var(--px-avatar-size);
+    height: var(--px-avatar-size);
     border-radius: 50%;
   }
 }
 .Px-avatar--large {
-  width: var(--px-space-1300);
-  height: var(--px-space-1300);
-  padding: var(--px-space-200);
+  width: var(--px-avatar-large-size);
+  height: var(--px-avatar-large-size);
+  padding: var(--px-avatar-large-padding, unset);
 
   >.Px-avatar__text {
     font-size: var(--px-avatar-large-font-size);
   }
 
   > img {
-    width: var(--px-space-1300);
-    height: var(--px-space-1300);
+    width: var(--px-avatar-large-size);
+    height: var(--px-avatar-large-size);
   }
 }
 </style>

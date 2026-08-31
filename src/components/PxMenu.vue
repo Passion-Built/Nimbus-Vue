@@ -98,6 +98,7 @@ function onKeydown(e: KeyboardEvent) {
 
 .Px-menu {
   background-color: var(--px-menu-bg);
+  border: var(--px-menu-border, none);
   border-radius: var(--px-menu-border-radius);
   box-shadow: var(--px-menu-shadow);
   z-index: var(--px-menu-z-index);

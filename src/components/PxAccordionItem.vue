@@ -1,28 +1,27 @@
 <template>
-  <button
-    type="button"
-    :id="triggerId"
-    class="Px-accordion-item"
-    :aria-expanded="isOpen"
-    :aria-controls="panelId"
-    @click="openPanel"
-  >
-    <span class="Px-accordion-item__title">{{ title }}</span>
-    <span :class="['Px-accordion-item__icon', { 'Px-accordion-item__icon--open': isOpen }]">
-      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-    </span>
-  </button>
-  <div
-    :id="panelId"
-    role="region"
-    :aria-labelledby="triggerId"
-    :class="[
-      'Px-accordion-item__panel',
-      { 'Px-accordion-item--open': isOpen }
-    ]"
-  >
-    <div class="Px-accordion-item__panel-inner">
-      <slot />
+  <div :class="['Px-accordion-item', { 'Px-accordion-item--open': isOpen }]">
+    <button
+      type="button"
+      :id="triggerId"
+      class="Px-accordion-item__trigger"
+      :aria-expanded="isOpen"
+      :aria-controls="panelId"
+      @click="openPanel"
+    >
+      <span class="Px-accordion-item__title">{{ title }}</span>
+      <span class="Px-accordion-item__icon">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="var(--px-accordion-trigger-icon-size)" viewBox="0 -960 960 960" width="var(--px-accordion-trigger-icon-size)" fill="#e3e3e3"><path d="M480-325.91 221.91-584 296-658.09l184 184 184-184L738.09-584 480-325.91Z"/></svg>
+      </span>
+    </button>
+    <div
+      :id="panelId"
+      role="region"
+      :aria-labelledby="triggerId"
+      class="Px-accordion-item__panel"
+    >
+      <div class="Px-accordion-item__panel-inner">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
@@ -56,10 +55,23 @@ onMounted(() => {
 
 <style scoped>
 .Px-accordion-item {
-  background: transparent;
+  border: var(--px-accordion-item-border, none);
+  box-shadow: var(--px-accordion-shadow, none);
+  margin: var(--px-accordion-trigger-margin);
+  transition:
+    box-shadow var(--px-duration-state) var(--px-ease),
+    transform var(--px-duration-state) var(--px-ease);
+
+  &:not(.Px-accordion-item--open):hover {
+    transform: var(--px-accordion-transform-hover, none);
+    box-shadow: none;
+  }
+}
+
+.Px-accordion-item__trigger {
+  background: var(--px-accordion-trigger-bg);
   box-shadow: none;
   border: none;
-  border-top: 1px solid var(--px-accordion-border);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -67,19 +79,10 @@ onMounted(() => {
   width: 100%;
   padding: var(--px-accordion-trigger-padding);
   cursor: pointer;
-  transition: box-shadow .25s ease-in-out;
-
-  &:hover {
-    box-shadow: var(--px-accordion-trigger-shadow-hover);
-  }
-
-  &:active {
-    box-shadow: var(--px-accordion-trigger-shadow-active);
-  }
 
   &:focus-visible {
-    outline: 2px solid var(--px-focus-outline);
-    outline-offset: 3px;
+    outline: var(--px-focus-ring, none);
+    outline-offset: var(--px-focus-offset);
   }
 }
 
@@ -92,17 +95,25 @@ onMounted(() => {
 .Px-accordion-item__panel {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows .25s ease;
+  transition: grid-template-rows var(--px-duration-expand) var(--px-ease);
 }
 
 .Px-accordion-item--open {
-  grid-template-rows: 1fr;
+  box-shadow: none;
+
+  .Px-accordion-item__trigger {
+    border-bottom: var(--px-accordion-item-border);
+  }
+
+  .Px-accordion-item__panel {
+    grid-template-rows: 1fr;
+  }
 }
 
 .Px-accordion-item__panel-inner {
   overflow: hidden;
   padding: 0 var(--px-accordion-panel-padding);
-  transition: padding .25s ease;
+  transition: padding var(--px-duration-expand) var(--px-ease);
   color: var(--px-accordion-trigger-color);
 }
 
@@ -112,10 +123,10 @@ onMounted(() => {
 
 .Px-accordion-item__icon > svg {
   fill: currentColor;
-  transition: transform .25s ease;
+  transition: transform var(--px-duration-expand) var(--px-ease);
 }
 
-.Px-accordion-item__icon--open > svg {
+.Px-accordion-item--open .Px-accordion-item__icon > svg {
   transform: rotate(180deg);
 }
 </style>

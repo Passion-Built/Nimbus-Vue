@@ -1,5 +1,5 @@
 import PxBox from '../components/PxBox.vue';
-import PxText from '@/components/PxText.vue';
+import PxText from '../components/PxText.vue';
 
 export default {
   title: 'Layout/Box',
@@ -17,7 +17,7 @@ export default {
     },
     isClickable: {
       control: 'boolean',
-      description: 'Applies a pointer cursor and inset shadow on hover to indicate interactivity.',
+      description: 'Applies a pointer cursor and shadow on hover to indicate interactivity.',
     },
     fullWidth: {
       control: 'boolean',

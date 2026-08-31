@@ -1,0 +1,14 @@
+:root {
+  /* PRIMITIVES */
+  --px-border-width: 1px;
+  --px-border-color: var(--px-shadow-color);
+  --px-focus-width: 2px;
+  --px-focus-offset: 3px;
+
+  /* SEMANTIC */
+  --px-border: var(--px-border-width) solid var(--px-border-color);
+  --px-focus-ring: var(--px-focus-width) solid var(--px-focus-color);
+
+  /* COMPONENTS */
+  --px-accordion-item-border: 1px solid var(--px-accordion-border);
+}

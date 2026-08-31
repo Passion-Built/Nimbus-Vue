@@ -94,7 +94,7 @@ const generateAttribute = (attribute: string): string | undefined => {
 
   .Px-textarea__textarea {
     background-color: var(--px-form-primary-bg);
-    border: none;
+    border: var(--px-form-border, none);
     padding: var(--px-form-padding);
     border-radius: var(--px-form-border-radius);
     width: 100%;
@@ -104,37 +104,47 @@ const generateAttribute = (attribute: string): string | undefined => {
     letter-spacing: 1px;
     box-sizing: border-box;
     box-shadow: var(--px-form-shadow);
+    color: var(--px-form-text);
+    transition:
+      box-shadow var(--px-duration-state) var(--px-ease),
+      transform var(--px-duration-state) var(--px-ease);
 
     &:hover:not(:disabled) {
-      box-shadow: var(--px-form-shadow-hover);
-  
+      box-shadow: var(--px-form-shadow-hover, none);
+      transform: var(--px-form-transform-hover, none);
+
       &::placeholder {
         color: var(--px-form-text-placeholder-hover);
       }
     }
-  
+
     &:focus {
-      outline: none;
-      box-shadow: var(--px-form-shadow-focus);
+      outline: var(--px-focus-ring, none);
+      outline-offset: var(--px-focus-offset, unset);
+      box-shadow: var(--px-form-shadow-focus, none);
+      transform: var(--px-form-transform-focus, none);
     }
 
     &:disabled {
+      border: var(--px-form-border-disabled, none);
       box-shadow: var(--px-form-shadow-disabled);
       cursor: not-allowed;
-  
+
       &::placeholder {
         color: var(--px-form-text-disabled);
       }
     }
-  
-    &:read-only {
+
+    &:read-only:not(:disabled) {
+      border: var(--px-form-border-readonly, none);
       box-shadow: var(--px-form-shadow-readonly);
 
       &:focus {
         outline: none;
-        box-shadow: var(--px-form-shadow-focus);
+        box-shadow: var(--px-form-shadow-focus, none);
+        transform: none;
       }
-      
+
       &::placeholder {
         color: var(--px-form-text-disabled) !important;
       }
@@ -162,6 +172,10 @@ const generateAttribute = (attribute: string): string | undefined => {
 
   &.Px-textarea--invalid,
   &.Px-textarea--invalid:hover {
+    .Px-textarea__textarea {
+      border-color: var(--px-form-required);
+    }
+
     .Px-textarea__textarea,
     .Px-textarea__textarea::placeholder {
       color: var(--px-form-required);

@@ -5,6 +5,7 @@
       { 'Px-checkbox--required': isRequired },
       { 'Px-checkbox--indeterminate': indeterminate },
       { 'Px-checkbox--disabled': disabled },
+      { 'Px-checkbox--invalid': isInvalid },
     ]"
   >
     <input
@@ -27,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch, ref } from 'vue'
+import { computed, watch, ref, onMounted } from 'vue'
 
 const props = defineProps<{
   id?: string
@@ -49,6 +50,10 @@ const checkboxEl = ref<HTMLInputElement | null>(null)
 const checkboxValue = computed({
   get: () => props.modelValue,
   set: (val: boolean | (string | number)[]) => emit('update:modelValue', val),
+})
+
+onMounted(() => {
+  if (checkboxEl.value) checkboxEl.value.indeterminate = props.indeterminate ?? false
 })
 
 watch(() => props.indeterminate, (val) => {
@@ -86,11 +91,15 @@ const generateAttribute = (attribute: string): string | undefined => {
   flex-shrink: 0;
   width: var(--px-checkbox-size);
   height: var(--px-checkbox-size);
+  border: var(--px-checkbox-border, none);
   border-radius: var(--px-checkbox-border-radius);
   background-color: var(--px-checkbox-bg);
   box-shadow: var(--px-checkbox-shadow);
+  box-sizing: border-box;
   position: relative;
-  transition: all 0.2s ease-in-out;
+  transition:
+    box-shadow var(--px-duration-state) var(--px-ease),
+    background-color var(--px-duration-state) var(--px-ease);
 }
 
 .Px-checkbox__label {
@@ -98,18 +107,17 @@ const generateAttribute = (attribute: string): string | undefined => {
 }
 
 .Px-checkbox__input:focus-visible + .Px-checkbox__checkbox {
-  outline: 2px solid var(--px-focus-outline);
-  outline-offset: 3px;
+  outline: var(--px-focus-ring, none);
+  outline-offset: var(--px-focus-offset, unset);
 }
 
-/* Checked state */
-.Px-checkbox__input:checked + .Px-checkbox__checkbox {
+.Px-checkbox:not(.Px-checkbox--indeterminate) .Px-checkbox__input:checked + .Px-checkbox__checkbox {
   background-color: var(--px-checkbox-bg-checked);
-  box-shadow: none;
+  box-shadow: var(--px-checkbox-shadow-checked, none);
 }
 
 /* Checkmark */
-.Px-checkbox__input:checked + .Px-checkbox__checkbox::after {
+.Px-checkbox:not(.Px-checkbox--indeterminate) .Px-checkbox__input:checked + .Px-checkbox__checkbox::after {
   content: '';
   display: block;
   width: 4px;
@@ -123,7 +131,7 @@ const generateAttribute = (attribute: string): string | undefined => {
 .Px-checkbox--indeterminate {
   .Px-checkbox__checkbox {
     background-color: var(--px-checkbox-bg-indeterminate);
-    box-shadow: none;
+    box-shadow: var(--px-checkbox-shadow-checked, none);
   }
 
   .Px-checkbox__checkbox::after {
@@ -147,6 +155,17 @@ const generateAttribute = (attribute: string): string | undefined => {
   }
 }
 
+/* Invalid state */
+.Px-checkbox--invalid {
+  .Px-checkbox__checkbox {
+    border-color: var(--px-form-required);
+  }
+
+  .Px-checkbox__label {
+    color: var(--px-form-required);
+  }
+}
+
 /* Disabled state */
 .Px-checkbox--disabled {
   cursor: not-allowed;
@@ -156,7 +175,8 @@ const generateAttribute = (attribute: string): string | undefined => {
   }
 
   .Px-checkbox__checkbox {
-    box-shadow: var(--px-form-shadow-disabled);
+    border: var(--px-checkbox-disabled-border, none);
+    box-shadow: var(--px-checkbox-shadow-disabled, none);
   }
 }
 </style>

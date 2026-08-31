@@ -40,31 +40,37 @@ onMounted(() => registerTab(props.value, tabId.value))
 
 <style scoped>
 .Px-tab {
+  flex: var(--px-tab-flex, initial);
   padding: var(--px-tab-padding);
-  background: var(--px-color-surface);
-  border: none;
-  border-radius: var(--px-space-100) var(--px-space-100) 0 0;
+  background: var(--px-tab-bg, transparent);
+  border: var(--px-tab-border, none);
+  border-radius: var(--px-tab-border-radius, 0);
   cursor: pointer;
   color: var(--px-tab-color);
   font-family: var(--px-font-family-body);
   font-size: var(--px-font-size-body);
   white-space: nowrap;
-  box-shadow: var(--px-tab-shadow);
-  transition: box-shadow 0.15s ease, color 0.15s ease;
+  box-shadow: var(--px-tab-shadow, none);
+  transition:
+    background-color var(--px-duration-state) var(--px-ease),
+    box-shadow var(--px-duration-state) var(--px-ease),
+    color var(--px-duration-state) var(--px-ease);
 }
 
 .Px-tab:hover {
   color: var(--px-tab-color-hover);
-  box-shadow: var(--px-tab-shadow-hover);
+  box-shadow: var(--px-tab-shadow-hover, none);
 }
 
 .Px-tab--active {
+  background: var(--px-tab-active-bg, transparent);
+  border: var(--px-tab-border-active, none);
   color: var(--px-tab-color-active);
-  box-shadow: var(--px-tab-shadow-active);
+  box-shadow: var(--px-tab-shadow-active, none);
 }
 
 .Px-tab:focus-visible {
-  outline: 2px solid var(--px-focus-outline);
-  outline-offset: 3px;
+  outline: var(--px-focus-ring, none);
+  outline-offset: var(--px-focus-offset);
 }
 </style>
