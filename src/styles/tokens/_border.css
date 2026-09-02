@@ -1,4 +1,4 @@
-:root {
+:root.nimbus {
   /* PRIMITIVES */
   --px-border-width: 1px;
   --px-border-color: var(--px-shadow-color);

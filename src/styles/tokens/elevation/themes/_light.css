@@ -1,4 +1,4 @@
-:root {
+:root.nimbus {
   /* BASE ELEVATION */
   /* Colors */
   --px-shadow-light: #F6F6F6;
@@ -38,6 +38,7 @@
   --px-tab-shadow: var(--px-btn-shadow);
   --px-tab-shadow-hover: var(--px-btn-shadow-hover);
   --px-tab-shadow-active: var(--px-btn-shadow-active);
+  --px-tabs-content-shadow: var(--px-tab-shadow-active);
 
   /* Table */
   --px-table-row-shadow: var(--px-elevation-raised);

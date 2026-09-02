@@ -174,7 +174,7 @@ onUnmounted(() => ro?.disconnect())
   padding: var(--px-tabs-list-padding, 0);
   background: var(--px-tabs-list-bg, transparent);
   border: var(--px-tab-list-border, none);
-  border-radius: var(--px-border-radius, 0);
+  border-radius: var(--px-tabs-list-border-radius, 0);
   box-shadow: var(--px-tabs-shadow, none);
   box-sizing: border-box;
   overflow-x: auto;

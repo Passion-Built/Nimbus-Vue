@@ -4,6 +4,9 @@ import '../src/styles/index.css';
 import { addons } from 'storybook/preview-api';
 import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 
+// Tokens/base styles are scoped to :root.nimbus — match what src/index.js does for consumers.
+document.documentElement.classList.add('nimbus');
+
 const THEME_BG = {
   light: '#EEEEEE',
   dark: '#242424',

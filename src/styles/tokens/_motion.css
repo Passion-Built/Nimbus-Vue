@@ -1,11 +1,11 @@
-:root {
+:root.nimbus {
   --px-duration-state: 0.2s;
   --px-duration-expand: 0.25s;
   --px-ease: ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root {
+  :root.nimbus {
     --px-duration-state: 0s;
     --px-duration-expand: 0s;
   }

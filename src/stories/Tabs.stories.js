@@ -16,18 +16,16 @@ export const Default = {
       return { active };
     },
     template: `
-      <div>
-        <PxTabs v-model="active">
-          <PxTab value="overview">Overview</PxTab>
-          <PxTab value="details">Details</PxTab>
-          <PxTab value="settings">Settings</PxTab>
-        </PxTabs>
-        <div style="padding: 1rem; font-family: var(--px-font-family-body);">
+      <PxTabs v-model="active">
+        <PxTab value="overview">Overview</PxTab>
+        <PxTab value="details">Details</PxTab>
+        <PxTab value="settings">Settings</PxTab>
+        <template #content>
           <p v-show="active === 'overview'">Overview content goes here.</p>
           <p v-show="active === 'details'">Details content goes here.</p>
           <p v-show="active === 'settings'">Settings content goes here.</p>
-        </div>
-      </div>
+        </template>
+      </PxTabs>
     `,
   }),
 };
@@ -40,18 +38,16 @@ export const ManyTabs = {
       return { active };
     },
     template: `
-      <div>
-        <PxTabs v-model="active">
-          <PxTab value="design">Design</PxTab>
-          <PxTab value="engineering">Engineering</PxTab>
-          <PxTab value="product">Product</PxTab>
-          <PxTab value="marketing">Marketing</PxTab>
-          <PxTab value="legal">Legal</PxTab>
-        </PxTabs>
-        <div style="padding: 1rem; font-family: var(--px-font-family-body);">
+      <PxTabs v-model="active">
+        <PxTab value="design">Design</PxTab>
+        <PxTab value="engineering">Engineering</PxTab>
+        <PxTab value="product">Product</PxTab>
+        <PxTab value="marketing">Marketing</PxTab>
+        <PxTab value="legal">Legal</PxTab>
+        <template #content>
           <p>Active tab: {{ active }}</p>
-        </div>
-      </div>
+        </template>
+      </PxTabs>
     `,
   }),
 };

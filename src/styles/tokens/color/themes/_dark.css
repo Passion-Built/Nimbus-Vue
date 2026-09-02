@@ -1,4 +1,4 @@
-:root[data-theme="dark"] {
+:root.nimbus[data-theme="dark"] {
   /* BASE COLORS */
   /* Background */
   --px-color-surface: #242424;
